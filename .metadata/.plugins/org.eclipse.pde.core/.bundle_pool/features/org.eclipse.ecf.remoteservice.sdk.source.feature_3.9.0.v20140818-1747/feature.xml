@@ -1,0 +1,385 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.eclipse.ecf.remoteservice.sdk.source.feature"
+      label="Source for ECF OSGi Remote Services SDK"
+      version="3.9.0.v20140818-1747"
+      provider-name="%providerName">
+
+   <description url="http://www.eclipse.org/ecf">
+      Generated source feature. The original description is:
+
+This feature provides an all-in-one distribution of ECFs implementation
+of the OSGi Remote Service (chapter 100) and
+Remote Service Admin (chapter 122) standards.  Included are multiple
+discovery and 
+remote services provider implementations, allowing the remote
+service developer to modularly select, use, or
+create for themselves implementations needed to discover and use
+OSGi Remote Services and Remote Service Admin.  For example, discovery based
+upon
+discovery protocols Zeroconf, SLP, DNSSD, and Zookeeper are present
+in this distribution.  Also present are 
+multiple distribution providers such as r-OSGi, ECF generic, XML-RPC, SOAP,
+and multiple REST-based transports.  The SDK also supports the
+creation
+of custom discovery and/or distribution providers via open, community-tested and maintained 
+APIs.
+Also included in this SDK is a distributed implementation of
+the OSGi Event Admin service.  Note that the contents of this
+feature do not require Eclipse or Equinox specifically, but rather
+may be run
+on other frameworks (e.g. Felix) and with other tools.  For tutorials, examples, and documentation about OSGi Remote Services see
+
+https://wiki.eclipse.org/ECF#OSGi_Remote_Services
+   </description>
+
+   <copyright>
+      #################################################
+# Copyright (c) 2010 Composent, Inc. and others. All rights reserved.
+# This program and the accompanying materials are made available under the 
+# terms of the Eclipse Public License v1.0 which accompanies this 
+# distribution, and is available at 
+# http://www.eclipse.org/legal/epl-v10.html
+#
+# Contributors: Composent, Inc. - initial API and implementation
+#################################################
+   </copyright>
+
+   <license url="%licenseURL">
+      %license
+   </license>
+
+   <includes
+         id="org.eclipse.ecf.discovery.jmdns.source.feature"
+         version="1.0.0.v20140818-1747"/>
+
+   <includes
+         id="org.eclipse.ecf.osgi.services.source.feature"
+         version="2.0.1.v20140818-1747"/>
+
+   <includes
+         id="org.eclipse.ecf.remoteservice.soap.source.feature"
+         version="1.0.0.v20140818-1747"/>
+
+   <includes
+         id="org.eclipse.ecf.provider.generic.remoteservice.source.feature"
+         version="1.0.0.v20140818-1747"/>
+
+   <includes
+         id="org.eclipse.ecf.presence.source.feature"
+         version="1.0.0.v20140818-1747"/>
+
+   <includes
+         id="org.eclipse.ecf.discovery.source.feature"
+         version="1.0.0.v20140818-1747"/>
+
+   <includes
+         id="org.eclipse.ecf.remoteservice.rosgi.source.feature"
+         version="1.0.0.v20140818-1747"/>
+
+   <includes
+         id="org.eclipse.ecf.xmpp.source.feature"
+         version="1.0.0.v20140818-1747"/>
+
+   <includes
+         id="org.eclipse.ecf.discovery.zookeeper.source.feature"
+         version="1.0.0.v20140818-1747"/>
+
+   <includes
+         id="org.eclipse.ecf.remoteservice.source.feature"
+         version="2.1.0.v20140818-1747"/>
+
+   <includes
+         id="org.eclipse.ecf.discovery.dnssd.source.feature"
+         version="1.0.0.v20140818-1747"/>
+
+   <includes
+         id="org.eclipse.ecf.remoteservice.rest.synd.source.feature"
+         version="1.0.0.v20140818-1747"/>
+
+   <includes
+         id="org.eclipse.ecf.discovery.slp.source.feature"
+         version="1.0.0.v20140818-1747"/>
+
+   <includes
+         id="org.eclipse.ecf.datashare.source.feature"
+         version="1.0.0.v20140818-1747"/>
+
+   <includes
+         id="org.eclipse.ecf.remoteservice.rest.source.feature"
+         version="1.0.0.v20140818-1747"/>
+
+   <includes
+         id="org.eclipse.ecf.remoteservice.servlet.source.feature"
+         version="1.0.0.v20140818-1747"/>
+
+   <includes
+         id="org.eclipse.ecf.sharedobject.source.feature"
+         version="1.0.0.v20140818-1747"/>
+
+   <includes
+         id="org.eclipse.ecf.eventadmin.source.feature"
+         version="2.0.0.v20140818-1747"/>
+
+   <includes
+         id="org.eclipse.ecf.server.generic.source.feature"
+         version="1.0.0.v20140818-1747"/>
+
+   <includes
+         id="org.eclipse.ecf.console.source.feature"
+         version="1.0.0.v20140818-1747"/>
+
+   <includes
+         id="org.eclipse.ecf.provider.generic.source.feature"
+         version="1.0.0.v20140818-1747"/>
+
+   <includes
+         id="org.eclipse.ecf.provider.generic.datashare.source.feature"
+         version="1.0.0.v20140818-1747"/>
+
+   <plugin
+         id="org.eclipse.ecf.provider.datashare.nio.source"
+         download-size="0"
+         install-size="0"
+         version="0.9.100.v20140818-1747"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ecf.provider.xmpp.datashare.source"
+         download-size="0"
+         install-size="0"
+         version="1.0.0.v20140818-1747"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ecf.provider.xmpp.remoteservice.source"
+         download-size="0"
+         install-size="0"
+         version="1.2.0.v20140818-1747"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ecf.provider.jslp.source"
+         download-size="0"
+         install-size="0"
+         version="3.2.0.v20140818-1747"
+         unpack="false"/>
+
+   <plugin
+         id="org.jivesoftware.smack.source"
+         download-size="0"
+         install-size="0"
+         version="3.3.0.v20140818-1747"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ecf.provider.xmpp.remoteservice.source"
+         download-size="0"
+         install-size="0"
+         version="1.2.0.v20140818-1747"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ecf.provider.xmpp.datashare.source"
+         download-size="0"
+         install-size="0"
+         version="1.0.0.v20140818-1747"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ecf.provider.datashare.source"
+         download-size="0"
+         install-size="0"
+         version="1.5.0.v20140818-1747"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.osgi.services.remoteserviceadmin.source"
+         download-size="0"
+         install-size="0"
+         version="1.6.0.v20140818-1747"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ecf.remoteservice.servlet.source"
+         download-size="0"
+         install-size="0"
+         version="1.0.0.v20140818-1747"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ecf.provider.zookeeper.source"
+         download-size="0"
+         install-size="0"
+         version="1.2.100.v20140818-1747"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ecf.console.source"
+         download-size="0"
+         install-size="0"
+         version="1.0.0.v20140818-1747"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ecf.remoteservice.rest.source"
+         download-size="0"
+         install-size="0"
+         version="2.4.0.v20140818-1747"
+         unpack="false"/>
+
+   <plugin
+         id="ch.ethz.iks.slp.source"
+         download-size="0"
+         install-size="0"
+         version="1.1.0.v20140818-1747"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ecf.datashare.source"
+         download-size="0"
+         install-size="0"
+         version="3.0.100.v20140818-1747"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ecf.osgi.services.remoteserviceadmin.proxy.source"
+         download-size="0"
+         install-size="0"
+         version="1.0.0.v20140818-1747"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ecf.discovery.source"
+         download-size="0"
+         install-size="0"
+         version="5.0.0.v20140818-1747"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ecf.provider.r_osgi.source"
+         download-size="0"
+         install-size="0"
+         version="3.4.0.v20140818-1747"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ecf.provider.source"
+         download-size="0"
+         install-size="0"
+         version="4.5.0.v20140818-1747"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ecf.provider.xmpp.source"
+         download-size="0"
+         install-size="0"
+         version="3.2.200.v20140818-1747"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ecf.remoteservice.soap.source"
+         download-size="0"
+         install-size="0"
+         version="1.1.0.v20140818-1747"
+         unpack="false"/>
+
+   <plugin
+         id="ch.ethz.iks.r_osgi.remote.source"
+         download-size="0"
+         install-size="0"
+         version="1.0.1.RC1_v20140818-1747"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ecf.server.generic.source"
+         download-size="0"
+         install-size="0"
+         version="7.0.0.v20140818-1747"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ecf.provider.discovery.source"
+         download-size="0"
+         install-size="0"
+         version="2.3.0.v20140818-1747"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ecf.server.source"
+         download-size="0"
+         install-size="0"
+         version="2.1.0.v20140818-1747"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ecf.remoteservice.source"
+         download-size="0"
+         install-size="0"
+         version="8.4.100.v20140818-1747"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ecf.remoteservice.eventadmin.source"
+         download-size="0"
+         install-size="0"
+         version="1.2.0.v20140818-1747"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ecf.osgi.services.remoteserviceadmin.source"
+         download-size="0"
+         install-size="0"
+         version="4.1.0.v20140818-1747"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ecf.provider.remoteservice.source"
+         download-size="0"
+         install-size="0"
+         version="4.1.0.v20140818-1747"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ecf.provider.jmdns.source"
+         download-size="0"
+         install-size="0"
+         version="4.3.0.v20140818-1747"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ecf.osgi.services.distribution.source"
+         download-size="0"
+         install-size="0"
+         version="2.1.0.v20140818-1747"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ecf.presence.source"
+         download-size="0"
+         install-size="0"
+         version="2.1.0.v20140818-1747"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ecf.sharedobject.source"
+         download-size="0"
+         install-size="0"
+         version="2.5.0.v20140818-1747"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ecf.remoteservice.rest.synd.source"
+         download-size="0"
+         install-size="0"
+         version="1.0.0.v20140818-1747"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ecf.provider.dnssd.source"
+         download-size="0"
+         install-size="0"
+         version="1.2.0.v20140818-1747"
+         unpack="false"/>
+
+</feature>

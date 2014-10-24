@@ -1,0 +1,9 @@
+eclipse.preferences.version=1
+repositories/http\:__download.eclipse.org_rt_ecf_latest_site.p2/enabled=true
+repositories/http\:__download.eclipse.org_rt_ecf_latest_site.p2/isSystem=false
+repositories/http\:__download.eclipse.org_rt_ecf_latest_site.p2/name=ECF SDK Feature
+repositories/http\:__download.eclipse.org_rt_ecf_latest_site.p2/nickname=ECF SDK
+repositories/http\:__download.eclipse.org_rt_ecf_latest_site.p2/suffix=content.xml
+repositories/http\:__download.eclipse.org_rt_ecf_latest_site.p2/type=org.eclipse.equinox.internal.p2.metadata.repository.LocalMetadataRepository
+repositories/http\:__download.eclipse.org_rt_ecf_latest_site.p2/uri=http\://download.eclipse.org/rt/ecf/latest/site.p2
+repositories/http\:__download.eclipse.org_rt_ecf_latest_site.p2/version=1.0.0

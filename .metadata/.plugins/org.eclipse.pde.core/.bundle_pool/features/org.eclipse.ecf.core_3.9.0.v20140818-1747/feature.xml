@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- contextQualifierLength=14 -->
+<feature
+      id="org.eclipse.ecf.core"
+      label="ECF SDK for Eclipse"
+      version="3.9.0.v20140818-1747"
+      provider-name="%providerName"
+      plugin="org.eclipse.ecf">
+
+   <description url="http://www.eclipse.org/ecf">
+      This feature provides an all-in-one distribution of ECF APIs, providers, ui, tools, and examples for Eclipse.  Use this feature if you want to install all of ECF into Eclipse.
+   </description>
+
+   <copyright>
+      Copyright (c) 2009 Composent, Inc. and others. All rights
+reserved.
+This program and the accompanying materials are made available
+under the terms of the Eclipse Public License v1.0 which accompanies
+this distribution, and is available at 
+http://www.eclipse.org/legal/epl-v10.html
+ 
+Contributors: Composent, Inc. - initial API and implementation
+   </copyright>
+
+   <license url="%licenseURL">
+      %license
+   </license>
+
+   <includes
+         id="org.eclipse.ecf.docshare.feature"
+         version="1.0.0.v20140818-1747"/>
+
+   <requires>
+      <import feature="org.eclipse.ecf.remoteservice.sdk.feature" version="3.8" match="compatible"/>
+      <import feature="org.eclipse.ecf.remoteservice.sdk.examples.feature" version="1.0" match="compatible"/>
+   </requires>
+
+   <plugin
+         id="org.eclipse.ecf.doc"
+         download-size="0"
+         install-size="0"
+         version="1.3.0.v20140818-1747"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ecf.presence"
+         download-size="0"
+         install-size="0"
+         version="2.1.0.v20140818-1747"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ecf.provider.irc"
+         download-size="0"
+         install-size="0"
+         version="1.3.200.v20140818-1747"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ecf.ui"
+         download-size="0"
+         install-size="0"
+         version="2.1.0.v20140818-1747"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ecf.provider.ui"
+         download-size="0"
+         install-size="0"
+         version="1.4.0.v20140818-1747"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ecf.presence.ui"
+         download-size="0"
+         install-size="0"
+         version="2.3.0.v20140818-1747"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ecf.provider.xmpp.ui"
+         download-size="0"
+         install-size="0"
+         version="2.1.0.v20140818-1747"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ecf.provider.irc.ui"
+         download-size="0"
+         install-size="0"
+         version="1.3.0.v20140818-1747"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ecf.discovery.ui"
+         download-size="0"
+         install-size="0"
+         version="3.0.0.v20140818-1747"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ecf.provider.bittorrent"
+         download-size="0"
+         install-size="0"
+         version="0.3.200.v20140818-1747"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ecf.provider.bittorrent.ui"
+         download-size="0"
+         install-size="0"
+         version="0.2.0.v20140818-1747"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ecf.filetransfer.ui"
+         download-size="0"
+         install-size="0"
+         version="1.5.0.v20140818-1747"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ecf.provider.msn"
+         download-size="0"
+         install-size="0"
+         version="1.2.0.v20140818-1747"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ecf.provider.msn.ui"
+         download-size="0"
+         install-size="0"
+         version="1.3.0.v20140818-1747"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ecf.presence.bot"
+         download-size="0"
+         install-size="0"
+         version="1.3.100.v20140818-1747"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ecf.telephony.call"
+         download-size="0"
+         install-size="0"
+         version="2.0.0.v20140818-1747"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ecf.telephony.call.ui"
+         download-size="0"
+         install-size="0"
+         version="1.3.0.v20140818-1747"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ecf.protocol.msn"
+         download-size="0"
+         install-size="0"
+         version="1.2.0.v20140818-1747"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ecf.presence.collab.ui"
+         download-size="0"
+         install-size="0"
+         version="1.3.0.v20140818-1747"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ecf.provider.filetransfer.efs"
+         download-size="0"
+         install-size="0"
+         version="1.5.0.v20140818-1747"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ecf.provider.filetransfer.scp"
+         download-size="0"
+         install-size="0"
+         version="2.0.100.v20140818-1747"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ecf.remoteservice.ui"
+         download-size="0"
+         install-size="0"
+         version="3.1.0.v20140818-1747"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ecf.protocol.bittorrent"
+         download-size="0"
+         install-size="0"
+         version="0.3.0.v20140818-1747"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ecf.storage"
+         download-size="0"
+         install-size="0"
+         version="2.0.0.v20140818-1747"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ecf.discovery.ui.edit"
+         download-size="0"
+         install-size="0"
+         version="3.0.0.v20140818-1747"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ecf.discovery.ui.model"
+         download-size="0"
+         install-size="0"
+         version="3.0.0.v20140818-1747"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ecf.discovery.ui.properties"
+         download-size="0"
+         install-size="0"
+         version="3.0.0.v20140818-1747"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ecf.discovery.ui.properties.tabbed"
+         download-size="0"
+         install-size="0"
+         version="3.0.0.v20140818-1747"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ecf.example.clients"
+         download-size="0"
+         install-size="0"
+         version="2.0.0.v20140818-1747"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ecf.example.collab"
+         download-size="0"
+         install-size="0"
+         version="2.0.0.v20140818-1747"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ecf.example.collab.editor"
+         download-size="0"
+         install-size="0"
+         version="1.0.200.v20140818-1747"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.team.ecf.core"
+         download-size="0"
+         install-size="0"
+         version="1.0.0.v20140818-1747"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.team.ecf.ui"
+         download-size="0"
+         install-size="0"
+         version="1.0.0.v20140818-1747"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ecf.discovery.ui.browser"
+         download-size="0"
+         install-size="0"
+         version="1.0.0.v20140818-1747"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ecf.ui.capabilities"
+         download-size="0"
+         install-size="0"
+         version="1.0.0.v20140818-1747"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ecf.discovery.ui.userinput"
+         download-size="0"
+         install-size="0"
+         version="1.0.0.v20140818-1747"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ecf.remoteservices.tooling.pde"
+         download-size="0"
+         install-size="0"
+         version="1.0.0.v20140818-1747"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ecf.storage"
+         download-size="0"
+         install-size="0"
+         version="2.0.0.v20140818-1747"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ecf.sync"
+         download-size="0"
+         install-size="0"
+         version="2.0.100.v20140818-1747"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ecf.protocol.msn"
+         download-size="0"
+         install-size="0"
+         version="1.2.0.v20140818-1747"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ecf.provider.msn"
+         download-size="0"
+         install-size="0"
+         version="1.2.0.v20140818-1747"
+         unpack="false"/>
+
+</feature>
