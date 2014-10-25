@@ -38,7 +38,6 @@ public class Game extends Canvas implements Runnable {
 		screen = new Screen (width, height);
 		frame = new JFrame() ;
 		key = new Keyboard();
-		
 		addKeyListener (key);		
 	}
 	
@@ -89,10 +88,10 @@ public class Game extends Canvas implements Runnable {
 	int x = 0, y = 0;
 	public void update () {
 		key.update();
-		if (key.up) y--;
-		if (key.down) y++;
-		if (key.left) x--;
-		if (key.right)x++; 
+		if (key.up) y++;
+		if (key.down) y--;
+		if (key.left) x++;
+		if (key.right)x--; 
 	}
 	public void render () {
 		BufferStrategy bs = getBufferStrategy();
@@ -101,7 +100,6 @@ public class Game extends Canvas implements Runnable {
 			return;
 		}
 		screen.clear();
-		
 		screen.render(x, y);
 		
 		for (int i = 0; i < pixels.length; i++) {
