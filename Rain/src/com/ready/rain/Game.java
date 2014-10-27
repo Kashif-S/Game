@@ -70,7 +70,7 @@ public class Game extends Canvas implements Runnable {
 			LastTime = now;
 			while (delta >= 1) {
 				update ();
-				updates ++;
+				updates +=1;
 				delta--;
 			}
 			render () ;
