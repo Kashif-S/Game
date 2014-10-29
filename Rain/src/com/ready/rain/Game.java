@@ -3,7 +3,7 @@ package com.ready.rain;
 import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferInt;
@@ -12,14 +12,16 @@ import javax.swing.JFrame;
 
 import com.ready.rain.graphics.Screen;
 import com.ready.rain.input.Keyboard;
+import com.ready.rain.mobs.Animation;
 
 public class Game extends Canvas implements Runnable {
 	private static final long serialVersionUID = 1L;
 	
 	public static int width = 300;
 	public static int height = width / 16 * 9;
-	public static int scale = 3;
+	public static int scale = 4;
 	public static  String title = "Rain";	
+	
 	
 	private Thread thread;	
 	private JFrame frame;
@@ -27,6 +29,8 @@ public class Game extends Canvas implements Runnable {
 	private boolean running = false;
 	
 	private Screen screen;
+	private Animation animation;
+	
 	
 	private BufferedImage image = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
 	private int [] pixels = ((DataBufferInt)image.getRaster() .getDataBuffer()) .getData();
@@ -36,6 +40,7 @@ public class Game extends Canvas implements Runnable {
 		setPreferredSize (size);
 		
 		screen = new Screen (width, height);
+		animation = new Animation();
 		frame = new JFrame() ;
 		key = new Keyboard();
 		addKeyListener (key);		
@@ -62,7 +67,7 @@ public class Game extends Canvas implements Runnable {
 		final double ns = 1000000000.0 / 60.0;
 		double delta = 0;
 		int frames = 0;
-		int updates = 0
+		int updates = 0;
 		requestFocus();
 		while (running) {
 			long now = System.nanoTime () ; 
@@ -70,7 +75,7 @@ public class Game extends Canvas implements Runnable {
 			LastTime = now;
 			while (delta >= 1) {
 				update ();
-				updates ++;
+				updates +=1;
 				delta--;
 			}
 			render () ;
@@ -93,6 +98,7 @@ public class Game extends Canvas implements Runnable {
 		if (key.down) y--;
 		if (key.left) x++;
 		if (key.right)x--; 
+
 	}
 	public void render () {
 		BufferStrategy bs = getBufferStrategy();
@@ -107,10 +113,15 @@ public class Game extends Canvas implements Runnable {
 			pixels [i] = screen.pixels [i];
 		}
 		
-		Graphics g = bs.getDrawGraphics();
+		Graphics2D g = (Graphics2D) bs.getDrawGraphics();
 		g.drawImage (image, 0, 0, getWidth (), getHeight(), null);
+		
+		if(key.up || key.down || key.right || key.left) animation.AnimateLegs(bs,400,400);
+		
 		g.dispose();
 		bs.show();
+		
+	
 		
 	}
 	
