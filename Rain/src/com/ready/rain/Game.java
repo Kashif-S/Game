@@ -1,5 +1,5 @@
 package com.ready.rain;
-
+//this is a test comment for github
 import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Dimension;
