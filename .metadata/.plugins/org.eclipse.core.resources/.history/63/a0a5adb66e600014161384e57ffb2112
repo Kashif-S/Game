@@ -1,7 +1,6 @@
 package com.ready.rain;
 //this is a test comment for github
 //this is from Github to user
-//kashif test
 import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Dimension;
