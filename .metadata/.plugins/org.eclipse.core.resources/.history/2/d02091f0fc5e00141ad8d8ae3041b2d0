@@ -1,0 +1,31 @@
+package com.ready.rain.mobs;
+
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.Image;
+import java.awt.image.BufferStrategy;
+
+
+public class Animation{
+	
+	public void Animate(BufferStrategy bs, int x,int y){
+		
+		
+		int rot = 0;
+		boolean dir = false;
+		
+		if(rot >= 70){
+			rot += 1;
+		}
+		Graphics2D g1 = (Graphics2D) bs.getDrawGraphics();
+		
+		g1.translate(x + 150/2, y+100 / 2);
+		g1.rotate(Math.toRadians(rot));
+		g1.translate(-x - 150/2, -y-100/2);
+		g1.fillRect(x, y, 150, 100);
+	
+		g1.dispose();
+	}
+
+}

@@ -1,0 +1,24 @@
+package com.ready.rain.mobs;
+
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.Image;
+import java.awt.image.BufferStrategy;
+
+
+public class Animation{
+	
+	public void Animate(BufferStrategy bs){
+		
+		Graphics g = bs.getDrawGraphics();
+		
+		g.setColor(Color.BLACK);
+		g.fillRect(100,100,100,100);
+		
+		g.dispose();
+		bs.show();
+	
+	}
+
+}

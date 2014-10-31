@@ -1,0 +1,15 @@
+package com.ready.rain.graphics;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+
+//import com.ready.rain.Game;
+public class Animation{
+	
+	public void paint(Graphics g){
+		
+		Graphics2D g2 = (Graphics2D)g;
+		//g2.drawImage(img, x, y, width, height, observer)
+				
+	}
+
+}

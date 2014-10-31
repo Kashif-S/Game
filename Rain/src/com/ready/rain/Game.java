@@ -1,6 +1,5 @@
 package com.ready.rain;
-//Kahu iss missing his teste
-//Shaiv is Jesus
+
 import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -117,7 +116,12 @@ public class Game extends Canvas implements Runnable {
 		Graphics2D g = (Graphics2D) bs.getDrawGraphics();
 		g.drawImage (image, 0, 0, getWidth (), getHeight(), null);
 		
-		if(key.up || key.down || key.right || key.left) animation.AnimateLegs(bs,400,400);
+		if(key.up || key.down || key.right || key.left)animation.anim = true;
+		else animation.anim = false;
+		
+		
+			
+		animation.AnimateLegs(bs,400,400);
 		
 		g.dispose();
 		bs.show();

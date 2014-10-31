@@ -1,0 +1,7 @@
+package com.ready.rain.graphics;
+import java.applet.Applet;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+public class Animation {
+
+}
