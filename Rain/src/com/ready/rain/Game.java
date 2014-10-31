@@ -1,4 +1,6 @@
 package com.ready.rain;
+//Kahu iss missing his teste
+//Shaiv is Jesus
 import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Dimension;
