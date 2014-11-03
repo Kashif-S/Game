@@ -1,22 +1,21 @@
 package com.ready.rain.mobs;
 
-import java.awt.Color;
-import java.awt.Graphics;
+//import java.awt.Color;
+//import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.awt.Image;
+//import java.awt.Image;
 import java.awt.image.BufferStrategy;
 
 
 public class Animation{
 	boolean dir = false;
-	double rot = 0;
-	public boolean anim = true;
+	int rot = 0;
 	
 	public void AnimateLegs(BufferStrategy bs, int x,int y){
 		
 		
 		
-		if (anim == true){
+		
 		
 		if(rot >= 70){
 			dir = true;
@@ -28,14 +27,6 @@ public class Animation{
 			rot++;
 		}else{
 			rot--;
-		}
-		}else{
-			if(rot < 0){
-				rot += 0.5;
-		}
-			if (rot > 0){
-				rot -= 0.5;
-			}
 		}
 		Graphics2D g1 = (Graphics2D) bs.getDrawGraphics();
 		
