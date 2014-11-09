@@ -9,14 +9,14 @@ import java.awt.image.BufferStrategy;
 
 public class Animation{
 	boolean dir = false;
-	int rot = 0;
+	double rot = 0;
 	
-	public void AnimateLegs(BufferStrategy bs, int x,int y){
+	public void AnimateLegs(BufferStrategy bs, int x,int y, boolean moving){
 		
 		
 		
 		
-		
+		if (moving == true){
 		if(rot >= 70){
 			dir = true;
 		}
@@ -27,6 +27,11 @@ public class Animation{
 			rot++;
 		}else{
 			rot--;
+		}
+		}else{
+			if(rot >= 0)rot -= 0.5;
+			if(rot <= 0)rot += 0.5;
+			
 		}
 		Graphics2D g1 = (Graphics2D) bs.getDrawGraphics();
 		
