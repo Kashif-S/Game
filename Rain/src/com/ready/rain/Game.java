@@ -45,7 +45,7 @@ public class Game extends Canvas implements Runnable {
 		frame = new JFrame() ;
 		key = new Keyboard();
 		addKeyListener (key);	
-		level = new Randomlevel(64, 64);
+		level = new Randomlevel(256, 256);
 	}
 	
 	public synchronized void start () {
@@ -118,7 +118,11 @@ public class Game extends Canvas implements Runnable {
 		Graphics2D g = (Graphics2D) bs.getDrawGraphics();
 		g.drawImage (image, 0, 0, getWidth (), getHeight(), null);
 		
-		if(key.up || key.down || key.right || key.left) animation.AnimateLegs(bs,400,400);
+		if(key.up || key.down || key.right || key.left){
+			animation.AnimateLegs(bs,400,400,true);
+		}else{
+			animation.AnimateLegs(bs,400,400,false);
+		}
 		
 		g.dispose();
 		bs.show();
