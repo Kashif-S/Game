@@ -9,10 +9,16 @@ public class Tile {
 	public Sprite sprite;
 	
 	public static Tile grass = new GrassTile(Sprite.grass);
+	public static Tile grass2 = new Grass2(Sprite.grass2);
+	public static Tile grass3 = new Grass3(Sprite.grass3);
+	public static Tile grass4 = new Grass4(Sprite.grass4);
+	public static Tile grass5 = new Grass5(Sprite.grass5);
+	public static Tile tree = new Tree(Sprite.tree);
 	public static Tile voidTile = new VoidTile(Sprite.voidSprite);
 	public Tile(Sprite sprite) {
 		this.sprite = sprite;
 	}
+	
 	
 	public void render(int x, int y, Screen screen) {
 		
