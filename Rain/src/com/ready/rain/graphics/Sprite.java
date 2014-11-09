@@ -8,6 +8,11 @@ public class Sprite {
 	private SpriteSheet sheet;
 	
 	public static Sprite grass = new Sprite(16, 0, 0, SpriteSheet.tiles) ;
+	public static Sprite grass2 = new Sprite(16, 1, 0, SpriteSheet.tiles) ;
+	public static Sprite grass3 = new Sprite(16, 2, 0, SpriteSheet.tiles) ;
+	public static Sprite grass4 = new Sprite(16, 3, 0, SpriteSheet.tiles) ;
+	public static Sprite grass5 = new Sprite(16, 4, 0, SpriteSheet.tiles) ;
+	public static Sprite tree = new Sprite(48, 0, 1, SpriteSheet.tiles) ;
 	public static Sprite voidSprite = new Sprite(16, 0x62F0ED);
 	
 	public Sprite (int size, int x, int y, SpriteSheet sheet) {
