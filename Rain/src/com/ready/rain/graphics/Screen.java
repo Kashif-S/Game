@@ -57,6 +57,9 @@ public class Screen {
 					 int xa =  x + xp;
 					 	if(xa < -tile.sprite.SIZE || xa >= width || ya < 0 || ya >= width)break;
 					 	if (xa < 0) xa = 0;
+					 	//System.out.println("x =" + x);
+					 	//System.out.println("y = " + y);
+					 	//System.out.println(tile.sprite.pixels[x + y * tile.sprite.SIZE]);
 					 	pixels[xa + ya * width] = tile.sprite.pixels[x + y * tile.sprite.SIZE];
 			 }
 		}
