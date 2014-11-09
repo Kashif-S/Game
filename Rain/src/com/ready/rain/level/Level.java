@@ -39,6 +39,10 @@ public class Level {
 		int x1 = (xScroll + screen.width + 16) >> 4;
 		int y0 = yScroll >> 4;
 		int y1 = (yScroll + screen.height - 48) >> 4;
+//<<<<<<< HEAD
+//		
+//=======
+//>>>>>>> c3bafca37aff0a6533e1780a72674cbf7c621d30
 		
 		for (int x = x0; x < x1;x++){
 			for (int y = y0; y < y1;y++){
