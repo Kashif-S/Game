@@ -19,7 +19,7 @@ public class Screen {
 	public Screen (int width, int height) {
 		this.width = width;
 		this.height = height;
-		pixels = new int [width * height];
+		pixels = new int [width * height + 48600];
 		
 		for (int i = 0; i < MAP_SIZE * MAP_SIZE; i++ ) {
 			tiles[i] = random.nextInt(0xffffff) ;
