@@ -45,7 +45,7 @@ public class Level {
 		int x0 = xScroll >> 4; 
 		int x1 = (xScroll + screen.width + 16) >> 4;
 		int y0 = yScroll >> 4;
-		int y1 = (yScroll + screen.height) >> 4;
+		int y1 = (yScroll + screen.height + 16) >> 4;
 //<<<<<<< HEAD
 //		
 //=======
@@ -55,7 +55,7 @@ public class Level {
 			for (int y = y0; y < y1;y++){
 				for (int x = x0; x < x1;x++){
 				getTile(x,y).render(x,y,screen);
-			if (tiles[x + y * width] == 4){
+		/*	if (tiles[x + y * width] == 4){
 					Tile.tree.render(x,y,screen);
 					Tile.tree1.render(x+1,y,screen);
 					Tile.tree2.render(x+2,y,screen);
@@ -74,7 +74,7 @@ public class Level {
 					x+=2;
 					treenum = 0;
 					treenum1 = 0;
-				}
+				} */
 			}
 		}
 		}
