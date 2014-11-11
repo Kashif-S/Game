@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?pde version="3.8"?><target name="ECF SDK" sequenceNumber="9">
+<locations>
+<location path="${eclipse_home}" type="Profile"/>
+<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="slicer" includeSource="true" type="InstallableUnit">
+<unit id="org.eclipse.ecf.filetransfer.httpclient4.ssl.source.feature.feature.group" version="1.0.0.v20140818-1747"/>
+<unit id="org.eclipse.ecf.filetransfer.source.feature.feature.group" version="3.9.0.v20140818-1747"/>
+<unit id="org.eclipse.ecf.core.source.feature.group" version="3.9.0.v20140818-1747"/>
+<unit id="org.eclipse.ecf.filetransfer.feature.feature.group" version="3.9.0.v20140818-1747"/>
+<unit id="org.eclipse.ecf.core.ssl.feature.feature.group" version="1.0.0.v20140818-1747"/>
+<unit id="org.eclipse.ecf.filetransfer.httpclient4.source.feature.feature.group" version="3.9.1.v20140818-1747"/>
+<unit id="org.eclipse.ecf.filetransfer.httpclient4.feature.feature.group" version="3.9.1.v20140818-1747"/>
+<unit id="org.eclipse.ecf.remoteservice.sdk.feature.feature.group" version="3.9.0.v20140818-1747"/>
+<unit id="org.eclipse.ecf.filetransfer.httpclient4.ssl.feature.feature.group" version="1.0.0.v20140818-1747"/>
+<unit id="org.eclipse.ecf.filetransfer.ssl.feature.feature.group" version="1.0.0.v20140818-1747"/>
+<unit id="org.eclipse.ecf.remoteservice.sdk.source.feature.feature.group" version="3.9.0.v20140818-1747"/>
+<unit id="org.eclipse.ecf.core.featurepatch.feature.group" version="3.9.0.v20140818-1747"/>
+<unit id="org.eclipse.ecf.remoteservice.sdk.examples.source.feature.feature.group" version="1.0.0.v20140818-1747"/>
+<unit id="org.eclipse.ecf.filetransfer.ssl.source.feature.feature.group" version="1.0.0.v20140818-1747"/>
+<unit id="org.eclipse.ecf.core.feature.feature.group" version="1.1.0.v20140818-1747"/>
+<unit id="org.eclipse.ecf.remoteservice.sdk.examples.feature.feature.group" version="1.0.0.v20140818-1747"/>
+<unit id="org.eclipse.ecf.core.ssl.source.feature.feature.group" version="1.0.0.v20140818-1747"/>
+<unit id="org.eclipse.ecf.core.feature.group" version="3.9.0.v20140818-1747"/>
+<unit id="org.eclipse.ecf.core.source.feature.feature.group" version="1.1.0.v20140818-1747"/>
+<repository location="http://download.eclipse.org/rt/ecf/latest/site.p2"/>
+</location>
+</locations>
+<environment>
+<os>win32</os>
+<ws>win32</ws>
+<arch>x86_64</arch>
+<nl>en_US</nl>
+</environment>
+<launcherArgs>
+<vmArgs>-Dosgi.requiredJavaVersion=1.6 -Xms40m -Xmx512m</vmArgs>
+</launcherArgs>
+</target>

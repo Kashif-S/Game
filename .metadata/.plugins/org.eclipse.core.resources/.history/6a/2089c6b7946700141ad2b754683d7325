@@ -1,0 +1,5 @@
+package com.ready.rain.level.tile;
+
+public class VoidTile extends Tile {
+
+}

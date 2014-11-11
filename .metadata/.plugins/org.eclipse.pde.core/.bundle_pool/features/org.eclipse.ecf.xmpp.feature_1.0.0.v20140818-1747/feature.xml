@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- contextQualifierLength=14 -->
+<feature
+      id="org.eclipse.ecf.xmpp.feature"
+      label="ECF XMPP Provider"
+      version="1.0.0.v20140818-1747"
+      provider-name="%providerName">
+
+   <description url="http://www.eclipse.org/ecf">
+      This feature installs the XMPP/XMPPS/Google Talk provider.  The XMPP provider implements the Presence API for presence and instant messaging, the Datashare API for channel-based asynchronous messaging, the Remote Service API for providing OSGi Remote Services via XMPP/XMPPS/Google Talk services, and the Shared Object API.   For tutorials,
+examples, and documentation about OSGi Remote Services see
+https://wiki.eclipse.org/ECF#OSGi_Remote_Services
+   </description>
+
+   <copyright>
+      Copyright (c) 2011 Composent, Inc. and others. All rights
+reserved.
+This program and the accompanying materials are made available
+under the terms of the Eclipse Public License v1.0 which accompanies
+this distribution, and is available at 
+http://www.eclipse.org/legal/epl-v10.html
+ 
+Contributors: Composent, Inc. - initial API and implementation
+   </copyright>
+
+   <license url="%licenseURL">
+      %license
+   </license>
+
+   <requires>
+      <import feature="org.eclipse.ecf.presence.feature" version="1.0" match="compatible"/>
+      <import feature="org.eclipse.ecf.datashare.feature" version="1.0" match="compatible"/>
+      <import feature="org.eclipse.ecf.remoteservice.feature" version="2.1" match="compatible"/>
+   </requires>
+
+   <plugin
+         id="org.eclipse.ecf.provider.xmpp"
+         download-size="0"
+         install-size="0"
+         version="3.2.200.v20140818-1747"
+         unpack="false"/>
+
+   <plugin
+         id="org.jivesoftware.smack"
+         download-size="0"
+         install-size="0"
+         version="3.3.0.v20140818-1747"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ecf.provider.xmpp.datashare"
+         download-size="0"
+         install-size="0"
+         version="1.0.0.v20140818-1747"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ecf.provider.xmpp.remoteservice"
+         download-size="0"
+         install-size="0"
+         version="1.2.0.v20140818-1747"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.xbill.dns"
+         download-size="0"
+         install-size="0"
+         version="2.0.8.v201112050911"
+         unpack="false"/>
+
+</feature>

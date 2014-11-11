@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- contextQualifierLength=14 -->
+<feature
+      id="org.eclipse.ecf.eventadmin.examples.feature"
+      label="ECF Distributed EventAdmin Examples"
+      version="1.0.0.v20140818-1747"
+      provider-name="%providerName">
+
+   <description url="http://www.eclipse.org/ecf">
+      This feature provides the ECF Distributed EventAdmin Example Application.  For more information about Distribute EventAdmin see:
+
+https://wiki.eclipse.org/EIG:Distributed_EventAdmin_Service
+   </description>
+
+   <copyright>
+      #################################################
+# Copyright (c) 2010 Composent, Inc. and others. All rights reserved.
+# This program and the accompanying materials are made available under the 
+# terms of the Eclipse Public License v1.0 which accompanies this 
+# distribution, and is available at 
+# http://www.eclipse.org/legal/epl-v10.html
+#
+# Contributors: Composent, Inc. - initial API and implementation
+#################################################
+   </copyright>
+
+   <license url="%licenseURL">
+      %license
+   </license>
+
+   <requires>
+      <import feature="org.eclipse.ecf.eventadmin.feature" version="2.0" match="compatible"/>
+      <import plugin="org.eclipse.equinox.app"/>
+   </requires>
+
+   <plugin
+         id="org.eclipse.ecf.examples.eventadmin.app"
+         download-size="0"
+         install-size="0"
+         version="1.0.0.v20140818-1747"
+         unpack="false"/>
+
+</feature>
