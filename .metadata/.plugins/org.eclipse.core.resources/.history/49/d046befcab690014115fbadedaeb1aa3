@@ -5,7 +5,7 @@ import java.util.Random;
 import com.ready.rain.graphics.Screen;
 import com.ready.rain.level.Level;
 
-public abstract class Entity {
+public class Entity {
 
 	public int x, y;
 	private boolean removed = false;
@@ -19,15 +19,4 @@ public abstract class Entity {
 	public void render(Screen screen){
 		
 	}
-	
-	public void remove(){
-		//this is our entity remove method
-		removed = true;
-	}
-	
-	public boolean isRemoved(){
-	return removed;	
-	
-	}
-	}
-	
+}
