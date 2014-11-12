@@ -1,27 +1,2 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="javax.swing.JFrame"/>
-<fullyQualifiedTypeName name="java.awt.Canvas"/>
-<fullyQualifiedTypeName name="java.awt.Dimension"/>
-<fullyQualifiedTypeName name="java.awt.image.BufferStrategy"/>
-<fullyQualifiedTypeName name="java.awt.Graphics"/>
-<fullyQualifiedTypeName name="java.awt.Color"/>
-<fullyQualifiedTypeName name="com.ready.rain.input.Keyboard"/>
-<fullyQualifiedTypeName name="java.awt.image.BufferedImage"/>
-<fullyQualifiedTypeName name="java.util.Random"/>
-<fullyQualifiedTypeName name="com.ready.rain.graphics.Screen"/>
-<fullyQualifiedTypeName name="com.ready.rain.level.tile.Tile"/>
-<fullyQualifiedTypeName name="com.ready.rain.level.Randomlevel"/>
-<<<<<<< HEAD
-<fullyQualifiedTypeName name="javax.imageio.ImageIO"/>
-<fullyQualifiedTypeName name="java.io.File"/>
-<fullyQualifiedTypeName name="java.io.IOException"/>
-<fullyQualifiedTypeName name="com.ready.rain.Game"/>
-<fullyQualifiedTypeName name="javax.swing.ImageIcon"/>
-<fullyQualifiedTypeName name="javax.swing.JPanel"/>
-=======
-<fullyQualifiedTypeName name="com.ready.rain.level.Level"/>
-<fullyQualifiedTypeName name="com.ready.rain.entity.Entity"/>
-<fullyQualifiedTypeName name="com.ready.rain.graphics.Sprite"/>
->>>>>>> origin/master
-</qualifiedTypeNameHistroy>
+<qualifiedTypeNameHistroy/>
