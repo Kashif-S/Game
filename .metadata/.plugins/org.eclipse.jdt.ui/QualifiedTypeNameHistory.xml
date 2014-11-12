@@ -10,14 +10,18 @@
 <fullyQualifiedTypeName name="java.awt.image.BufferedImage"/>
 <fullyQualifiedTypeName name="java.util.Random"/>
 <fullyQualifiedTypeName name="com.ready.rain.graphics.Screen"/>
-<fullyQualifiedTypeName name="com.ready.rain.graphics.Sprite"/>
 <fullyQualifiedTypeName name="com.ready.rain.level.tile.Tile"/>
-<fullyQualifiedTypeName name="com.ready.rain.level.Level"/>
 <fullyQualifiedTypeName name="com.ready.rain.level.Randomlevel"/>
+<<<<<<< HEAD
 <fullyQualifiedTypeName name="javax.imageio.ImageIO"/>
 <fullyQualifiedTypeName name="java.io.File"/>
 <fullyQualifiedTypeName name="java.io.IOException"/>
 <fullyQualifiedTypeName name="com.ready.rain.Game"/>
 <fullyQualifiedTypeName name="javax.swing.ImageIcon"/>
 <fullyQualifiedTypeName name="javax.swing.JPanel"/>
+=======
+<fullyQualifiedTypeName name="com.ready.rain.level.Level"/>
+<fullyQualifiedTypeName name="com.ready.rain.entity.Entity"/>
+<fullyQualifiedTypeName name="com.ready.rain.graphics.Sprite"/>
+>>>>>>> origin/master
 </qualifiedTypeNameHistroy>
