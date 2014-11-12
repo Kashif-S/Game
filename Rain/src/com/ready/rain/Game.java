@@ -3,10 +3,14 @@ import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics2D;
+import java.awt.Image;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferInt;
+import java.io.File;
+import java.io.IOException;
 
+import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 
 import com.ready.rain.graphics.Screen;
@@ -17,6 +21,8 @@ import com.ready.rain.mobs.Animation;
 
 public class Game extends Canvas implements Runnable {
 	private static final long serialVersionUID = 1L;
+
+	public  Image img = null;
 	
 	public static int width = 300;
 	public static int height = width / 16 * 9;
@@ -28,6 +34,7 @@ public class Game extends Canvas implements Runnable {
 	private JFrame frame;
 	private Keyboard key;
 	private boolean running = false;
+	private boolean facing = false;
 	
 	private Screen screen;
 	private Animation animation;
@@ -35,7 +42,8 @@ public class Game extends Canvas implements Runnable {
 	
 	private BufferedImage image = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
 	private int [] pixels = ((DataBufferInt)image.getRaster() .getDataBuffer()) .getData();
-			
+		
+	
 	public Game () {
 		Dimension size = new Dimension (width*scale, height*scale);
 		setPreferredSize (size);
@@ -46,12 +54,14 @@ public class Game extends Canvas implements Runnable {
 		key = new Keyboard();
 		addKeyListener (key);	
 		level = new Randomlevel(256, 256);
+		
+
 	}
-	
 	public synchronized void start () {
 		running = true;
 		thread = new Thread (this, "Display"); 
 		thread.start();
+		animation.LoadImage();
 		
 	}
 	public synchronized void stop () {
@@ -98,8 +108,14 @@ public class Game extends Canvas implements Runnable {
 		key.update();
 		if (key.up) y--;
 		if (key.down) y++;
-		if (key.left) x--;
-		if (key.right)x++; 
+		if (key.left){
+			x--;
+			facing = true;
+		}
+		if (key.right){
+			x++; 
+			facing = false;
+		}
 
 	}
 	public void render () {
@@ -119,9 +135,9 @@ public class Game extends Canvas implements Runnable {
 		g.drawImage (image, 0, 0, getWidth (), getHeight(), null);
 		
 		if(key.up || key.down || key.right || key.left){
-			animation.AnimateLegs(bs,400,400,true);
+			animation.AnimateLegs(bs,400,400,true,facing);
 		}else{
-			animation.AnimateLegs(bs,400,400,false);
+			animation.AnimateLegs(bs,400,400,false,facing);
 		}
 		
 		g.dispose();
