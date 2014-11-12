@@ -20,24 +20,19 @@ public class Animation extends JPanel {
 	boolean dir = true;
 	boolean prev = false;
 	double rot = 0;
-	BufferedImage image7;
 	BufferedImage image1;
 	BufferedImage image2;
 	BufferedImage image3;
 	BufferedImage image4;
 	BufferedImage image5;
 	BufferedImage image6;
-	BufferedImage img3;
+	BufferedImage image7;
 	BufferedImage img1;
 	BufferedImage img2;
+	BufferedImage img3;
 	BufferedImage img4;
 	
 	public void LoadImage(){
-		try{
-			image7 = ImageIO.read(Animation.class.getResourceAsStream("/textures/leo_righthand_back.png"));
-		}catch(Exception ex){
-			ex.printStackTrace();
-		}
 		try{
 			image1 = ImageIO.read(Animation.class.getResourceAsStream("/textures/leo_rightleg.png"));
 		}catch(Exception ex){
@@ -65,6 +60,11 @@ public class Animation extends JPanel {
 		}
 		try{
 			image6 = ImageIO.read(Animation.class.getResourceAsStream("/textures/leo_lefthand.png"));
+		}catch(Exception ex){
+			ex.printStackTrace();
+		}
+		try{
+			image7 = ImageIO.read(Animation.class.getResourceAsStream("/textures/leo_righthand_back.png"));
 		}catch(Exception ex){
 			ex.printStackTrace();
 		}
@@ -120,6 +120,16 @@ public class Animation extends JPanel {
 		g4.drawImage(img3, x + 25, y -55, null);
 
 		g4.dispose();
+	
+		Graphics2D g5 = (Graphics2D) bs.getDrawGraphics();
+		
+		g5.translate(x + 25 + 25, y - 5 - 55);
+		g5.rotate(Math.toRadians(-rot));
+		g5.translate(-x - 25 + 25, -y + 5 + 55);
+		g5.drawImage(img3, x + 25, y -55, null);
+
+		g5.dispose();
+		
 		
 		
 		Graphics2D g1 = (Graphics2D) bs.getDrawGraphics();

@@ -20,24 +20,18 @@ public class Animation extends JPanel {
 	boolean dir = true;
 	boolean prev = false;
 	double rot = 0;
-	BufferedImage image7;
 	BufferedImage image1;
 	BufferedImage image2;
 	BufferedImage image3;
 	BufferedImage image4;
 	BufferedImage image5;
 	BufferedImage image6;
-	BufferedImage img3;
 	BufferedImage img1;
 	BufferedImage img2;
+	BufferedImage img3;
 	BufferedImage img4;
 	
 	public void LoadImage(){
-		try{
-			image7 = ImageIO.read(Animation.class.getResourceAsStream("/textures/leo_righthand_back.png"));
-		}catch(Exception ex){
-			ex.printStackTrace();
-		}
 		try{
 			image1 = ImageIO.read(Animation.class.getResourceAsStream("/textures/leo_rightleg.png"));
 		}catch(Exception ex){
@@ -101,15 +95,12 @@ public class Animation extends JPanel {
 		if (facing == true){
 			img1 = image2;
 			img2 = image4;
-			img3 = image7;
 		}else{	
-			img3 = image5;
 			img1 = image1;
 			img2 = image3;
-		
 		}
-		//img3 = image5;
-		//img4 = image6;
+		img3 = image5;
+		img4 = image6;
 		
 		
 		Graphics2D g4 = (Graphics2D) bs.getDrawGraphics();
