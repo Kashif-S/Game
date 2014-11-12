@@ -12,8 +12,9 @@
 <fullyQualifiedTypeName name="java.awt.image.BufferedImage"/>
 <fullyQualifiedTypeName name="java.util.Random"/>
 <fullyQualifiedTypeName name="com.ready.rain.graphics.Screen"/>
-<fullyQualifiedTypeName name="com.ready.rain.graphics.Sprite"/>
 <fullyQualifiedTypeName name="com.ready.rain.level.tile.Tile"/>
-<fullyQualifiedTypeName name="com.ready.rain.level.Level"/>
 <fullyQualifiedTypeName name="com.ready.rain.level.Randomlevel"/>
+<fullyQualifiedTypeName name="com.ready.rain.level.Level"/>
+<fullyQualifiedTypeName name="com.ready.rain.entity.Entity"/>
+<fullyQualifiedTypeName name="com.ready.rain.graphics.Sprite"/>
 </qualifiedTypeNameHistroy>
