@@ -1,0 +1,11 @@
+package com.ready.rain.entity.mib;
+
+public class Character {
+
+	
+	public Character (int x,int y) {
+
+		
+	}
+
+}

@@ -18,6 +18,8 @@ import com.ready.rain.input.Keyboard;
 import com.ready.rain.level.Level;
 import com.ready.rain.level.Randomlevel;
 import com.ready.rain.mobs.Animation;
+import com.ready.rain.entity.mib.Character;
+import com.ready.rain.graphics.LoadImages;
 
 public class Game extends Canvas implements Runnable {
 	private static final long serialVersionUID = 1L;
@@ -38,6 +40,8 @@ public class Game extends Canvas implements Runnable {
 	
 	private Screen screen;
 	private Animation animation;
+	private Character character;
+	private LoadImages load;
 	
 	
 	private BufferedImage image = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
@@ -47,7 +51,8 @@ public class Game extends Canvas implements Runnable {
 	public Game () {
 		Dimension size = new Dimension (width*scale, height*scale);
 		setPreferredSize (size);
-		
+		load = new LoadImages();
+		character = new Character (width*scale/2 - 64,height*scale/2);
 		screen = new Screen (width, height);
 		animation = new Animation();
 		frame = new JFrame() ;
@@ -135,9 +140,9 @@ public class Game extends Canvas implements Runnable {
 		g.drawImage (image, 0, 0, getWidth (), getHeight(), null);
 		
 		if(key.up || key.down || key.right || key.left){
-			animation.AnimateLegs(bs,400,400,true,facing);
+			animation.AnimateLegs(bs,character,true,facing);
 		}else{
-			animation.AnimateLegs(bs,400,400,false,facing);
+			animation.AnimateLegs(bs,character,false,facing);
 		}
 		
 		g.dispose();
