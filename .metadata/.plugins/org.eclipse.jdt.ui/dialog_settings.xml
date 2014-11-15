@@ -3,6 +3,9 @@
 	<section name="OptionalMessageDialog.hide.">
 		<item value="true" key="org.eclipse.jdt.ui.typecomment.deprecated"/>
 	</section>
+	<section name="SelfEncapsulateFieldWizard">
+		<item value="false" key="GenerateJavadoc"/>
+	</section>
 	<section name="org.eclipse.jdt.internal.ui.packageview.PackageExplorerPart">
 		<item value="true" key="group_libraries"/>
 		<item value="false" key="linkWithEditor"/>
@@ -26,8 +29,8 @@
 		<item value="true" key="jarOptionsWizardPage.EXPORT_ERRORS"/>
 		<item value="true" key="JarPackageWizardPage.EXPORT_CLASS_FILES"/>
 		<item value="false" key="jarOptionsWizardPage.SAVE_DESCRIPTION"/>
-		<item value="false" key="JarManifestWizardPage.SAVE_MANIFEST"/>
 		<item value="false" key="JarPackageWizardPage.EXPORT_JAVA_FILES"/>
+		<item value="false" key="JarManifestWizardPage.SAVE_MANIFEST"/>
 		<item value="false" key="JarPackageWizardPage.EXPORT_OUTPUT_FOLDER"/>
 		<item value="true" key="JarPackageWizardPage.COMPRESS"/>
 		<item value="true" key="jarOptionsWizardPage.BUILD_IF_NEEDED"/>
@@ -36,6 +39,10 @@
 		<list key="JarPackageWizardPage.DESTINATION_NAMES_ID">
 			<item value="C:\Users\Owner\Desktop\Game\Dota.jar"/>
 		</list>
+	</section>
+	<section name="RefactoringWizard.preview">
+		<item value="400" key="height"/>
+		<item value="600" key="width"/>
 	</section>
 	<section name="FatJarPackageWizard">
 		<item value="C:\Users\Owner\Desktop\Game\Dota3.1.jar" key="FatJarPackageWizardPage.DESTINATION_PATH_SELECTION"/>
@@ -52,10 +59,10 @@
 			<item value=".xml"/>
 		</list>
 	</section>
-	<section name="quick_assist_proposal_size">
-	</section>
 	<section name="NewClassWizardPage">
 		<item value="false" key="create_constructor"/>
 		<item value="true" key="create_unimplemented"/>
+	</section>
+	<section name="quick_assist_proposal_size">
 	</section>
 </section>

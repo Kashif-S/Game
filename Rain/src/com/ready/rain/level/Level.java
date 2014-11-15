@@ -46,10 +46,8 @@ public class Level {
 		int x1 = (xScroll + screen.width + 16) >> 4;
 		int y0 = yScroll >> 4;
 		int y1 = (yScroll + screen.height + 16) >> 4;
-//<<<<<<< HEAD
-//		
-//=======
-//>>>>>>> c3bafca37aff0a6533e1780a72674cbf7c621d30
+System.out.println("y1 =" + y1);
+System.out.println("x1 =" + x1);
 		
 		
 			for (int y = y0; y < y1;y++){
@@ -84,7 +82,7 @@ public class Level {
 			if (tiles[x + y * width] == 0) return Tile.grass2;
 			if (tiles[x + y * width] == 1) return Tile.grass3;
 			if (tiles[x + y * width] == 2) return Tile.grass4;
-			if (tiles[x + y * width] == 3) return Tile.grass5;
+			if (tiles[x + y * width] <= 3) return Tile.grass5;
 
 			
 

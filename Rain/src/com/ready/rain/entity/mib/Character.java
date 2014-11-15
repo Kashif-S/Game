@@ -28,6 +28,7 @@ public class Character {
 		this.leftarm = leftarm;
 		this.xjoint1 = xjoint1;
 		this.yjoint1 = yjoint1 + righttorso.getHeight()/2;
+		System.out.println(yjoint1 + righttorso.getHeight()/2);
 		this.xjoint2 = xjoint2;
 		this.yjoint2 = yjoint2;
 		this.xjoint3 = xjoint3;
