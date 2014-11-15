@@ -32,50 +32,20 @@ public class Animation extends JPanel {
 	BufferedImage img1;
 	BufferedImage img2;
 	BufferedImage img4;
-	
-	public void LoadImage(){
-		try{
-			image7 = ImageIO.read(Animation.class.getResourceAsStream("/textures/leo_righthand_back.png"));
-		}catch(Exception ex){
-			ex.printStackTrace();
-		}
-		try{
-			image1 = ImageIO.read(Animation.class.getResourceAsStream("/textures/leo_rightleg.png"));
-		}catch(Exception ex){
-			ex.printStackTrace();
-		}
-		try{
-			image2 = ImageIO.read(Animation.class.getResourceAsStream("/textures/leo_leftleg.png"));
-		}catch(Exception ex){
-			ex.printStackTrace();
-		}
-		try{
-			image3 = ImageIO.read(Animation.class.getResourceAsStream("/textures/leo_righttorso.png"));
-		}catch(Exception ex){
-			ex.printStackTrace();
-		}
-		try{
-			image4 = ImageIO.read(Animation.class.getResourceAsStream("/textures/leo_lefttorso.png"));
-		}catch(Exception ex){
-			ex.printStackTrace();
-		}
-		try{
-			image5 = ImageIO.read(Animation.class.getResourceAsStream("/textures/leo_righthand.png"));
-		}catch(Exception ex){
-			ex.printStackTrace();
-		}
-		try{
-			image6 = ImageIO.read(Animation.class.getResourceAsStream("/textures/leo_lefthand.png"));
-		}catch(Exception ex){
-			ex.printStackTrace();
-		}
-		
-	}
-	
+
+
 	public void AnimateLegs(BufferStrategy bs, Character character, boolean moving,boolean facing){
 		
 		int x = character.x;
 		int y = character.y;
+		int xjoint1 = character.xjoint1;
+		int xjoint2 = character.xjoint2;
+		int yjoint1 = character.yjoint1;
+		int yjoint2 = character.yjoint2;
+		int xjoint3 = character.xjoint3;
+		int xjoint4 = character.xjoint4;
+		int yjoint3 = character.yjoint3;
+		int yjoint4 = character.yjoint4;
 			
 		if(facing != prev){
 			dir = true;
@@ -104,24 +74,34 @@ public class Animation extends JPanel {
 		}
 		if (facing == true){
 			img1 = image2;
-			img2 = image4;
-			img3 = image7;
+			img2 = character.lefttorso;
+			img3 = character.leftarm;
 		}else{	
-			img3 = image5;
+			img3 = character.rightarm;
 			img1 = image1;
-			img2 = image3;
+			img2 = character.righttorso;
 		
 		}
 		//img3 = image5;
 		//img4 = image6;
 		
 		
+		
 		Graphics2D g4 = (Graphics2D) bs.getDrawGraphics();
 		
-		g4.translate(x + 25 + 25, y - 5 - 55);
-		g4.rotate(Math.toRadians(-rot));
-		g4.translate(-x - 25 - 25, -y + 5 + 55);
-		g4.drawImage(img3, x + 25, y -55, null);
+		if(facing == true){
+			g4.translate(x + xjoint1, y - yjoint1);
+			g4.rotate(Math.toRadians(-rot));
+			g4.translate(-x - xjoint1, -y + yjoint1);
+			g4.drawImage(img3, x + xjoint1 - xjoint2, y - yjoint1 + yjoint2, null);
+		
+		}else{
+			xjoint1 += character.lefttorso.getWidth();
+			g4.translate(x + xjoint1, y - yjoint1);
+			g4.rotate(Math.toRadians(-rot));
+			g4.translate(-x - xjoint1, -y + yjoint1);
+			g4.drawImage(img3, x + xjoint1 -2 * xjoint2, y - yjoint1 + yjoint2, null);
+		}
 
 		g4.dispose();
 		
@@ -154,7 +134,25 @@ public class Animation extends JPanel {
 
 	g3.dispose();
 	
+	Graphics2D g5 = (Graphics2D) bs.getDrawGraphics();
+	
+	if(facing == true){
+		g5.translate(x + xjoint3, y - yjoint3);
+		g5.rotate(Math.toRadians(rot));
+		g5.translate(-x - xjoint3, -y + yjoint3);
+		g5.drawImage(img3, x + xjoint3 - xjoint4, y - yjoint3 + yjoint4, null);
+	
+	}else{
+		xjoint3 -= character.lefttorso.getWidth() - 10;
+		g5.translate(x + xjoint3, y - yjoint3);
+		g5.rotate(Math.toRadians(rot));
+		g5.translate(-x - xjoint3, -y + yjoint3);
+		g5.drawImage(img3, x + xjoint3 -2 * xjoint4, y - yjoint3 + yjoint4, null);
+	}
+	g5.dispose();
+	
 }
 
+	
 
 }

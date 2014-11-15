@@ -1,0 +1,19 @@
+package com.ready.rain.entity.mib;
+
+import java.awt.image.BufferedImage;
+
+
+public class Character {
+	
+	public int x;
+	public int y;
+	public BufferedImage torso;
+	
+	public Character (int x, int y,BufferedImage torso) {
+		 
+		this.torso = torso;
+		this.x = x;// - torso.getWidth()/2;
+		 this.y = y; //- torso.getHeight()/2;
+		 
+		}
+}

@@ -38,10 +38,17 @@ public class Game extends Canvas implements Runnable {
 	private boolean running = false;
 	private boolean facing = false;
 	
+	public BufferedImage image1;
+	public BufferedImage image2;
+	public BufferedImage image3;
+	public BufferedImage image4;
+	
 	private Screen screen;
 	private Animation animation;
 	private Character character;
 	private LoadImages load;
+	
+	
 	
 	
 	private BufferedImage image = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
@@ -52,7 +59,6 @@ public class Game extends Canvas implements Runnable {
 		Dimension size = new Dimension (width*scale, height*scale);
 		setPreferredSize (size);
 		load = new LoadImages();
-		character = new Character (width*scale/2 - 64,height*scale/2);
 		screen = new Screen (width, height);
 		animation = new Animation();
 		frame = new JFrame() ;
@@ -60,13 +66,19 @@ public class Game extends Canvas implements Runnable {
 		addKeyListener (key);	
 		level = new Randomlevel(256, 256);
 		
+		
+		image1 = load.LoadImage("/textures/leo_righttorso.png");
+		image2 = load.LoadImage("/textures/leo_lefttorso.png");
+		image3 = load.LoadImage("/textures/leo_righthand.png");
+		image4 = load.LoadImage("/textures/leo_lefthand.png");
 
+		character = new Character (width*scale/2,height*scale/2,image1,image2,image3,image4,0,10,11,-10,44,10,11,-10);
 	}
+	
 	public synchronized void start () {
 		running = true;
 		thread = new Thread (this, "Display"); 
 		thread.start();
-		animation.LoadImage();
 		
 	}
 	public synchronized void stop () {
@@ -138,6 +150,7 @@ public class Game extends Canvas implements Runnable {
 		
 		Graphics2D g = (Graphics2D) bs.getDrawGraphics();
 		g.drawImage (image, 0, 0, getWidth (), getHeight(), null);
+		
 		
 		if(key.up || key.down || key.right || key.left){
 			animation.AnimateLegs(bs,character,true,facing);
