@@ -120,13 +120,13 @@ public class Game extends Canvas implements Runnable {
 		}
 	stop () ;
 	}
-	int x = ((3000 * 16 / 2) - (19 * 16)) , y = ((3000 * 16 / 2) - (11 * 16));
+	int x = ((3000 * 16 / 2) - (19 * 16)) , y = ((3000 * 16 / 2) - (16 * 16));
 	public void update () {
 		key.update();
 		if (key.up) 
-			y--;
+			y-= 10;
 		if (key.down) 
-			y++;
+			y+= 10;
 		if (key.left){
 			x--;
 			facing = true;
