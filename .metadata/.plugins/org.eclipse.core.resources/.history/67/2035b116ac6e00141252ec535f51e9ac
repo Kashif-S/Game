@@ -127,7 +127,7 @@ public class Game extends Canvas implements Runnable {
 		if (key.up) 
 			y--;
 		if (key.down) 
-			y++;
+			y+= 100;
 		if (key.left){
 			x--;
 			facing = true;

@@ -121,7 +121,7 @@ public class Game extends Canvas implements Runnable {
 		}
 	stop () ;
 	}
-	int x = (3000 * 16 / 2) , y = (3000 * 16 / 2);
+	int x = ((3000 * 16 / 2) - (19 * 16)) , y = ((3000 * 16 / 2) - (11 * 16));
 	public void update () {
 		key.update();
 		if (key.up) 
@@ -162,7 +162,7 @@ public class Game extends Canvas implements Runnable {
 		}
 		g.setColor(Color.WHITE);
 		g.setFont(new Font("Times New Roman", 0, 25));
-		g.drawString("X: " + x / 16 + ", Y: " + y / 16, 0, 18);
+		g.drawString("X: " + x / 16 + ", Y= " + y / 16, 0, 50);
 		g.dispose();
 		bs.show();
 		

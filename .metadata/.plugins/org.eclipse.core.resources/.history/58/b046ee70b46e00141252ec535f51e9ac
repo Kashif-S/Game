@@ -19,13 +19,13 @@ public class Player extends Mob {
 	public BufferedImage rightarm;
 	public BufferedImage leftarm;
 	
-	/*private Keyboard input;
+	private Keyboard input;
 	public Player(Keyboard input){
 		this.input = input;
-	} */
+	}
 
-	public Player (int x, int y,BufferedImage righttorso,BufferedImage lefttorso,BufferedImage rightarm,BufferedImage leftarm,int xjoint1,int yjoint1,int xjoint2,int yjoint2,int xjoint3,int yjoint3,int xjoint4,int yjoint4 /*, Keyboard input*/) {
-		//this.input = input;
+	public Player (int x, int y,BufferedImage righttorso,BufferedImage lefttorso,BufferedImage rightarm,BufferedImage leftarm,int xjoint1,int yjoint1,int xjoint2,int yjoint2,int xjoint3,int yjoint3,int xjoint4,int yjoint4, Keyboard input) {
+		this.input = input;
 		this.righttorso = righttorso;
 		this.lefttorso = lefttorso;
 		this.rightarm = rightarm;
