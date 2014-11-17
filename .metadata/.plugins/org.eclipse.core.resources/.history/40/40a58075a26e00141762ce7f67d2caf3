@@ -45,7 +45,7 @@ public class Game extends Canvas implements Runnable {
 	
 	private Screen screen;
 	private Animation animation;
-	private Player player;
+	private Character character;
 	private LoadImages load;
 	
 	
@@ -155,9 +155,9 @@ public class Game extends Canvas implements Runnable {
 		
 		
 		if(key.up || key.down || key.right || key.left){
-			animation.AnimateLegs(bs,player,true,facing);
+			animation.AnimateLegs(bs,character,true,facing);
 		}else{
-			animation.AnimateLegs(bs,player,false,facing);
+			animation.AnimateLegs(bs,character,false,facing);
 		}
 		
 		g.dispose();

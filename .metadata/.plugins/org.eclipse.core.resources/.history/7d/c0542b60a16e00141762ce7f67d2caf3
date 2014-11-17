@@ -18,7 +18,7 @@ import com.ready.rain.input.Keyboard;
 import com.ready.rain.level.Level;
 import com.ready.rain.level.Randomlevel;
 import com.ready.rain.mobs.Animation;
-import com.ready.rain.entity.mib.Player;
+import com.ready.rain.entity.mib.Character;
 import com.ready.rain.graphics.LoadImages;
 
 public class Game extends Canvas implements Runnable {
@@ -45,7 +45,7 @@ public class Game extends Canvas implements Runnable {
 	
 	private Screen screen;
 	private Animation animation;
-	private Player player;
+	private Character character;
 	private LoadImages load;
 	
 	
@@ -72,7 +72,7 @@ public class Game extends Canvas implements Runnable {
 		image3 = load.LoadImage("/textures/leo_righthand.png");
 		image4 = load.LoadImage("/textures/leo_lefthand.png");
 
-		player = new Player (width*scale/2,height*scale/2,image1,image2,image3,image4,0,10,11,-10,44,10,11,-10);
+		character = new Character (width*scale/2,height*scale/2,image1,image2,image3,image4,0,10,11,-10,44,10,11,-10);
 	}
 	
 	public synchronized void start () {
@@ -155,9 +155,9 @@ public class Game extends Canvas implements Runnable {
 		
 		
 		if(key.up || key.down || key.right || key.left){
-			animation.AnimateLegs(bs,player,true,facing);
+			animation.AnimateLegs(bs,character,true,facing);
 		}else{
-			animation.AnimateLegs(bs,player,false,facing);
+			animation.AnimateLegs(bs,character,false,facing);
 		}
 		
 		g.dispose();

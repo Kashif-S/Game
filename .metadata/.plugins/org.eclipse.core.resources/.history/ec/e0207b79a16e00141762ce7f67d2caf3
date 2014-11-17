@@ -1,4 +1,4 @@
-package com.ready.rain.entity.mib;
+package com.ready.rain.entity.mob;
 
 import com.ready.rain.entity.Entity;
 import com.ready.rain.graphics.Sprite;

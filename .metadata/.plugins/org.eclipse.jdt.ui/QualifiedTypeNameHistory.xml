@@ -4,4 +4,5 @@
 <fullyQualifiedTypeName name="java.awt.image.BufferedImage"/>
 <fullyQualifiedTypeName name="com.ready.rain.entity.mib.Character"/>
 <fullyQualifiedTypeName name="java.lang.System"/>
+<fullyQualifiedTypeName name="com.ready.rain.entity.mib.Mob"/>
 </qualifiedTypeNameHistroy>
