@@ -78,10 +78,38 @@ public class Level {
 		
 		public Tile getTile(int x, int y) {
 			if (x < 0 || y < 0 || x >= width || y >= height) return Tile.voidTile;
-			if (tiles[x + y * width] == 0) return Tile.grass2;
-			if (tiles[x + y * width] == 1) return Tile.grass3;
-			if (tiles[x + y * width] == 2) return Tile.grass4;
-			if (tiles[x + y * width] <= 3) return Tile.grass5;
+			if (tiles[x + y * width] <= 3) return Tile.grass2;
+			if (tiles[x + y * width] == 20) return Tile.grass3;
+			/*if (tiles[x + y * width] == 19) return Tile.grass3;
+			if (tiles[x + y * width] == 18) return Tile.grass3;
+			if (tiles[x + y * width] == 17) return Tile.grass3;
+			if (tiles[x + y * width] == 16) return Tile.grass3;
+			if (tiles[x + y * width] == 15) return Tile.grass3;
+			if (tiles[x + y * width] == 14) return Tile.grass3;
+			if (tiles[x + y * width] == 13) return Tile.grass3;
+			if (tiles[x + y * width] == 12) return Tile.grass3;*/
+			if (tiles[x + y * width] == 11) return Tile.grass3;
+			if (tiles[x + y * width] == 21) return Tile.grass4;
+			if (tiles[x + y * width] == 22) return Tile.grass4;
+			if (tiles[x + y * width] == 23) return Tile.grass4;
+			if (tiles[x + y * width] == 24) return Tile.grass4;
+			if (tiles[x + y * width] == 25) return Tile.grass4;
+			if (tiles[x + y * width] == 26) return Tile.grass4;
+			if (tiles[x + y * width] == 27) return Tile.grass4;
+			if (tiles[x + y * width] == 28) return Tile.grass4;
+			if (tiles[x + y * width] == 29) return Tile.grass4;
+			if (tiles[x + y * width] == 30) return Tile.grass4;
+			if (tiles[x + y * width] == 31) return Tile.grass5;
+			if (tiles[x + y * width] == 32) return Tile.grass5;
+			if (tiles[x + y * width] == 33) return Tile.grass5;
+			if (tiles[x + y * width] == 34) return Tile.grass5;
+			if (tiles[x + y * width] == 35) return Tile.grass5;
+			if (tiles[x + y * width] == 36) return Tile.grass5;
+			if (tiles[x + y * width] == 37) return Tile.grass5;
+			if (tiles[x + y * width] == 38) return Tile.grass5;
+			if (tiles[x + y * width] == 39) return Tile.grass5;
+			if (tiles[x + y * width] == 40) return Tile.grass5;
+			
 
 			
 
