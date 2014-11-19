@@ -117,7 +117,7 @@ public class Animation extends JPanel {
 			g7.translate((x)+img2.getWidth()-xjoint7,(y - img2.getHeight() + yjoint7 - xjoint6));
 			g7.rotate(Math.toRadians(-rot));
 			g7.translate(-((x)+img2.getWidth()-xjoint7),-(y - img2.getHeight() + yjoint7 - xjoint6));
-			g7.drawImage(img4, x + xjoint7 - xjoint6, y - yjoint7 + (yjoint7 - yjoint6), null);
+			g7.drawImage(img4, x - xjoint7 + xjoint6, y - yjoint7 + (yjoint7 - yjoint6), null);
 		}
 		g6.dispose();
 		g7.dispose();
