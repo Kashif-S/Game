@@ -12,7 +12,7 @@ public class ImageWriter {
 	protected static final Random random1 = new Random();
 	private static float rand;
 	private static float rand1;
-	private static float prevrand = 0.5f;
+	//private static float prevrand;
 
     public static void greyWriteImage(double [][] data){
         //this takes and array of doubles between 0 and 1 and generates a grey scale image from them
@@ -24,14 +24,13 @@ public class ImageWriter {
 
         for (int y = 0; y < data[0].length; y++)
         {
-        	
           for (int x = 0; x < data.length; x++)
           {
-        	  rand1= random1.nextInt(4);
-              rand1 -= Math.random()*prevrand;
-              prevrand = rand1;
+        	  rand1= random1.nextInt(3+1);
+              rand1 -=1.1;
+             // prevrand = rand1;
         	  data[x][y] = rand1;
-           if (data[x][y]>1){
+            if (data[x][y]>1){
                 data[x][y]=1;
             }
             if (data[x][y]<0){

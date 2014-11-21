@@ -8,36 +8,26 @@ import javax.imageio.ImageIO;
 import java.util.Random;
 
 public class ImageWriter {
-	protected static final Random random = new Random();
-	protected static final Random random1 = new Random();
-	private static float rand;
-	private static float rand1;
-	private static float prevrand = 0.5f;
+	//protected static final Random random = new Random();
+	//private static float rand;
 
-    public static void greyWriteImage(double [][] data){
+    public static void greyWriteImage(double[][] data){
         //this takes and array of doubles between 0 and 1 and generates a grey scale image from them
 
         BufferedImage image = new BufferedImage(data.length,data[0].length, BufferedImage.TYPE_INT_RGB);
-        rand = random.nextInt(64);
-       
+      //  rand = random.nextInt(64);
         
 
         for (int y = 0; y < data[0].length; y++)
         {
-        	
           for (int x = 0; x < data.length; x++)
           {
-        	  rand1= random1.nextInt(4);
-              rand1 -= Math.random()*prevrand;
-              prevrand = rand1;
-        	  data[x][y] = rand1;
-           if (data[x][y]>1){
+            if (data[x][y]>1){
                 data[x][y]=1;
             }
             if (data[x][y]<0){
                 data[x][y]=0;
             }
-     
               Color col=new Color((float)data[x][y],(float)data[x][y],(float)data[x][y]); 
             image.setRGB(x, y, col.getRGB());
           }
@@ -45,7 +35,7 @@ public class ImageWriter {
 
         try {
             // retrieve image
-            File outputfile = new File("world" + rand + ".png" );
+            File outputfile = new File("saved.png" );
             outputfile.createNewFile();
 
             ImageIO.write(image, "png", outputfile);
@@ -55,13 +45,13 @@ public class ImageWriter {
         }
     }
 
-	public static float getRand() {
+/*	public static float getRand() {
 		return rand;
 	}
 
 	public static void setRand(float rand) {
 		ImageWriter.rand = rand;
-	}
+	} */
 
 
 
