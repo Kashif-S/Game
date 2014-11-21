@@ -7,4 +7,5 @@
 <fullyQualifiedTypeName name="com.ready.rain.entity.mib.Mob"/>
 <fullyQualifiedTypeName name="java.awt.Font"/>
 <fullyQualifiedTypeName name="com.ready.rain.input.Keyboard"/>
+<fullyQualifiedTypeName name="com.ready.rain.level.SimplexNoise"/>
 </qualifiedTypeNameHistroy>
