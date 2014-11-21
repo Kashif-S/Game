@@ -18,7 +18,6 @@ import com.ready.rain.graphics.Screen;
 import com.ready.rain.input.Keyboard;
 import com.ready.rain.level.Level;
 import com.ready.rain.level.Randomlevel;
-import com.ready.rain.level.SimplexNoise;
 import com.ready.rain.mobs.Animation;
 import com.ready.rain.entity.mib.Character;
 import com.ready.rain.graphics.LoadImages;

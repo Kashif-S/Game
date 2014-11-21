@@ -18,7 +18,6 @@ import com.ready.rain.graphics.Screen;
 import com.ready.rain.input.Keyboard;
 import com.ready.rain.level.Level;
 import com.ready.rain.level.Randomlevel;
-import com.ready.rain.level.SimplexNoise;
 import com.ready.rain.mobs.Animation;
 import com.ready.rain.entity.mib.Character;
 import com.ready.rain.graphics.LoadImages;
@@ -186,28 +185,5 @@ public static void main (String[] args){
 	game.frame.setVisible(true);
 	
 	game.start();
-	SimplexNoise simplexNoise=new SimplexNoise(100,0.1,5000);
-
-
-
-    double xStart=0;
-    double XEnd=500;
-    double yStart=0;
-    double yEnd=500;
-
-    int xResolution=200;
-    int yResolution=200;
-
-    double[][] result=new double[xResolution][yResolution];
-
-    for(int i=0;i<xResolution;i++){
-        for(int j=0;j<yResolution;j++){
-            int x=(int)(xStart+i*((XEnd-xStart)/xResolution));
-            int y=(int)(yStart+j*((yEnd-yStart)/yResolution));
-            result[i][j]=0.5*(1+simplexNoise.getNoise(x,y));
-        }
-    }
-
-    ImageWriter.greyWriteImage(result);
 }
 }
