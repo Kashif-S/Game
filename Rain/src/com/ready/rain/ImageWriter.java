@@ -27,25 +27,43 @@ public class ImageWriter {
           for (int x = 0; x < data.length; x++)
         	  
           {
-
-            if (data[x][y]>1){
+// add more variety through smaller ranges
+            if (data[x][y]>= 0.5){
                 data[x][y]=1;
             }
-            if (data[x][y]<0){
+            if (data[x][y] < 0.5){
                 data[x][y]=0;
             }
-            if (data2[x][y]>1){
+        /*    if (data[x][y] >= 0.3 && data[x][y] < 0.5){
+                data[x][y]=0.3;
+            }
+           if (data[x][y] >= 0.1 && data[x][y] < 0.3){
+                data[x][y]=0;
+            }*/
+            if (data2[x][y]>= 0.5){
                 data2[x][y]=1;
             }
-            if (data2[x][y]<0){
+            if (data2[x][y] < 0.5){
                 data2[x][y]=0;
             }
-            if (data3[x][y]>1){
+           /* if (data2[x][y] >= 0.3 && data2[x][y] < 0.5){
+                data2[x][y]=0.3;
+            }
+            if (data2[x][y] >= 0.1 && data2[x][y] < 0.3){
+                data2[x][y]=0;
+            }*/
+            if (data3[x][y]>= 0.5){
                 data3[x][y]=1;
             }
-            if (data3[x][y]<0){
+            if (data3[x][y] < 0.5){
                 data3[x][y]=0;
             }
+           /* if (data3[x][y] >= 0.3 && data3[x][y] < 0.5){
+                data3[x][y]=0.3;
+            }
+            if (data3[x][y] >= 0.1 && data3[x][y] < 0.3){
+                data3[x][y]=0;
+            }*/
 
           
 
