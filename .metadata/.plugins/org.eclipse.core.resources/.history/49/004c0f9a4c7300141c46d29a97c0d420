@@ -47,8 +47,6 @@ public class ImageWriter {
                 data3[x][y]=0;
             }
 
-          
-
 
 
             

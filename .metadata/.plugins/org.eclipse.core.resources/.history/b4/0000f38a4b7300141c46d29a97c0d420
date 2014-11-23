@@ -207,42 +207,7 @@ public static void main (String[] args){
             result[i][j]=0.5*(1+simplexNoise.getNoise(x,y));
         }
     }
-    double xStart2=Math.random()*10000;
-    double XEnd2=xStart2+250;
-    double yStart2=xStart2;
-    double yEnd2=XEnd2;
 
-    int xResolution2=3000;
-    int yResolution2=3000;
-
-    double[][] result2=new double[xResolution2][yResolution2];
-
-    for(int i=0;i<xResolution2;i++){
-        for(int j=0;j<yResolution2;j++){
-            int x=(int)(xStart2+i*((XEnd2-xStart2)/xResolution2));
-            int y=(int)(yStart2+j*((yEnd2-yStart2)/yResolution2));
-            result2[i][j]=0.5*(1+simplexNoise.getNoise(x,y));
-        }
-    }
-    
-    double xStart3=Math.random()*10000;
-    double XEnd3=xStart3+250;
-    double yStart3=xStart3;
-    double yEnd3=XEnd3;
-
-    int xResolution3=3000;
-    int yResolution3=3000;
-
-    double[][] result3=new double[xResolution3][yResolution3];
-
-    for(int i=0;i<xResolution3;i++){
-        for(int j=0;j<yResolution3;j++){
-            int x=(int)(xStart3+i*((XEnd3-xStart3)/xResolution3));
-            int y=(int)(yStart3+j*((yEnd3-yStart3)/yResolution3));
-            result3[i][j]=0.5*(1+simplexNoise.getNoise(x,y));
-        }
-    }
-
-    ImageWriter.greyWriteImage(result,result2,result3);
+    ImageWriter.greyWriteImage(result);
 }
 }
