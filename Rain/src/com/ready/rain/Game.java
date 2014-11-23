@@ -190,13 +190,13 @@ public static void main (String[] args){
 
 
 
-    double xStart=0;
-    double XEnd=500;
-    double yStart=0;
-    double yEnd=500;
+    double xStart=Math.random()*10000;
+    double XEnd=xStart+250;
+    double yStart=xStart;
+    double yEnd=XEnd;
 
-    int xResolution=200;
-    int yResolution=200;
+    int xResolution=3000;
+    int yResolution=3000;
 
     double[][] result=new double[xResolution][yResolution];
 
