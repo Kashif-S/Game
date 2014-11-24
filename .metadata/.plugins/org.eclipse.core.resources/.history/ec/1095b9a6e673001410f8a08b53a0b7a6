@@ -1,0 +1,58 @@
+package com.ready.rain.graphics;
+
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import javax.imageio.ImageIO;
+import com.ready.rain.ImageWriter;
+
+public class SpriteSheet {
+
+	 private String path;
+	 private String path1;
+	 public final int SIZE;
+	 public final int WSIZE;
+	 public int[] pixels;
+	 public int[] biomes;
+	 public static float rand = ImageWriter.rand;
+	 
+	 public static SpriteSheet tiles = new SpriteSheet ("/textures/spritesheet.png", 256);
+	 public static SpriteSheet wolrd = new SpriteSheet ("/src/" + rand +"world.png", 3000);
+	 
+	 public SpriteSheet (String path, int size) {
+		 this.path = path;
+		 this.SIZE = size; 
+		 pixels = new int [SIZE *SIZE];
+		 load();
+	 }
+	 private World (String path1, int wsize){
+		 this.path1 = path1;
+		 this.WSIZE = wsize;
+		 biomes = new int[WSIZE *WSIZE];
+		 load1();		 
+	 }
+	 private void load1() {
+		  try {
+			BufferedImage image = ImageIO.read(SpriteSheet.class.getResource(path1));
+		int w = image.getWidth();
+		int h = image.getHeight();image.getRGB(0, 0, w, h, pixels, 0, w);
+		  } catch (IOException e) {
+			e.printStackTrace();
+		}
+	 
+	 private void load() {
+		  try {
+			BufferedImage image = ImageIO.read(SpriteSheet.class.getResource(path));
+		int w = image.getWidth();
+		int h = image.getHeight();image.getRGB(0, 0, w, h, pixels, 0, w);
+		  } catch (IOException e) {
+			e.printStackTrace();
+		}
+		 
+	 }
+	 
+}
+			 
+		
+			 
+		
+	 

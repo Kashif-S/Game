@@ -1,19 +1,19 @@
 package com.ready.rain.level.tile;
 
 import com.ready.rain.graphics.Screen;
-import com.ready.rain.graphics.Sprite;
+import com.ready.rain.graphics.WorldSprite;
 
-public class Tile {
+public class WorldTile {
 
 	public int x, y;
-	public Sprite sprite;
+	public World sprite;
 	public static Tile grass = new GrassTile(Sprite.grass);
 	public static Tile grass2 = new Grass2(Sprite.grass2);
 	public static Tile grass3 = new Grass3(Sprite.grass3);
 	public static Tile grass4 = new Grass4(Sprite.grass4);
 	public static Tile grass5 = new Grass5(Sprite.grass5);
 	public static Tile voidTile = new VoidTile(Sprite.voidSprite);
-	public Tile(Sprite sprite) {
+	public WorldTile(WorldSprite sprite) {
 		this.sprite = sprite;
 	}
 	
@@ -25,4 +25,3 @@ public class Tile {
 	return false;	
 	}
 	}
-

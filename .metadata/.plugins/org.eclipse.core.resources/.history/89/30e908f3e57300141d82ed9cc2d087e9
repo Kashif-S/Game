@@ -10,7 +10,7 @@ import java.util.Random;
 public class ImageWriter {
 	protected static final Random random = new Random();
 	protected static final Random random1 = new Random();
-	public static float rand;
+	private static float rand;
 	private static float i = 0.5f;
 	private static float rand1= i;
 
