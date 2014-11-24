@@ -55,11 +55,8 @@ public class ImageWriter {
             if (data3[x][y]>= 0.5){
                 data3[x][y]=1;
             }
-            if (data3[x][y] <= 0.4){
-                data3[x][y]=0.3;
-            }
-            if (data3[x][y] <= 0.2 ){
-                data3[x][y]=0.1;
+            if (data3[x][y] < 0.5){
+                data3[x][y]=0;
             }
            /* if (data3[x][y] >= 0.3 && data3[x][y] < 0.5){
                 data3[x][y]=0.3;
