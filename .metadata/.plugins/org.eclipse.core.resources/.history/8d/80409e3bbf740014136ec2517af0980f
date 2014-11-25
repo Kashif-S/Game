@@ -61,6 +61,12 @@ public class Level {
 			if (tiles[x + y * width] <= 3) return Tile.grass2;
 			if (tiles[x + y * width] == 20) return Tile.grass3;
 
+
+			
+
+
+			
+			
 			return Tile.grass;
 		}
 		

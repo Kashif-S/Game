@@ -7,7 +7,7 @@ public final class World {
 
 	private String path;
 	 public final int WSIZE;
-	 public static int[] biomes;
+	 public int[] biomes;
 	 private static float rand = ImageWriter.rand;
 	 public static World worldtiles = new World("/src/" + rand +"world.png", 3000);
 	 
