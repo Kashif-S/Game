@@ -83,7 +83,7 @@ public class ImageWriter {
 
         try {
             // retrieve image
-            File outputfile = new File("world" + (int)rand + ".png" );
+            File outputfile = new File("textures/world" + (int)rand + ".png" );
             outputfile.createNewFile();
 
             ImageIO.write(image, "png", outputfile);

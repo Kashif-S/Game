@@ -1,4 +1,4 @@
-package com.ready.rain.graphics;
+/*package com.ready.rain.graphics;
 
 import java.awt.Component;
 import java.awt.image.BufferedImage;
@@ -47,4 +47,4 @@ public static void main(String[] args) {
     }
   }
  
-}
+}*/

@@ -8,11 +8,9 @@ import javax.imageio.ImageIO;
  
 
 public class ImageReader extends Component {
-
-	private static final long serialVersionUID = 1L;
-
-public static void main(String[] args) {
-    new ImageReader();
+ 
+  public static void main(String[] foo) {
+   // new ImageReader();
   }
  
   public void printPixelARGB(int pixel) {
