@@ -8,4 +8,5 @@
 <fullyQualifiedTypeName name="java.awt.Font"/>
 <fullyQualifiedTypeName name="com.ready.rain.input.Keyboard"/>
 <fullyQualifiedTypeName name="com.ready.rain.level.SimplexNoise"/>
+<fullyQualifiedTypeName name="javax.imageio.ImageReader"/>
 </qualifiedTypeNameHistroy>

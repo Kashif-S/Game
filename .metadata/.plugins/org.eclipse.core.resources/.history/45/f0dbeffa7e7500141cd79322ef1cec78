@@ -36,7 +36,7 @@ public class Level {
 		public void update(){
 			
 		}
-	
+		
 		private void time() {
 			
 		}
@@ -59,8 +59,8 @@ public class Level {
 		
 		public Tile getColor(int x, int y) {
 			if (x < 0 || y < 0 || x >= width || y >= height) return Tile.voidTile;
-			//if (Color[x + y * width] <= 3) return Tile.grass2;
-			//if (Color[x + y * width] == 20) return Tile.grass3;
+			if (Color[x + y * width] <= 3) return Tile.grass2;
+			if (Color[x + y * width] == 20) return Tile.grass3;
 
 			return Tile.grass;
 		}

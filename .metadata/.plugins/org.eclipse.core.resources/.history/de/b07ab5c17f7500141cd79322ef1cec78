@@ -81,6 +81,51 @@ public class Game extends Canvas implements Runnable {
 		character = new Character (width*scale/2,height*scale/2,image1,image2,image3,image4,image5,image6,0,10,11,-16,44,10,11,-16,35,68,14,12,17,69);
 	}
 	
+	public static final String IMG = "world57.png";
+
+	public static void main1(String[] args) {
+
+	    BufferedImage img;
+
+	    try {
+	        img = ImageIO.read(new File(IMG));
+
+	        int[][] pixelData = new int[img.getHeight() * img.getWidth()][3];
+	        int[] rgb;
+
+	        int counter = 0;
+	        for(int i = 0; i < img.getHeight(); i++){
+	            for(int j = 0; j < img.getWidth(); j++){
+	                rgb = getPixelData(img, i, j);
+
+	                for(int k = 0; k < rgb.length; k++){
+	                    pixelData[counter][k] = rgb[k];
+	                }
+
+	                counter++;
+	            }
+	        }
+
+
+	    } catch (IOException e) {
+	        e.printStackTrace();
+	    }
+
+	}
+
+	private static int[] getPixelData(BufferedImage img, int x, int y) {
+	int argb = img.getRGB(x, y);
+
+	int rgb[] = new int[] {
+	    (argb >> 16) & 0xff, //red
+	    (argb >>  8) & 0xff, //green
+	    (argb      ) & 0xff  //blue
+	};
+
+	System.out.println("HI I MADE IT" +"rgb: " + rgb[0] + " " + rgb[1] + " " + rgb[2]);
+	return rgb;
+	}
+	
 	public synchronized void start () {
 		running = true;
 		thread = new Thread (this, "Display"); 
@@ -118,7 +163,7 @@ public class Game extends Canvas implements Runnable {
 			
 			if (System.currentTimeMillis() - timer > 1000) {
 				timer += 1000;
-				System.out.println(updates + "ups, " + frames + "fps");
+				//System.out.println(updates + "ups, " + frames + "fps");
 				frame.setTitle(title + "   |   "   + updates + "ups, " + frames + "fps");
 				updates = 0;
 				frames = 0;
@@ -245,6 +290,7 @@ public static void main (String[] args){
 }
 
 //
+
 
 
 //

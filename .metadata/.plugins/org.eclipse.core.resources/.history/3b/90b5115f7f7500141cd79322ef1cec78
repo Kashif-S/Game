@@ -36,7 +36,7 @@ public class Level {
 		public void update(){
 			
 		}
-	
+		
 		private void time() {
 			
 		}
