@@ -21,17 +21,19 @@ public class Animation extends JPanel {
 	boolean dir = true;
 	boolean prev = false;
 	double rot = 0;
-	BufferedImage image7;
 	BufferedImage image1;
 	BufferedImage image2;
 	BufferedImage image3;
 	BufferedImage image4;
 	BufferedImage image5;
 	BufferedImage image6;
+	BufferedImage image7;
+	BufferedImage image8;
 	BufferedImage img3;
 	BufferedImage img1;
 	BufferedImage img2;
 	BufferedImage img4;
+	BufferedImage img5;
 
 
 	public void AnimateLegs(BufferStrategy bs, Character character, boolean moving,boolean facing){
@@ -52,6 +54,10 @@ public class Animation extends JPanel {
 		int yjoint6 = character.yjoint6;	
 		int xjoint7 = character.xjoint7;
 		int yjoint7 = character.yjoint7;
+		int xjoint8 = character.xjoint8;
+		int yjoint8 = character.yjoint8;
+		int xjoint9 = character.xjoint9;
+		int yjoint9 = character.yjoint9;
 		if(facing != prev){
 			dir = true;
 			rot = 0;
@@ -82,11 +88,13 @@ public class Animation extends JPanel {
 			img2 = character.lefttorso;
 			img3 = character.leftarm;
 			img4 = character.leftleg;
+			img5 = character.lefthead;
 		}else{	
 			img3 = character.rightarm;
 			img1 = image1;
 			img2 = character.righttorso;
 			img4 = character.rightleg;
+			img5 = character.righthead;
 		
 		}
 		//img3 = image5;
@@ -185,6 +193,24 @@ public class Animation extends JPanel {
 		g5.drawImage(img3, x + xjoint3 -2 * xjoint4, y - yjoint3 + yjoint4, null);
 	}
 	g5.dispose();
+	
+	Graphics2D g8 = (Graphics2D) bs.getDrawGraphics();
+	
+	if(facing == true){
+		g8.translate(x - xjoint8, y - yjoint8);
+		g8.rotate(Math.toRadians(-rot));
+		g8.translate(-(x - xjoint8), -(y - yjoint8));
+		g8.drawImage(img5, x - img5.getHeight() + xjoint8 + xjoint9, y  - img5.getHeight() - yjoint9 + yjoint8, null);
+	
+	}else{
+		xjoint1 += character.lefttorso.getWidth();
+		g8.translate(x + xjoint1, y - yjoint1);
+		g8.rotate(Math.toRadians(-rot));
+		g8.translate(-x - xjoint1, -y + yjoint1);
+		g8.drawImage(img5, x + xjoint1 -2 * xjoint2, y - yjoint1 + yjoint2, null);
+	}
+	
+	g8.dispose();
 	
 }
 
