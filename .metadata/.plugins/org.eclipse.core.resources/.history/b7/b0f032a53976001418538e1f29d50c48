@@ -10,7 +10,7 @@ import javax.imageio.ImageIO;
 
 public class ImageReader extends Component {
 
-	//private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 	public static int red;
 	public static int green;
 	public static int blue;
@@ -20,13 +20,13 @@ public static void main(String[] args) {
   }
  
   public void printPixelARGB(int pixel) {
-   // int red = (pixel >> 16) & 0xff;
-   // int green = (pixel >> 8) & 0xff;
-    //int blue = (pixel) & 0xff;
+    int red = (pixel >> 16) & 0xff;
+    int green = (pixel >> 8) & 0xff;
+    int blue = (pixel) & 0xff;
    System.out.println("argb: " + red + ", " + green + ", " + blue);
   }
  
- /* private void marchThroughImage(BufferedImage image) {
+  private void marchThroughImage(BufferedImage image) {
     int w = image.getWidth();
     int h = image.getHeight();
     System.out.println("width, height: " + w + ", " + h);
@@ -37,16 +37,16 @@ public static void main(String[] args) {
         int pixel = image.getRGB(j, i);
         printPixelARGB(pixel);
         System.out.println("Percentage:" + (i*100/h));
-     //  com.ready.rain.level.Level.tiles[i + j * 2500] =  pixel; 
+     //  com.ready.rain.level.Level.tiles[i + j * 2500] =  pixel;
       }
     }
-  }*/
+  }
  
   public ImageReader() {
     try {
       // get the BufferedImage, using the ImageIO class
       BufferedImage image = ImageIO.read(this.getClass().getResource("/textures/world46.png"));
-     // marchThroughImage(image);
+      marchThroughImage(image);
     } catch (IOException e) {
     	e.printStackTrace();
     }

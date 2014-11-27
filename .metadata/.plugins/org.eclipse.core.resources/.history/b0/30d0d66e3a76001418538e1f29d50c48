@@ -10,13 +10,14 @@ public class Level {
 		protected int[] treepart;
 		protected int width, height;
 		public static int[] tiles;	
+		protected int[]Color;
 		public Level(int width, int height) {
 		this.width = width;	
 		this.height = height;
 		tiles = new int[width * height];
-		/*int red = ImageReader.red;
+		int red = ImageReader.red;
 		int green = ImageReader.green;
-		int blue = ImageReader.blue;*/
+		int blue = ImageReader.blue;
 
 		
 
@@ -43,6 +44,7 @@ public class Level {
 		private void time() {
 			
 		}
+		private int a = 16;
 		public void render(int xScroll, int yScroll, Screen screen) {
 		screen.setOffset(xScroll, yScroll);	
 		int x0 = xScroll >> 4; 
@@ -61,6 +63,7 @@ public class Level {
 		
 		public Tile gettile(int x, int y) {
 			if (x < 0 || y < 0 || x >= width || y >= height) return Tile.voidTile;
+			//
 			
 			if (tiles[x + y * width] == 0x000000) return Tile.grass2;
 			//if (tiles[x + y * width] == 20) return Tile.grass3;
