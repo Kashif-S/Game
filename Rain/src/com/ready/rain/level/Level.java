@@ -1,6 +1,7 @@
 package com.ready.rain.level;
 import com.ready.rain.level.tile.Tile;
 import com.ready.rain.graphics.Screen;
+import com.ready.rain.graphics.ImageReader;
 public class Level {
 
 		protected int treenum = 0;
@@ -14,6 +15,9 @@ public class Level {
 		this.width = width;	
 		this.height = height;
 		tiles = new int[width * height];
+		int red = ImageReader.red;
+		int green = ImageReader.green;
+		int blue = ImageReader.blue;
 
 		
 
@@ -52,13 +56,15 @@ public class Level {
 		
 			for (int y = y0; y < y1;y++){
 				for (int x = x0; x < x1;x++){
-				getColor(x,y).render(x,y,screen);
+				getrgb(x,y,ImageReader.red,ImageReader.blue,ImageReader.green).render(x,y,screen);
 			}
 		}
 		}
 		
-		public Tile getColor(int x, int y) {
+		public Tile getrgb(int x, int y, int red, int blue, int green) {
 			if (x < 0 || y < 0 || x >= width || y >= height) return Tile.voidTile;
+			if (red >= 100) return Tile.voidTile;
+			//if (red == 0 && blue == 0 )
 			//if (Color[x + y * width] <= 3) return Tile.grass2;
 			//if (Color[x + y * width] == 20) return Tile.grass3;
 

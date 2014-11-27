@@ -11,6 +11,9 @@ import javax.imageio.ImageIO;
 public class ImageReader extends Component {
 
 	private static final long serialVersionUID = 1L;
+	public static int red;
+	public static int green;
+	public static int blue;
 
 public static void main(String[] args) {
     new ImageReader();
@@ -34,7 +37,7 @@ public static void main(String[] args) {
         int pixel = image.getRGB(j, i);
         printPixelARGB(pixel);
         System.out.println("Percentage:" + (i*100/h));
-       com.ready.rain.level.Level.tiles[i + j * 2500] =  pixel;
+     //  com.ready.rain.level.Level.tiles[i + j * 2500] =  pixel;
       }
     }
   }
