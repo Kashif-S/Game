@@ -9,4 +9,7 @@
 <fullyQualifiedTypeName name="com.ready.rain.input.Keyboard"/>
 <fullyQualifiedTypeName name="com.ready.rain.level.SimplexNoise"/>
 <fullyQualifiedTypeName name="javax.imageio.ImageReader"/>
+<fullyQualifiedTypeName name="com.ready.rain.graphics.ImageReader"/>
+<fullyQualifiedTypeName name="com.ready.rain.ImageWriter"/>
+<fullyQualifiedTypeName name="com.ready.rain.level.Level"/>
 </qualifiedTypeNameHistroy>

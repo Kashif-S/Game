@@ -1,28 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
-	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
-		<item value="1366" key="DIALOG_WIDTH"/>
-		<item value="422" key="DIALOG_Y_ORIGIN"/>
-		<item value="8" key="DIALOG_X_ORIGIN"/>
-		<item value="314" key="DIALOG_HEIGHT"/>
-		<item value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>
-	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item value="true" key="wrap"/>
-		<item value="false" key="casesensitive"/>
 		<item value="false" key="isRegEx"/>
+		<item value="m" key="selection"/>
+		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
+		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
-		<item value="biomes" key="selection"/>
 		<list key="findhistory">
+			<item value="Reader"/>
+			<item value="Reader\"/>
+			<item value="iMaGe"/>
+			<item value="imageREADER"/>
 			<item value="pixels"/>
 			<item value="getNoise"/>
 			<item value="&amp;&amp;"/>
 			<item value="player"/>
-			<item value="character"/>
-			<item value="img4"/>
-			<item value="img3"/>
-			<item value="img2"/>
 		</list>
 		<list key="replacehistory">
 			<item value="biomes"/>
@@ -31,5 +24,12 @@
 			<item value="img"/>
 			<item value="level"/>
 		</list>
+	</section>
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
+		<item value="1280" key="DIALOG_WIDTH"/>
+		<item value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>
+		<item value="314" key="DIALOG_HEIGHT"/>
+		<item value="338" key="DIALOG_Y_ORIGIN"/>
+		<item value="-127" key="DIALOG_X_ORIGIN"/>
 	</section>
 </section>

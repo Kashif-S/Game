@@ -22,9 +22,10 @@ import com.ready.rain.level.SimplexNoise;
 import com.ready.rain.mobs.Animation;
 import com.ready.rain.entity.mib.Character;
 import com.ready.rain.graphics.LoadImages;
+import com.ready.rain.graphics.ImageReader;
 
 public class Game extends Canvas implements Runnable {
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L; 
 
 	public  Image img = null;
 	
@@ -51,6 +52,7 @@ public class Game extends Canvas implements Runnable {
 	private Animation animation;
 	private Character character;
 	private LoadImages load;
+	private ImageReader read;
 	
 	
 	
@@ -68,7 +70,8 @@ public class Game extends Canvas implements Runnable {
 		frame = new JFrame() ;
 		key = new Keyboard();
 		addKeyListener (key);	
-		level = new Randomlevel(3000, 3000);
+		level = new Randomlevel(2500, 2500);
+		read = new ImageReader();
 		
 		
 		image1 = load.LoadImage("/textures/leo_righttorso.png");
@@ -189,12 +192,12 @@ public static void main (String[] args){
 
 
     double xStart=Math.random()*10000;
-    double XEnd=xStart+250;
+    double XEnd=xStart+2500;
     double yStart=xStart;
     double yEnd=XEnd;
 
-    int xResolution=3000;
-    int yResolution=3000;
+    int xResolution=2500;
+    int yResolution=2500;
 
     double[][] result=new double[xResolution][yResolution];
 
@@ -206,12 +209,12 @@ public static void main (String[] args){
         }
     }
     double xStart2=Math.random()*10000;
-    double XEnd2=xStart2+250;
+    double XEnd2=xStart2+2500;
     double yStart2=xStart2;
     double yEnd2=XEnd2;
 
-    int xResolution2=3000;
-    int yResolution2=3000;
+    int xResolution2=xResolution;
+    int yResolution2=yResolution;
 
     double[][] result2=new double[xResolution2][yResolution2];
 
@@ -223,13 +226,14 @@ public static void main (String[] args){
         }
     }
     
+    
     double xStart3=Math.random()*10000;
-    double XEnd3=xStart3+250;
+    double XEnd3=xStart3+2500;
     double yStart3=xStart3;
     double yEnd3=XEnd3;
 
-    int xResolution3=3000;
-    int yResolution3=3000;
+    int xResolution3=xResolution;
+    int yResolution3=yResolution;
 
     double[][] result3=new double[xResolution3][yResolution3];
 

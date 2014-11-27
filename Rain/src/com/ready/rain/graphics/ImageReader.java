@@ -3,6 +3,7 @@ package com.ready.rain.graphics;
 import java.awt.Component;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import com.ready.rain.level.Level;
 
 import javax.imageio.ImageIO;
  
@@ -32,7 +33,8 @@ public static void main(String[] args) {
         System.out.println("x,y: " + j + ", " + i);
         int pixel = image.getRGB(j, i);
         printPixelARGB(pixel);
-        System.out.println("");
+        System.out.println("Percentage:" + (i*100/h));
+       com.ready.rain.level.Level.tiles[i + j * 2500] =  pixel;
       }
     }
   }
@@ -40,7 +42,7 @@ public static void main(String[] args) {
   public ImageReader() {
     try {
       // get the BufferedImage, using the ImageIO class
-      BufferedImage image = ImageIO.read(this.getClass().getResource("/textures/world32.png"));
+      BufferedImage image = ImageIO.read(this.getClass().getResource("/textures/world46.png"));
       marchThroughImage(image);
     } catch (IOException e) {
     	e.printStackTrace();

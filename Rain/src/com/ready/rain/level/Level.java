@@ -8,7 +8,7 @@ public class Level {
 		protected boolean trees = true;
 		protected int[] treepart;
 		protected int width, height;
-		protected int[] tiles;	
+		public static int[] tiles;	
 		protected int[]Color;
 		public Level(int width, int height) {
 		this.width = width;	
