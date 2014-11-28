@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
 <fullyQualifiedTypeName name="com.ready.rain.graphics.LoadImages"/>
-<fullyQualifiedTypeName name="java.awt.image.BufferedImage"/>
 <fullyQualifiedTypeName name="com.ready.rain.entity.mib.Character"/>
 <fullyQualifiedTypeName name="java.lang.System"/>
 <fullyQualifiedTypeName name="com.ready.rain.entity.mib.Mob"/>
@@ -12,4 +11,9 @@
 <fullyQualifiedTypeName name="com.ready.rain.graphics.ImageReader"/>
 <fullyQualifiedTypeName name="com.ready.rain.ImageWriter"/>
 <fullyQualifiedTypeName name="com.ready.rain.level.Level"/>
+<fullyQualifiedTypeName name="com.ready.rain.level.tile.Tile"/>
+<fullyQualifiedTypeName name="javax.imageio.ImageIO"/>
+<fullyQualifiedTypeName name="java.awt.image.BufferedImage"/>
+<fullyQualifiedTypeName name="java.io.IOException"/>
+<fullyQualifiedTypeName name="com.ready.rain.level.ReadLevel"/>
 </qualifiedTypeNameHistroy>
