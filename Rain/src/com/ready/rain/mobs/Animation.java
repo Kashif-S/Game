@@ -197,17 +197,17 @@ public class Animation extends JPanel {
 	Graphics2D g8 = (Graphics2D) bs.getDrawGraphics();
 	
 	if(facing == true){
-		g8.translate(x - xjoint8, y - yjoint8);
+		g8.translate(x + xjoint8, y - yjoint8 - yjoint9);
 		g8.rotate(Math.toRadians(-rot));
-		g8.translate(-(x - xjoint8), -(y - yjoint8));
-		g8.drawImage(img5, x - img5.getHeight() + xjoint8 + xjoint9, y  - img5.getHeight() - yjoint9 + yjoint8, null);
+		g8.translate(-(x + xjoint8), -(y - yjoint8 - yjoint9));
+		g8.drawImage(img5, x + xjoint8 - xjoint9, y + yjoint8 - yjoint9 - img5.getHeight(), null);
 	
 	}else{
-		xjoint1 += character.lefttorso.getWidth();
-		g8.translate(x + xjoint1, y - yjoint1);
+		xjoint8 -= character.lefttorso.getWidth() - xjoint9;
+		g8.translate(x + xjoint8, y - yjoint8 - yjoint9);
 		g8.rotate(Math.toRadians(-rot));
-		g8.translate(-x - xjoint1, -y + yjoint1);
-		g8.drawImage(img5, x + xjoint1 -2 * xjoint2, y - yjoint1 + yjoint2, null);
+		g8.translate(-(x + xjoint8), -(y - yjoint8 - yjoint9));
+		g8.drawImage(img5, x - xjoint8 - xjoint9, y + yjoint8 - yjoint9 - img5.getHeight(), null);
 	}
 	
 	g8.dispose();

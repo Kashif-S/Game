@@ -87,7 +87,7 @@ public class Game extends Canvas implements Runnable {
 		image7 = load.LoadImage("/textures/leo_righthead.png");
 		image8 = load.LoadImage("/textures/leo_lefthead.png");
 
-		character = new Character (width*scale/2,height*scale/2,image1,image2,image3,image4,image5,image6,image7,image8,0,10,11,-16,44,10,11,-16,35,68,14,12,17,69,15,5,12,21);
+		character = new Character (width*scale/2,height*scale/2,image1,image2,image3,image4,image5,image6,image7,image8,0,10,11,-16,44,10,11,-16,35,68,14,12,17,69,20,0,12,21);
 	}
 	
 	public synchronized void start () {
@@ -139,15 +139,15 @@ public class Game extends Canvas implements Runnable {
 	public void update () {
 		key.update();
 		if (key.up) 
-			y-= 50;
+			y-= 2.5;
 		if (key.down) 
-			y+= 50;
+			y+=2.5;
 		if (key.left){
-			x-= 50;
+			x-=2.5;
 			facing = true;
 		}
 		if (key.right){
-			x+=50; 
+			x+=2.5; 
 			facing = false;
 		}
 

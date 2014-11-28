@@ -1,0 +1,46 @@
+package com.ready.rain.level;
+
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
+
+import com.ready.rain.level.tile.Tile;
+
+public class ReadLevel extends Level{
+
+	
+	private int[] wrldpx;
+	
+	public ReadLevel (String path) {
+		super (path);	
+		}
+	protected void loadLevel (String path) {
+		try{
+			BufferedImage image = ImageIO.read(ReadLevel.class.getResource(path));
+		int w = image.getWidth();
+		int h = image.getHeight();
+		tiles = new Tile [w * h];
+		wrldpx = new int [w * h];		
+		image.getRGB(0, 0, w, h, wrldpx, 0, w);
+		} catch (IOException e) {
+			e.printStackTrace();
+			System.out.println("Problem in Reading / loading image file"); 
+			
+		}
+	}
+	
+	protected void generateLevel() {
+		for (int p = 0; p < wrldpx.length; p++){
+			if (wrldpx[p] == 0xFF000000) {tiles[p] = Tile.grass;
+		}		
+			else if (wrldpx[p] == 0x00FF0000) {tiles[p] = Tile.grass2;
+		}
+			else if (wrldpx[p] == 0x0000FF00) {tiles[p] = Tile.grass3;
+		}
+		else tiles[p] = Tile.voidTile;
+		}
+	}
+}
+		
+
