@@ -25,6 +25,7 @@ import com.ready.rain.level.SimplexNoise;
 import com.ready.rain.mobs.Animation;
 import com.ready.rain.entity.mib.Character;
 import com.ready.rain.graphics.LoadImages;
+import com.ready.rain.WriteFile;
 
 
 public class Game extends Canvas implements Runnable {
@@ -36,8 +37,9 @@ public class Game extends Canvas implements Runnable {
 	public static int height = width / 16 * 9;
 	public static int scale = 4;
 	public static  String title = "Rain";	
-	
-	private Level level;
+	private static int rand = (int) ImageWriter.getRand();
+	private static WriteFile WriteFile;
+	private static Level level;
 	private Thread thread;	
 	private JFrame frame;
 	private Keyboard key;
@@ -73,9 +75,12 @@ public class Game extends Canvas implements Runnable {
 		animation = new Animation();
 		frame = new JFrame() ;
 		key = new Keyboard();
+		level = new ReadLevel ("/textures/world" + rand + ".png" );
 		addKeyListener (key);	
-		float rand = ImageWriter.rand;
-		level = new ReadLevel ("/textures/world8.png" );
+	
+		
+
+		
 		
 		
 		image1 = load.LoadImage("/textures/leo_righttorso.png");
@@ -193,6 +198,8 @@ public static void main (String[] args){
 	game.frame.setVisible(true);
 	
 	game.start();
+	
+
 	SimplexNoise simplexNoise=new SimplexNoise(100,0.1,5000);
 
 
@@ -252,6 +259,8 @@ public static void main (String[] args){
     }
 
     ImageWriter.greyWriteImage(result,result2,result3);
+    WriteFile = new WriteFile("WorldSave.png");
+	
 }
 
 
