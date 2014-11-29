@@ -4,7 +4,13 @@ import java.awt.Color;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+
 import javax.imageio.ImageIO;
+
+import com.ready.rain.level.Level;
+import com.ready.rain.level.ReadLevel;
+import com.ready.rain.Game;
+
 import java.util.Random;
 
 public class ImageWriter {
@@ -13,6 +19,7 @@ public class ImageWriter {
 	public static float rand;
 	private static float i = 0.5f;
 	private static float rand1= i;
+
 
 
     public static void greyWriteImage(double [][] data,double [][] data2,double [][] data3){
@@ -83,12 +90,18 @@ public class ImageWriter {
             File outputfile = new File("res/textures/world" + (int)rand + ".png" );
             outputfile.createNewFile();
             System.out.println("done");
-
             ImageIO.write(image, "png", outputfile);
+
+
         } catch (IOException e) {
             //o no! Blank catches are bad
             throw new RuntimeException("I didn't handle this very well");
         }
+        
+  
+        Game.level = new ReadLevel("/textures/world" + (int)rand + ".png" );
+			Game.loaded = true;
+  
     }
 
 	public static float getRand() {

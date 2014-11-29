@@ -39,7 +39,8 @@ public class Game extends Canvas implements Runnable {
 	public static  String title = "Rain";	
 	private static int rand = (int) ImageWriter.getRand();
 	private static WriteFile WriteFile;
-	private static Level level;
+	public static boolean loaded = false;
+
 	private Thread thread;	
 	private JFrame frame;
 	private Keyboard key;
@@ -59,7 +60,7 @@ public class Game extends Canvas implements Runnable {
 	private Animation animation;
 	private Character character;
 	private LoadImages load;
-	
+	public static Level level;
 	
 	
 	
@@ -75,7 +76,7 @@ public class Game extends Canvas implements Runnable {
 		animation = new Animation();
 		frame = new JFrame() ;
 		key = new Keyboard();
-		level = new ReadLevel ("/textures/world" + rand + ".png" );
+
 		addKeyListener (key);	
 	
 		
@@ -164,8 +165,9 @@ public class Game extends Canvas implements Runnable {
 			return;
 		}
 		screen.clear();
+		if(loaded){
 		level.render(x, y, screen);
-		
+		}
 		for (int i = 0; i < pixels.length; i++) {
 			pixels [i] = screen.pixels [i];
 		}
@@ -260,7 +262,11 @@ public static void main (String[] args){
 
     ImageWriter.greyWriteImage(result,result2,result3);
     WriteFile = new WriteFile("WorldSave.png");
-	
+
+    
+    if(loaded){
+ //       Game.level = new ReadLevel("/textures/world9.png" );
+    }
 }
 
 
