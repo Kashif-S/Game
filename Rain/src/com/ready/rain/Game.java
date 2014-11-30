@@ -132,7 +132,7 @@ public class Game extends Canvas implements Runnable {
 			frames ++;
 			
 			if (System.currentTimeMillis() - timer > 1000) {
-				timer += 1000;
+				timer += 1000; 
 				System.out.println(updates + "ups, " + frames + "fps");
 				frame.setTitle(title + "   |   "   + updates + "ups, " + frames + "fps");
 				updates = 0;
@@ -145,11 +145,11 @@ public class Game extends Canvas implements Runnable {
 	public void update () {
 		key.update();
 		if (key.up) 
-			y-=1.5;
+			y-=1;
 		if (key.down) 
 			y+=1.5;
 		if (key.left){
-			x-=1.5;
+			x-=1;
 			facing = true;
 		}
 		if (key.right){
@@ -265,8 +265,8 @@ public static void main (String[] args){
 
     
     if(loaded){
-System.out.println("world" + rand + ".png");    	
-        Game.level = new ReadLevel("/textures/world" + rand + ".png" );
+System.out.println("world" + (int)ImageWriter.getRand() + ".png");    	
+        Game.level = new ReadLevel("/textures/world" + (int)ImageWriter.getRand() + ".png" );
     }
 }
 
