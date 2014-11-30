@@ -265,7 +265,8 @@ public static void main (String[] args){
 
     
     if(loaded){
- //       Game.level = new ReadLevel("/textures/world9.png" );
+System.out.println("world" + rand + ".png");    	
+        Game.level = new ReadLevel("/textures/world" + rand + ".png" );
     }
 }
 
