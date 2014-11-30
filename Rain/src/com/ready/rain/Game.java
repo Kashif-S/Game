@@ -145,15 +145,15 @@ public class Game extends Canvas implements Runnable {
 	public void update () {
 		key.update();
 		if (key.up) 
-			y-= 2.5;
+			y-=1.5;
 		if (key.down) 
-			y+=2.5;
+			y+=1.5;
 		if (key.left){
-			x-=2.5;
+			x-=1.5;
 			facing = true;
 		}
 		if (key.right){
-			x+=2.5; 
+			x+=1.5; 
 			facing = false;
 		}
 
@@ -207,7 +207,7 @@ public static void main (String[] args){
 
 
     double xStart=Math.random()*10000;
-    double XEnd=xStart+2500;
+    double XEnd=xStart+2500/1.25;
     double yStart=xStart;
     double yEnd=XEnd;
 
@@ -224,7 +224,7 @@ public static void main (String[] args){
         }
     }
     double xStart2=Math.random()*10000;
-    double XEnd2=xStart2+2500;
+    double XEnd2=xStart2+2500/1.25;
     double yStart2=xStart2;
     double yEnd2=XEnd2;
 
@@ -243,7 +243,7 @@ public static void main (String[] args){
     
     
     double xStart3=Math.random()*10000;
-    double XEnd3=xStart3+2500;
+    double XEnd3=xStart3+2500/1.25;
     double yStart3=xStart3;
     double yEnd3=XEnd3;
 
