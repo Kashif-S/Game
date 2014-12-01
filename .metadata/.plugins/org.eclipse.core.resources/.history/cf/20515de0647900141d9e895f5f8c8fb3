@@ -1,5 +1,4 @@
 package com.ready.rain.level;
-import com.ready.rain.Game;
 
 import java.awt.image.BufferedImage;
 import java.io.IOException;
@@ -13,12 +12,9 @@ public class ReadLevel extends Level{
 	
 	private int[] wrldpx;
 	
-	
 	public ReadLevel (String path) {
 		super (path);	
-	}
-
-		
+		}
 	protected void loadLevel (String path) {
 		try{
 			BufferedImage image = ImageIO.read(ReadLevel.class.getResource(path));

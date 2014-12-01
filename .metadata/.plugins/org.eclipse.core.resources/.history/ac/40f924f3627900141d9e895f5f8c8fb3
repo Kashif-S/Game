@@ -40,7 +40,6 @@ public class Game extends Canvas implements Runnable {
 	private static int rand = (int) ImageWriter.getRand();
 	private static WriteFile WriteFile;
 	public static boolean loaded = false;
-	public static boolean menu = true; 
 
 	private Thread thread;	
 	private JFrame frame;
@@ -169,7 +168,6 @@ public class Game extends Canvas implements Runnable {
 		if(loaded){
 		level.render(x, y, screen);
 		}
-	
 		for (int i = 0; i < pixels.length; i++) {
 			pixels [i] = screen.pixels [i];
 		}
@@ -271,7 +269,6 @@ System.out.println("world" + (int)ImageWriter.getRand() + ".png");
         Game.level = new ReadLevel("/textures/world" + (int)ImageWriter.getRand() + ".png" );
     }
 }
-
 
 
 

@@ -1,11 +1,9 @@
 package com.ready.rain.level;
-import com.ready.rain.Game;
 import com.ready.rain.level.tile.Tile;
 import com.ready.rain.graphics.Screen;
 
 public class Level {
-		public boolean menu = Game.menu;
-		public boolean loaded = Game.loaded;
+
 		protected Tile[] tiles;
 		protected int width, height;
 		public static int[] tilesDif;	
@@ -43,9 +41,7 @@ public class Level {
 		int x1 = (xScroll + screen.width + 16) >> 4;
 		int y0 = yScroll >> 4;
 		int y1 = (yScroll + screen.height + 16) >> 4;
-		if (menu){
-			
-		}
+
 		
 		
 			for (int y = y0; y < y1;y++){

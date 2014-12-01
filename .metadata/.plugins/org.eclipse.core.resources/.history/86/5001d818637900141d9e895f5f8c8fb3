@@ -169,7 +169,9 @@ public class Game extends Canvas implements Runnable {
 		if(loaded){
 		level.render(x, y, screen);
 		}
-	
+		else if(menu){
+			level.render(x,y,screen);
+		}
 		for (int i = 0; i < pixels.length; i++) {
 			pixels [i] = screen.pixels [i];
 		}
@@ -270,8 +272,11 @@ public static void main (String[] args){
 System.out.println("world" + (int)ImageWriter.getRand() + ".png");    	
         Game.level = new ReadLevel("/textures/world" + (int)ImageWriter.getRand() + ".png" );
     }
-}
 
+if (menu){
+	Game.level = new ReadLevel("/textures/menu.png");
+}
+}
 
 
 

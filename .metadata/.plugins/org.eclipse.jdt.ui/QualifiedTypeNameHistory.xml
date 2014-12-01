@@ -16,4 +16,5 @@
 <fullyQualifiedTypeName name="java.awt.image.BufferedImage"/>
 <fullyQualifiedTypeName name="java.io.IOException"/>
 <fullyQualifiedTypeName name="com.ready.rain.level.ReadLevel"/>
+<fullyQualifiedTypeName name="com.ready.rain.Game"/>
 </qualifiedTypeNameHistroy>

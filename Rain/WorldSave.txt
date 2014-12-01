@@ -1,2 +1,2 @@
-world32.png
-world32.png
+world21.png
+world21.png
