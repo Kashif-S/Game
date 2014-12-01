@@ -33,7 +33,7 @@ public class Game extends Canvas implements Runnable {
 
 	public  Image img = null;
 	
-	public static int width = 300;
+	public static int width = 300;  //4800
 	public static int height = width / 16 * 9;
 	public static int scale = 4;
 	public static  String title = "Rain";	
@@ -56,6 +56,12 @@ public class Game extends Canvas implements Runnable {
 	public BufferedImage image6;
 	public BufferedImage image7;
 	public BufferedImage image8;
+	
+	public BufferedImage loading;
+	public BufferedImage loading1;
+	public BufferedImage loading2;
+	public BufferedImage loading3;
+	public BufferedImage loadingscrn;
 	
 	private Screen screen;
 	private Animation animation;
@@ -93,6 +99,11 @@ public class Game extends Canvas implements Runnable {
 		image6 = load.LoadImage("/textures/leo_leftleg.png");
 		image7 = load.LoadImage("/textures/leo_righthead.png");
 		image8 = load.LoadImage("/textures/leo_lefthead.png");
+		loading = load.LoadImage("/textures/loading.png");
+		loading1 = load.LoadImage("/textures/loading1.png");
+		loading2 = load.LoadImage("/textures/loading2.png");
+		loading3 = load.LoadImage("/textures/loading3.png");
+		loadingscrn = load.LoadImage("/textures/loading.png");
 
 		character = new Character (width*scale/2,height*scale/2,image1,image2,image3,image4,image5,image6,image7,image8,0,10,11,-16,44,10,11,-16,35,68,14,12,17,69,20,0,12,21);
 	}
@@ -145,19 +156,36 @@ public class Game extends Canvas implements Runnable {
 	int x = (3000 * 16 / 2) , y = (3000 * 16 / 2);
 	public void update () {
 		key.update();
+		if(loaded){
 		if (key.up) 
-			y-=1;
+			y-=2;
 		if (key.down) 
-			y+=1.5;
+			y+=2;
 		if (key.left){
-			x-=1;
+			x-=2;
 			facing = true;
 		}
 		if (key.right){
-			x+=1.5; 
+			x+=2; 
 			facing = false;
 		}
+		}else{
+			double  i = 0;
+			i += 0.1;
+			if(i == 10){
+				loadingscrn = loading1;
+			}
+			if(i == 20){
+				loadingscrn = loading2;
+			}
+			if(i >= 30){
+				loadingscrn = loading3;
+				i = 0;
+			}
 
+
+			}
+		
 	}
 	public void render () {
 		BufferStrategy bs = getBufferStrategy();
@@ -165,17 +193,19 @@ public class Game extends Canvas implements Runnable {
 			createBufferStrategy (3) ;
 			return;
 		}
+		Graphics2D g = (Graphics2D) bs.getDrawGraphics();
+		g.drawImage (image, 0, 0, getWidth (), getHeight(), null);
 		screen.clear();
 		if(loaded){
 		level.render(x, y, screen);
-		}
+		
 	
 		for (int i = 0; i < pixels.length; i++) {
 			pixels [i] = screen.pixels [i];
 		}
 		
-		Graphics2D g = (Graphics2D) bs.getDrawGraphics();
-		g.drawImage (image, 0, 0, getWidth (), getHeight(), null);
+		
+		
 		
 		
 		if(key.up || key.down || key.right || key.left){
@@ -186,6 +216,9 @@ public class Game extends Canvas implements Runnable {
 		g.setColor(Color.WHITE);
 		g.setFont(new Font("Times New Roman", 0, 25));
 		g.drawString("X: " + x / 16 + ", Y: " + y / 16, 0, 18);
+		}else{
+			g.drawImage (loadingscrn,getWidth ()/2 - loadingscrn.getWidth()/2, getHeight()/2 - loadingscrn.getHeight()/2, null);
+		}
 		g.dispose();
 		bs.show();		
 	}
