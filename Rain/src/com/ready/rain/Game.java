@@ -49,6 +49,8 @@ public class Game extends Canvas implements Runnable {
 	public static boolean loaded = false;
 	public static boolean menu = true; 
 
+	double count;
+	boolean dir = false;
 	private Thread thread;	
 	private JFrame frame;
 	private Keyboard key;
@@ -180,17 +182,25 @@ public class Game extends Canvas implements Runnable {
 			facing = false;
 		}
 		}else{
-			double  i = 0;
-			i += 0.1;
-			if(i == 10){
+			if(dir){
+				count --;
+			}else{
+				count++;
+			}
+			if(count <= 0){
+				dir = false;
+			}
+			if(count >= 180){
+				dir = true;
+			}
+			if(count == 0){
+				loadingscrn = loading;
+			}else if(count == 60){
 				loadingscrn = loading1;
-			}
-			if(i == 20){
+			}else if(count == 120){
 				loadingscrn = loading2;
-			}
-			if(i >= 30){
+			}else if(count == 180){
 				loadingscrn = loading3;
-				i = 0;
 			}
 
 
