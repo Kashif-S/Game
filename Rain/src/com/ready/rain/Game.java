@@ -5,6 +5,7 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics2D;
 import java.awt.Image;
+import java.awt.event.KeyEvent;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferInt;
@@ -12,7 +13,13 @@ import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+import javax.swing.JCheckBoxMenuItem;
 import javax.swing.JFrame;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JRadioButtonMenuItem;
 
 import java.io.File;
 
@@ -57,6 +64,7 @@ public class Game extends Canvas implements Runnable {
 	public BufferedImage image7;
 	public BufferedImage image8;
 	
+	public BufferedImage Menu;
 	public BufferedImage loading;
 	public BufferedImage loading1;
 	public BufferedImage loading2;
@@ -83,6 +91,7 @@ public class Game extends Canvas implements Runnable {
 		animation = new Animation();
 		frame = new JFrame() ;
 		key = new Keyboard();
+		
 
 		addKeyListener (key);	
 	
@@ -104,6 +113,7 @@ public class Game extends Canvas implements Runnable {
 		loading2 = load.LoadImage("/textures/loading2.png");
 		loading3 = load.LoadImage("/textures/loading3.png");
 		loadingscrn = load.LoadImage("/textures/loading.png");
+		Menu = load.LoadImage("/textures/menu.png");
 
 		character = new Character (width*scale/2,height*scale/2,image1,image2,image3,image4,image5,image6,image7,image8,0,10,11,-16,44,10,11,-16,35,68,14,12,17,69,20,0,12,21);
 	}
@@ -158,15 +168,15 @@ public class Game extends Canvas implements Runnable {
 		key.update();
 		if(loaded){
 		if (key.up) 
-			y-=2;
+			y-=1;
 		if (key.down) 
-			y+=2;
+			y+=1.5;
 		if (key.left){
-			x-=2;
+			x-=1;
 			facing = true;
 		}
 		if (key.right){
-			x+=2; 
+			x+=1.5; 
 			facing = false;
 		}
 		}else{
@@ -196,7 +206,11 @@ public class Game extends Canvas implements Runnable {
 		Graphics2D g = (Graphics2D) bs.getDrawGraphics();
 		g.drawImage (image, 0, 0, getWidth (), getHeight(), null);
 		screen.clear();
-		if(loaded){
+		if (menu == false){
+			g.drawImage (Menu,getWidth ()/2 - Menu.getWidth()/2, getHeight()/10 - Menu.getHeight()/2, null);		
+			
+	}
+		else if(loaded ){
 		level.render(x, y, screen);
 		
 	
@@ -232,8 +246,46 @@ public static void main (String[] args){
 	game.frame.pack();
 	game.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	game.frame.setLocationRelativeTo(null);
-	game.frame.setVisible(true);
 	
+
+	
+	
+	JMenuBar menuBar;
+	JMenu menu1, submenu;
+	JMenuItem menuItem;
+	JRadioButtonMenuItem rbMenuItem;
+	JCheckBoxMenuItem cbMenuItem;
+
+	menuBar = new JMenuBar();
+
+
+	menu1 = new JMenu("File");
+	menu1.setMnemonic(KeyEvent.VK_F);
+	menu1.getAccessibleContext().setAccessibleDescription(
+	        "File menu");
+	menuBar.add(menu1);
+
+
+	menuItem = new JMenuItem("New",
+	                         new ImageIcon("textures/Startbtn.png"));
+	menuItem.setMnemonic(KeyEvent.VK_N);
+	menu1.add(menuItem);
+
+	// add a separator
+	menu1.addSeparator();
+
+	menuItem = new JMenuItem("Pause", new ImageIcon("textures/Startbtn.png"));
+	menuItem.setMnemonic(KeyEvent.VK_P);
+	menu1.add(menuItem);
+
+	menuItem = new JMenuItem("Exit", new ImageIcon("textures/quitbtn.png"));
+	menuItem.setMnemonic(KeyEvent.VK_E);
+	menu1.add(menuItem);
+
+	JMenuBar theJMenuBar = null;
+	// add menu bar to frame
+	game.frame.setJMenuBar(theJMenuBar);
+	game.frame.setVisible(true);
 	game.start();
 	
 

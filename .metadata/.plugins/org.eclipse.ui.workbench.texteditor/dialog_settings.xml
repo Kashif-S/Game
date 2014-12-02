@@ -13,16 +13,16 @@
 		<item value="false" key="isRegEx"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="loaded" key="selection"/>
+		<item value="menu1" key="selection"/>
 		<list key="findhistory">
+			<item value="menu1"/>
+			<item value="menu"/>
+			<item value="class"/>
+			<item value="getR"/>
+			<item value="EXIT"/>
+			<item value="JFrame"/>
 			<item value="loaded"/>
 			<item value="rand"/>
-			<item value="main"/>
-			<item value="Reader"/>
-			<item value="Reader\"/>
-			<item value="iMaGe"/>
-			<item value="imageREADER"/>
-			<item value="pixels"/>
 		</list>
 		<list key="replacehistory">
 			<item value="biomes"/>
