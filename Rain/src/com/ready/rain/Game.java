@@ -40,7 +40,7 @@ public class Game extends Canvas implements Runnable {
 	private static final long serialVersionUID = 1L; 
 
 	public  Image img = null;
-	
+	private static double count1 = 1;
 	public static int width = 300;  //4800
 	public static int height = width / 16 * 9;
 	public static int scale = 4;
@@ -48,8 +48,8 @@ public class Game extends Canvas implements Runnable {
 	private static int rand = (int) ImageWriter.getRand();
 	private static WriteFile WriteFile;
 	public static boolean loaded = false;
-	public static boolean menu = true; 
-	public double count;
+	public static boolean menu = false; 
+	public static double count;
 	public boolean dir = false;
 
 	private Thread thread;	
@@ -194,7 +194,8 @@ public class Game extends Canvas implements Runnable {
 			x+=1.5; 
 			facing = false;
 		}
-		}else{
+		}
+		else{
 			if(dir){
 				count --;
 			}else{
@@ -220,6 +221,10 @@ public class Game extends Canvas implements Runnable {
 			}
 		
 	}
+
+		
+	
+
 	public void render () {
 		BufferStrategy bs = getBufferStrategy();
 		if (bs == null) {
@@ -234,19 +239,18 @@ public class Game extends Canvas implements Runnable {
 		
 		g.drawString("Button x: " + Mouse.getX() + ",  Button y: " + Mouse.getY() + ", MouseBValue:" + Mouse.getButton(), 20 , 20);
 		
-		if (menu == true){
+		if (menu == false){
 			
 			g.drawImage (Menu,getWidth ()/2 - Menu.getWidth()/2 , getHeight()/10 - Menu.getHeight()/2, null);	
 			g.drawImage (Start,getWidth ()/2 - Start.getWidth()/2 - 35, getHeight()/5 - Start.getHeight()/2 + 25, null);
 			g.drawImage (Help,getWidth ()/2 - Help.getWidth()/2 - 38, getHeight()/4 - Help.getHeight()/2 + 50, null);
 			g.drawImage (Quit,getWidth ()/2 - Quit.getWidth()/2 -50, getHeight()/3 - Quit.getHeight()/2 + 50, null);
 			g.fillRect(Mouse.getX() - 10/2, Mouse.getY() -10 /2, 10, 10);
-			if(Mouse.getButton() == 1){
+			while(Mouse.getButton() == 1){
 			if(Mouse.getX() > 512 && Mouse.getX() < 615 && Mouse.getY() > 144 && Mouse.getY() < 168){
-				g.drawImage (StartB,getWidth ()/2 - StartB.getWidth()/2 - 35, getHeight()/5 - StartB.getHeight()/2 + 25, null);
-				
-				menu = false;
-				
+				System.out.println(menu);
+				menu = true;
+				System.out.println(menu);				
 			}
 			if(Mouse.getX() > 512 && Mouse.getX() < 615 && Mouse.getY() > 250 && Mouse.getY() < 270){
 				System.exit(0);
@@ -257,7 +261,7 @@ public class Game extends Canvas implements Runnable {
 			
 			
 	}
-		else if(loaded  && menu == false){
+		else if(loaded){
 		level.render(x, y, screen);
 		
 	
@@ -294,69 +298,74 @@ public static void main (String[] args){
 	
 	game.frame.setVisible(true);
 	game.start();
+	System.out.println(Game.menu);
+	
+	
+		SimplexNoise simplexNoise=new SimplexNoise(100,0.1,5000);
+		
+		System.out.println(Game.menu);
+	    double xStart=Math.random()*10000;
+	    double XEnd=xStart+2500/1.25;
+	    double yStart=xStart;
+	    double yEnd=XEnd;
+
+	    int xResolution=2500;
+	    int yResolution=2500;
+
+	    double[][] result=new double[xResolution][yResolution];
+
+	    for(int i=0;i<xResolution;i++){
+	        for(int j=0;j<yResolution;j++){
+	            int x=(int)(xStart+i*((XEnd-xStart)/xResolution));
+	            int y=(int)(yStart+j*((yEnd-yStart)/yResolution));
+	            result[i][j]=0.5*(1+simplexNoise.getNoise(x,y));
+	        }
+	    }
+	    double xStart2=Math.random()*10000;
+	    double XEnd2=xStart2+2500/1.25;
+	    double yStart2=xStart2;
+	    double yEnd2=XEnd2;
+
+	    int xResolution2=xResolution;
+	    int yResolution2=yResolution;
+
+	    double[][] result2=new double[xResolution2][yResolution2];
+
+	    for(int i=0;i<xResolution2;i++){
+	        for(int j=0;j<yResolution2;j++){
+	            int x=(int)(xStart2+i*((XEnd2-xStart2)/xResolution2));
+	            int y=(int)(yStart2+j*((yEnd2-yStart2)/yResolution2));
+	            result2[i][j]=0.5*(1+simplexNoise.getNoise(x,y));
+	        }
+	    }
+	    
+	    
+	    double xStart3=Math.random()*10000;
+	    double XEnd3=xStart3+2500/1.25;
+	    double yStart3=xStart3;
+	    double yEnd3=XEnd3;
+
+	    int xResolution3=xResolution;
+	    int yResolution3=yResolution;
+
+	    double[][] result3=new double[xResolution3][yResolution3];
+
+	    for(int i=0;i<xResolution3;i++){
+	        for(int j=0;j<yResolution3;j++){
+	            int x=(int)(xStart3+i*((XEnd3-xStart3)/xResolution3));
+	            int y=(int)(yStart3+j*((yEnd3-yStart3)/yResolution3));
+	            result3[i][j]=0.5*(1+simplexNoise.getNoise(x,y));
+	        }
+	    }
+	  
+	    ImageWriter.greyWriteImage(result,result2,result3);
+	    WriteFile = new WriteFile("WorldSave.txt");
+	    
 	
 
-	SimplexNoise simplexNoise=new SimplexNoise(100,0.1,5000);
+	
 
 
-
-    double xStart=Math.random()*10000;
-    double XEnd=xStart+2500/1.25;
-    double yStart=xStart;
-    double yEnd=XEnd;
-
-    int xResolution=2500;
-    int yResolution=2500;
-
-    double[][] result=new double[xResolution][yResolution];
-
-    for(int i=0;i<xResolution;i++){
-        for(int j=0;j<yResolution;j++){
-            int x=(int)(xStart+i*((XEnd-xStart)/xResolution));
-            int y=(int)(yStart+j*((yEnd-yStart)/yResolution));
-            result[i][j]=0.5*(1+simplexNoise.getNoise(x,y));
-        }
-    }
-    double xStart2=Math.random()*10000;
-    double XEnd2=xStart2+2500/1.25;
-    double yStart2=xStart2;
-    double yEnd2=XEnd2;
-
-    int xResolution2=xResolution;
-    int yResolution2=yResolution;
-
-    double[][] result2=new double[xResolution2][yResolution2];
-
-    for(int i=0;i<xResolution2;i++){
-        for(int j=0;j<yResolution2;j++){
-            int x=(int)(xStart2+i*((XEnd2-xStart2)/xResolution2));
-            int y=(int)(yStart2+j*((yEnd2-yStart2)/yResolution2));
-            result2[i][j]=0.5*(1+simplexNoise.getNoise(x,y));
-        }
-    }
-    
-    
-    double xStart3=Math.random()*10000;
-    double XEnd3=xStart3+2500/1.25;
-    double yStart3=xStart3;
-    double yEnd3=XEnd3;
-
-    int xResolution3=xResolution;
-    int yResolution3=yResolution;
-
-    double[][] result3=new double[xResolution3][yResolution3];
-
-    for(int i=0;i<xResolution3;i++){
-        for(int j=0;j<yResolution3;j++){
-            int x=(int)(xStart3+i*((XEnd3-xStart3)/xResolution3));
-            int y=(int)(yStart3+j*((yEnd3-yStart3)/yResolution3));
-            result3[i][j]=0.5*(1+simplexNoise.getNoise(x,y));
-        }
-    }
-    if (menu == false && loaded == false){
-    ImageWriter.greyWriteImage(result,result2,result3);
-    WriteFile = new WriteFile("WorldSave.png");
-    }
 
     
     if(loaded){

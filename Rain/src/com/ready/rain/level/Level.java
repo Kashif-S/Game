@@ -1,9 +1,14 @@
 package com.ready.rain.level;
 import com.ready.rain.Game;
+import com.ready.rain.ImageWriter;
+import com.ready.rain.WriteFile;
 import com.ready.rain.level.tile.Tile;
 import com.ready.rain.graphics.Screen;
 
 public class Level {
+	private static int rand = (int) ImageWriter.getRand();
+	private static WriteFile WriteFile;
+
 		public boolean menu = Game.menu;
 		public boolean loaded = Game.loaded;
 		protected Tile[] tiles;
@@ -67,6 +72,8 @@ public class Level {
 
 			return Tile.grass;
 		}
+
+
 		
 }
 
