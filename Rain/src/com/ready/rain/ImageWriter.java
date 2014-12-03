@@ -24,6 +24,8 @@ public class ImageWriter {
 
     public static void greyWriteImage(double [][] data,double [][] data2,double [][] data3){
         //this takes and array of doubles between 0 and 1 and generates a grey scale image from them
+    	
+    	System.out.println("creating world");
 
         BufferedImage image = new BufferedImage(data.length,data[0].length, BufferedImage.TYPE_INT_RGB);
         rand = random.nextInt(64);
