@@ -24,4 +24,6 @@
 <fullyQualifiedTypeName name="javax.swing.ImageIcon"/>
 <fullyQualifiedTypeName name="javax.swing.JRadioButtonMenuItem"/>
 <fullyQualifiedTypeName name="javax.swing.JCheckBoxMenuItem"/>
+<fullyQualifiedTypeName name="java.awt.event.MouseListener"/>
+<fullyQualifiedTypeName name="java.awt.event.MouseEvent"/>
 </qualifiedTypeNameHistroy>

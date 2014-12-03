@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Delete resource &apos;Rain/src/com/ready/rain/input/MouseLocator.java&apos;" deleteContents="false" description="Delete resource &apos;Rain/src/com/ready/rain/input/MouseLocator.java&apos;" element1="/Rain/src/com/ready/rain/input/MouseLocator.java" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1417560169448"/>
+</session>

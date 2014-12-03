@@ -25,6 +25,7 @@ import java.io.File;
 
 import com.ready.rain.graphics.Screen;
 import com.ready.rain.input.Keyboard;
+import com.ready.rain.input.Mouse;
 import com.ready.rain.level.Level;
 import com.ready.rain.level.Randomlevel;
 import com.ready.rain.level.ReadLevel;
@@ -56,6 +57,9 @@ public class Game extends Canvas implements Runnable {
 	private Keyboard key;
 	private boolean running = false;
 	private boolean facing = false;
+	public int MouseX = Mouse.getX();
+	public int MouseY = Mouse.getY();
+	public int MouseB = Mouse.getButton();
 	
 	public BufferedImage image1;
 	public BufferedImage image2;
@@ -67,6 +71,13 @@ public class Game extends Canvas implements Runnable {
 	public BufferedImage image8;
 	
 	public BufferedImage Menu;
+	public BufferedImage Start;
+	public BufferedImage Help;
+	public BufferedImage QuitB;
+	public BufferedImage MenuB;
+	public BufferedImage StartB;
+	public BufferedImage HelpB;
+	public BufferedImage Quit;
 	public BufferedImage loading;
 	public BufferedImage loading1;
 	public BufferedImage loading2;
@@ -93,15 +104,11 @@ public class Game extends Canvas implements Runnable {
 		animation = new Animation();
 		frame = new JFrame() ;
 		key = new Keyboard();
-		
+		Mouse mouse = new Mouse();
 
 		addKeyListener (key);	
-	
-		
-
-		
-		
-		
+		addMouseListener(mouse);
+		addMouseMotionListener(mouse);
 		image1 = load.LoadImage("/textures/leo_righttorso.png");
 		image2 = load.LoadImage("/textures/leo_lefttorso.png");
 		image3 = load.LoadImage("/textures/leo_righthand.png");
@@ -116,6 +123,12 @@ public class Game extends Canvas implements Runnable {
 		loading3 = load.LoadImage("/textures/loading3.png");
 		loadingscrn = load.LoadImage("/textures/loading.png");
 		Menu = load.LoadImage("/textures/menu.png");
+		Start = load.LoadImage("/textures/Startbtn.png");
+		Help = load.LoadImage("/textures/helpbtn.png");
+		Quit = load.LoadImage("/textures/quitbtn.png");
+		StartB = load.LoadImage("/textures/StartbtnB.png");
+		HelpB = load.LoadImage("/textures/helpbtnB.png");
+		QuitB = load.LoadImage("/textures/quitbtnB.png");
 
 		character = new Character (width*scale/2,height*scale/2,image1,image2,image3,image4,image5,image6,image7,image8,0,10,11,-16,44,10,11,-16,35,68,14,12,17,69,20,0,12,21);
 	}
@@ -216,21 +229,41 @@ public class Game extends Canvas implements Runnable {
 		Graphics2D g = (Graphics2D) bs.getDrawGraphics();
 		g.drawImage (image, 0, 0, getWidth (), getHeight(), null);
 		screen.clear();
-		if (menu == false){
-			g.drawImage (Menu,getWidth ()/2 - Menu.getWidth()/2, getHeight()/10 - Menu.getHeight()/2, null);		
+		g.setColor(Color.WHITE);
+		g.setFont(new Font("Times New Roman", 0, 25));
+		
+		g.drawString("Button x: " + Mouse.getX() + ",  Button y: " + Mouse.getY() + ", MouseBValue:" + Mouse.getButton(), 20 , 20);
+		
+		if (menu == true){
+			
+			g.drawImage (Menu,getWidth ()/2 - Menu.getWidth()/2 , getHeight()/10 - Menu.getHeight()/2, null);	
+			g.drawImage (Start,getWidth ()/2 - Start.getWidth()/2 - 35, getHeight()/5 - Start.getHeight()/2 + 25, null);
+			g.drawImage (Help,getWidth ()/2 - Help.getWidth()/2 - 38, getHeight()/4 - Help.getHeight()/2 + 50, null);
+			g.drawImage (Quit,getWidth ()/2 - Quit.getWidth()/2 -50, getHeight()/3 - Quit.getHeight()/2 + 50, null);
+			g.fillRect(Mouse.getX() - 10/2, Mouse.getY() -10 /2, 10, 10);
+			if(Mouse.getButton() == 1){
+			if(Mouse.getX() > 512 && Mouse.getX() < 615 && Mouse.getY() > 144 && Mouse.getY() < 168){
+				g.drawImage (StartB,getWidth ()/2 - StartB.getWidth()/2 - 35, getHeight()/5 - StartB.getHeight()/2 + 25, null);
+				
+				menu = false;
+				
+			}
+			if(Mouse.getX() > 512 && Mouse.getX() < 615 && Mouse.getY() > 250 && Mouse.getY() < 270){
+				System.exit(0);
+				
+			}
+			}
+				
+			
 			
 	}
-		else if(loaded ){
+		else if(loaded  && menu == false){
 		level.render(x, y, screen);
 		
 	
 		for (int i = 0; i < pixels.length; i++) {
 			pixels [i] = screen.pixels [i];
-		}
-		
-		
-		
-		
+		}	
 		
 		if(key.up || key.down || key.right || key.left){
 			animation.AnimateLegs(bs,character,true,facing);
@@ -240,6 +273,7 @@ public class Game extends Canvas implements Runnable {
 		g.setColor(Color.WHITE);
 		g.setFont(new Font("Times New Roman", 0, 25));
 		g.drawString("X: " + x / 16 + ", Y: " + y / 16, 0, 18);
+		
 		}else{
 			g.drawImage (loadingscrn,getWidth ()/2 - loadingscrn.getWidth()/2, getHeight()/2 - loadingscrn.getHeight()/2, null);
 		}
@@ -257,48 +291,11 @@ public static void main (String[] args){
 	game.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	game.frame.setLocationRelativeTo(null);
 	
-
 	
-	
-	JMenuBar menuBar;
-	JMenu menu1, submenu;
-	JMenuItem menuItem;
-	JRadioButtonMenuItem rbMenuItem;
-	JCheckBoxMenuItem cbMenuItem;
-
-	menuBar = new JMenuBar();
-
-
-	menu1 = new JMenu("File");
-	menu1.setMnemonic(KeyEvent.VK_F);
-	menu1.getAccessibleContext().setAccessibleDescription(
-	        "File menu");
-	menuBar.add(menu1);
-
-
-	menuItem = new JMenuItem("New",
-	                         new ImageIcon("textures/Startbtn.png"));
-	menuItem.setMnemonic(KeyEvent.VK_N);
-	menu1.add(menuItem);
-
-	// add a separator
-	menu1.addSeparator();
-
-	menuItem = new JMenuItem("Pause", new ImageIcon("textures/Startbtn.png"));
-	menuItem.setMnemonic(KeyEvent.VK_P);
-	menu1.add(menuItem);
-
-	menuItem = new JMenuItem("Exit", new ImageIcon("textures/quitbtn.png"));
-	menuItem.setMnemonic(KeyEvent.VK_E);
-	menu1.add(menuItem);
-
-	JMenuBar theJMenuBar = null;
-	// add menu bar to frame
-	game.frame.setJMenuBar(theJMenuBar);
 	game.frame.setVisible(true);
 	game.start();
 	
-
+if (menu == false && loaded == false){
 	SimplexNoise simplexNoise=new SimplexNoise(100,0.1,5000);
 
 
@@ -366,7 +363,7 @@ System.out.println("world" + (int)ImageWriter.getRand() + ".png");
         Game.level = new ReadLevel("/textures/world" + (int)ImageWriter.getRand() + ".png" );
     }
 }
-
+}
 
 
 
