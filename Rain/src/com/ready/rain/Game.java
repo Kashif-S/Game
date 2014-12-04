@@ -63,6 +63,11 @@ public class Game extends Canvas implements Runnable {
 	public int MouseY = Mouse.getY();
 	public int MouseB = Mouse.getButton();
 	
+	public int data1 = 0;
+	public int data2 = 0;
+	public int data3 = 0;
+	public int data4 = 0;
+	
 	public BufferedImage image1;
 	public BufferedImage image2;
 	public BufferedImage image3;
@@ -231,8 +236,25 @@ public class Game extends Canvas implements Runnable {
 
 
 			}
+
+		
 		if(LevelSelect){
+			LevelSelect = false;
 			ImageWriter.greyWriteImage(result,result2,result3);
+			//Game.level = new ReadLevel("/textures/world" + (int)ImageWriter.getRand() + ".png" );
+				if(data1 == -1){
+					data1 = (int)ImageWriter.getRand();
+				}else if(data2 == -1){
+					data2 = (int)ImageWriter.getRand();
+				}else if(data3 == -1){
+					data3 = (int)ImageWriter.getRand();
+				}else if(data4 == -1){
+					data4 = (int)ImageWriter.getRand();
+				}
+
+			
+
+			
 		}
 		if(Mouse.getButton() == 1 && WorldS == false){
 		if(Mouse.getX() > 512 && Mouse.getX() < 615 && Mouse.getY() > 144 && Mouse.getY() < 168){
@@ -243,6 +265,9 @@ public class Game extends Canvas implements Runnable {
 		//	ImageWriter.greyWriteImage(result,result2,result3);
 		}
 		}
+		MouseX = Mouse.getX();
+		MouseY = Mouse.getY();
+		MouseB = Mouse.getButton();
 	}
 
 		
@@ -260,7 +285,7 @@ public class Game extends Canvas implements Runnable {
 		g.setColor(Color.WHITE);
 		g.setFont(new Font("Times New Roman", 0, 25));
 		
-		g.drawString("Mouse x: " + Mouse.getX() + ",  Mouse y: " + Mouse.getY() + ", MouseBValue:" + Mouse.getButton(), 20 , 20);
+		g.drawString("Mouse x: " + MouseX + ",  Mouse y: " + MouseY + ", MouseBValue:" + Mouse.getButton(), 20 , 20);
 		
 		if (menu == false){
 			
@@ -275,21 +300,81 @@ if(Mouse.getButton() == 1 && WorldS == false){
 				
 			}
 }
+
 if (WorldS){
 	g.drawImage (WorldScrn,getWidth ()/2 - WorldScrn.getWidth()/2 - 38, getHeight()/4 - WorldScrn.getHeight()/2 + 160, null);
 	g.drawImage (WorldQuit,getWidth ()/2 - WorldQuit.getWidth()/2 - 470, getHeight()/4 - WorldScrn.getHeight()/2 + 160, null);
+	
+	if(data1 > 0){
+		g.drawString("World " + data1, 518 , 137);
+	}
+	if(data2 > 0){
+		g.drawString("World " + data2, 518 , 280);
+	}
+	if(data3 > 0){
+		g.drawString("World " + data3, 518 , 423);
+	}
+	if(data4 > 0){
+		g.drawString("World " + data4, 518 , 566);
+	}
 }
 if(Mouse.getButton() == 1 && WorldS){
 	if(Mouse.getX() > 11 && Mouse.getX() < 250 && Mouse.getY() > 50 && Mouse.getY() < 70){
 		WorldS = false;
 	}
-	if(Mouse.getX() > 325 && Mouse.getX() < 811 && Mouse.getY() > 75 && Mouse.getY() < 175){
-		LevelSelect = true;
+	if(MouseX > 325 && MouseX < 811 && MouseY	 > 75 && MouseY < 175 && data1 == 0){
+		LevelSelect =true;
+		data1 = -1;
+
 	}
+	if(MouseX > 325 && MouseX < 811 && MouseY	 > 218 && MouseY < 318 && data2 == 0){
+		LevelSelect =true;
+		data2 = -1;
+
+	}
+	if(MouseX > 325 && MouseX < 811 && MouseY	 > 361 && MouseY < 461 && data3 == 0){
+		LevelSelect =true;
+		data3 = -1;
+
+	}
+	if(MouseX > 325 && MouseX < 811 && MouseY	 > 504 && MouseY < 604 && data4 == 0){
+		LevelSelect =true;
+		data4 = -1;
+
+	}
+	
+
+if(MouseX > 325 && MouseX < 811 && MouseY	 > 75 && MouseY < 175 && data1 > 0){
+	System.out.println("loading...");
+	Game.level = new ReadLevel("/textures/world" + data1 + ".png" );
+	menu = false;
+	loaded = true;
+	LevelSelect = false;
+	
+}
+if(MouseX > 325 && MouseX < 811 && MouseY	 > 218 && MouseY < 318 && data2 > 0){
 
 }
+if(MouseX > 325 && MouseX < 811 && MouseY	 > 361 && MouseY < 461 && data3 > 0){
+
+}
+if(MouseX > 325 && MouseX < 811 && MouseY	 > 504 && MouseY < 604 && data4 > 0){
+
+}
+
+}
+if(WorldS == false){
+if(Mouse.getX() > 512 && Mouse.getX() < 615 && Mouse.getY() > 144 && Mouse.getY() < 168){
+	g.drawImage (StartB,getWidth ()/2 - StartB.getWidth()/2 - 35, getHeight()/5 - StartB.getHeight()/2 + 25, null);
+}
+if(Mouse.getX() > 512 && Mouse.getX() < 615 && Mouse.getY() > 250 && Mouse.getY() < 270){
+	g.drawImage (QuitB,getWidth ()/2 - QuitB.getWidth()/2 -50, getHeight()/3 - QuitB.getHeight()/2 + 50, null);
+}
+}
+
 if (LevelSelect){
-	Game.level = new ReadLevel("/textures/world" + (int)ImageWriter.getRand() + ".png" );
+	//Game.level = new ReadLevel("/textures/world" + (int)ImageWriter.getRand() + ".png" );
+	
 }
 	}
 		else if(loaded){
