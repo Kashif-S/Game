@@ -50,12 +50,15 @@ public class Mouse implements MouseListener, MouseMotionListener{
 	
 	public void mousePressed(MouseEvent e) {
 	mB = e.getButton();
+	
+	
 		
 	}
 
 	
 	public void mouseReleased(MouseEvent e) {
 		mB = -1;
+		
 		
 	}
 
