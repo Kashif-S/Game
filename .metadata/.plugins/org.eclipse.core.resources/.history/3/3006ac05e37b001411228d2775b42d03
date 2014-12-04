@@ -240,7 +240,7 @@ public class Game extends Canvas implements Runnable {
 			//menu = true;
 			WorldS = true;
 			System.out.println(menu);			
-		//	ImageWriter.greyWriteImage(result,result2,result3);
+			//ImageWriter.greyWriteImage(result,result2,result3);
 		}
 		}
 	}
@@ -272,7 +272,6 @@ public class Game extends Canvas implements Runnable {
 if(Mouse.getButton() == 1 && WorldS == false){
 			if(Mouse.getX() > 512 && Mouse.getX() < 615 && Mouse.getY() > 250 && Mouse.getY() < 270){
 				System.exit(0);
-				
 			}
 }
 if (WorldS){

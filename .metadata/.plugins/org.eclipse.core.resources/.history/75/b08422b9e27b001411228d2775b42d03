@@ -288,9 +288,7 @@ if(Mouse.getButton() == 1 && WorldS){
 	}
 
 }
-if (LevelSelect){
-	Game.level = new ReadLevel("/textures/world" + (int)ImageWriter.getRand() + ".png" );
-}
+
 	}
 		else if(loaded){
 		level.render(x, y, screen);
@@ -314,7 +312,9 @@ if (LevelSelect){
 		}
 		g.dispose();
 		bs.show();	
-		
+		if (LevelSelect){
+			Game.level = new ReadLevel("/textures/world" + (int)ImageWriter.getRand() + ".png" );
+		}
 
 	}
 	

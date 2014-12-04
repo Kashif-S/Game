@@ -240,7 +240,7 @@ public class Game extends Canvas implements Runnable {
 			//menu = true;
 			WorldS = true;
 			System.out.println(menu);			
-		//	ImageWriter.greyWriteImage(result,result2,result3);
+			ImageWriter.greyWriteImage(result,result2,result3);
 		}
 		}
 	}
@@ -288,9 +288,7 @@ if(Mouse.getButton() == 1 && WorldS){
 	}
 
 }
-if (LevelSelect){
-	Game.level = new ReadLevel("/textures/world" + (int)ImageWriter.getRand() + ".png" );
-}
+
 	}
 		else if(loaded){
 		level.render(x, y, screen);

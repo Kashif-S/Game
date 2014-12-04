@@ -283,7 +283,7 @@ if(Mouse.getButton() == 1 && WorldS){
 	if(Mouse.getX() > 11 && Mouse.getX() < 250 && Mouse.getY() > 50 && Mouse.getY() < 70){
 		WorldS = false;
 	}
-	if(Mouse.getX() > 325 && Mouse.getX() < 811 && Mouse.getY() > 75 && Mouse.getY() < 175){
+	if(Mouse.getX() > 11 && Mouse.getX() < 250 && Mouse.getY() > 50 && Mouse.getY() < 70){
 		LevelSelect = true;
 	}
 

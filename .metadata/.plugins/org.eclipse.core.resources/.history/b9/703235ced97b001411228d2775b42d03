@@ -50,7 +50,6 @@ public class Game extends Canvas implements Runnable {
 	public static boolean loaded = false;
 	public static boolean menu = false; 
 	public static boolean WorldS = false;
-	public static boolean LevelSelect = false;
 	public static double count;
 	public boolean dir = false;
 
@@ -231,16 +230,13 @@ public class Game extends Canvas implements Runnable {
 
 
 			}
-		if(LevelSelect){
-			ImageWriter.greyWriteImage(result,result2,result3);
-		}
 		if(Mouse.getButton() == 1 && WorldS == false){
 		if(Mouse.getX() > 512 && Mouse.getX() < 615 && Mouse.getY() > 144 && Mouse.getY() < 168){
 			System.out.println(menu);
 			//menu = true;
 			WorldS = true;
 			System.out.println(menu);			
-		//	ImageWriter.greyWriteImage(result,result2,result3);
+			//ImageWriter.greyWriteImage(result,result2,result3);
 		}
 		}
 	}
@@ -282,14 +278,11 @@ if (WorldS){
 if(Mouse.getButton() == 1 && WorldS){
 	if(Mouse.getX() > 11 && Mouse.getX() < 250 && Mouse.getY() > 50 && Mouse.getY() < 70){
 		WorldS = false;
+		
 	}
-	if(Mouse.getX() > 325 && Mouse.getX() < 811 && Mouse.getY() > 75 && Mouse.getY() < 175){
-		LevelSelect = true;
+	if (Mouse.getX() > 327 && Mouse.getX() < 811 && Mouse.getY() > 75 && Mouse.getY() < 175){
+		//Game.level = new ReadLevel("/textures/world" + (int)ImageWriter.getRand() + ".png" );
 	}
-
-}
-if (LevelSelect){
-	Game.level = new ReadLevel("/textures/world" + (int)ImageWriter.getRand() + ".png" );
 }
 	}
 		else if(loaded){
