@@ -66,11 +66,14 @@ public class Game extends Canvas implements Runnable {
 	public int MouseX = Mouse.getX();
 	public int MouseY = Mouse.getY();
 	public int MouseB = Mouse.getButton();
+	public int wait = 0;
 	
 	public int data1 = 0;
 	public int data2 = 0;
 	public int data3 = 0;
 	public int data4 = 0;
+	
+	public int select;
 	
 	public BufferedImage image1;
 	public BufferedImage image2;
@@ -80,6 +83,7 @@ public class Game extends Canvas implements Runnable {
 	public BufferedImage image6;
 	public BufferedImage image7;
 	public BufferedImage image8;
+	public BufferedImage Selectworld;
 	public BufferedImage Play;
 	public BufferedImage Delete;
 	public BufferedImage Rename;
@@ -161,6 +165,7 @@ public class Game extends Canvas implements Runnable {
 		RenameB = load.LoadImage("/textures/Button/RenameB.png");
 		Delete = load.LoadImage("/textures/Button/Delete.png");
 		DeleteB = load.LoadImage("/textures/Button/DeleteB.png");
+		Selectworld = load.LoadImage("/textures/WorldSelect.png");
 
 		character = new Character (width*scale/2,height*scale/2,image1,image2,image3,image4,image5,image6,image7,image8,0,10,11,-16,44,10,11,-16,35,68,14,12,17,69,20,0,12,21);
 	}
@@ -271,7 +276,7 @@ public class Game extends Canvas implements Runnable {
 
 			
 		}
-		if(Mouse.getButton() == 1 && WorldS == false){
+		if(MouseB == 1 && WorldS == false){
 		if(Mouse.getX() > 512 && Mouse.getX() < 615 && Mouse.getY() > 144 && Mouse.getY() < 168){
 			System.out.println(menu);
 			//menu = true;
@@ -289,6 +294,7 @@ public class Game extends Canvas implements Runnable {
 	
 
 	public void render () {
+
 		BufferStrategy bs = getBufferStrategy();
 		if (bs == null) {
 			createBufferStrategy (3) ;
@@ -299,9 +305,9 @@ public class Game extends Canvas implements Runnable {
 		screen.clear();
 		g.setColor(Color.WHITE);
 		g.setFont(new Font("Times New Roman", 0, 25));
-		
-		g.drawString("Mouse x: " + MouseX + ",  Mouse y: " + MouseY + ", MouseBValue:" + Mouse.getButton(), 20 , 20);
-		
+		if(menu == false){
+		g.drawString("Mouse x: " + MouseX + ",  Mouse y: " + MouseY + ", MouseBValue:" + MouseB, 20 , 20);
+		}
 		if (menu == false){
 			
 			g.drawImage (Menu,getWidth ()/2 - Menu.getWidth()/2 , getHeight()/10 - Menu.getHeight()/2, null);	
@@ -309,7 +315,7 @@ public class Game extends Canvas implements Runnable {
 			g.drawImage (Help,getWidth ()/2 - Help.getWidth()/2 - 38, getHeight()/4 - Help.getHeight()/2 + 50, null);
 			g.drawImage (Quit,getWidth ()/2 - Quit.getWidth()/2 -50, getHeight()/3 - Quit.getHeight()/2 + 50, null);
 			g.fillRect(Mouse.getX() - 10/2, Mouse.getY() -10 /2, 10, 10);
-if(Mouse.getButton() == 1 && WorldS == false){
+if(MouseB == 1 && WorldS == false){
 			if(Mouse.getX() > 512 && Mouse.getX() < 615 && Mouse.getY() > 250 && Mouse.getY() < 270){
 				System.exit(0);
 				
@@ -329,6 +335,42 @@ if (WorldS){
 		g.drawImage (Delete,getWidth ()/2 - Delete.getWidth()/2 + 400, Delete.getHeight()/2 + 60, null);
 		g.drawImage (Rename,getWidth ()/2 - Rename.getWidth()/2 + 400, Rename.getHeight()/2 + 100, null);
 	}
+	if(select == 1){
+		g.drawImage(Selectworld, 261,33 + Selectworld.getHeight()*0,null);
+		}
+	if(select == 2){
+		g.drawImage(Selectworld, 261,33 + Selectworld.getHeight()*1,null);
+		}
+	if(select == 3){
+		g.drawImage(Selectworld, 261,33  + Selectworld.getHeight()*2,null);
+		}
+	if(select == 4){
+		g.drawImage(Selectworld, 261,33 + Selectworld.getHeight()*3,null);
+		}
+	if(data1 == 0){
+		g.drawString("New World ", 506 , 137);
+	}
+	if(data2 == 0){
+		g.drawString("New World ", 506 , 280);
+	}
+	if(data3 == 0){
+		g.drawString("New World ", 506 , 423);
+	}
+	if(data4 == 0){
+		g.drawString("New World", 506, 566);
+	}
+	if(data1 == -1){
+		g.drawString("Loading...", 506 , 137);
+	}
+	if(data2 == -1){
+		g.drawString("Loading...", 506 , 280);
+	}
+	if(data3 == -1){
+		g.drawString("Loading...", 506 , 423);
+	}
+	if(data4 == -1){
+		g.drawString("Loading...", 506, 566);
+	}
 	if(data1 > 0){
 		g.drawString("World " + data1, 518 , 137);
 	}
@@ -341,34 +383,49 @@ if (WorldS){
 	if(data4 > 0){
 		g.drawString("World " + data4, 518 , 566);
 	}
+
 }
-if(Mouse.getButton() == 1 && WorldS){
+if(MouseB == 1 && WorldS){
 	if(Mouse.getX() > 11 && Mouse.getX() < 250 && Mouse.getY() > 50 && Mouse.getY() < 70){
 		WorldS = false;
+		select = 0;
 	}
 	if(MouseX > 325 && MouseX < 811 && MouseY	 > 75 && MouseY < 175 && data1 == 0){
 		LevelSelect =true;
 		data1 = -1;
+		select = 0;
 
 	}
 	if(MouseX > 325 && MouseX < 811 && MouseY	 > 218 && MouseY < 318 && data2 == 0){
 		LevelSelect =true;
 		data2 = -1;
-
+		select = 0;
 	}
 	if(MouseX > 325 && MouseX < 811 && MouseY	 > 361 && MouseY < 461 && data3 == 0){
 		LevelSelect =true;
 		data3 = -1;
-
+		select = 0;
 	}
 	if(MouseX > 325 && MouseX < 811 && MouseY	 > 504 && MouseY < 604 && data4 == 0){
 		LevelSelect =true;
 		data4 = -1;
-
+		select = 0;
 	}
-	
 
-if(MouseX > 325 && MouseX < 811 && MouseY	 > 75 && MouseY < 175 && data1 > 0 && Mouse.getButton() == 1){
+	if(MouseX > 325 && MouseX < 811 && MouseY	 > 75 && MouseY < 175 && data1 > 0 && MouseB == 1 && select != 1){
+		select = 1;
+	}
+	if(MouseX > 325 && MouseX < 811 && MouseY	 > 218 && MouseY < 318 && data2 > 0 && MouseB == 1&&select != 2){
+		select = 2;
+	}
+	if(MouseX > 325 && MouseX < 811 && MouseY	 > 361 && MouseY < 461 && data3 > 0 && MouseB == 1&&select != 3){
+		select = 3;
+	}
+	if(MouseX > 325 && MouseX < 811 && MouseY	 > 504 && MouseY < 604 && data4 > 0 && MouseB == 1&&select != 4){
+		select = 4;
+	}
+
+/*if(MouseX > 325 && MouseX < 811 && MouseY	 > 75 && MouseY < 175 && data1 > 0 && MouseB == 1 && select == 1){
 	System.out.println("loading...");
 	Game.level = new ReadLevel("/textures/world" + data1 + ".png" );
 	loaded = true;
@@ -376,7 +433,8 @@ if(MouseX > 325 && MouseX < 811 && MouseY	 > 75 && MouseY < 175 && data1 > 0 && 
 	WorldS = false;
 	menu = true;
 }
-if(MouseX > 325 && MouseX < 811 && MouseY	 > 218 && MouseY < 318 && data2 > 0 && Mouse.getButton() == 1){
+
+if(MouseX > 325 && MouseX < 811 && MouseY	 > 218 && MouseY < 318 && data2 > 0 && MouseB == 1&&select == 2){
 	System.out.println("loading...");
 	Game.level = new ReadLevel("/textures/world" + data2 + ".png" );
 	loaded = true;
@@ -384,7 +442,7 @@ if(MouseX > 325 && MouseX < 811 && MouseY	 > 218 && MouseY < 318 && data2 > 0 &&
 	WorldS = false;
 	menu = true;
 }
-if(MouseX > 325 && MouseX < 811 && MouseY	 > 361 && MouseY < 461 && data3 > 0 && Mouse.getButton() == 1){
+if(MouseX > 325 && MouseX < 811 && MouseY	 > 361 && MouseY < 461 && data3 > 0 && MouseB == 1&&select == 3){
 	System.out.println("loading...");
 	Game.level = new ReadLevel("/textures/world" + data3 + ".png" );
 	loaded = true;
@@ -392,14 +450,14 @@ if(MouseX > 325 && MouseX < 811 && MouseY	 > 361 && MouseY < 461 && data3 > 0 &&
 	WorldS = false;
 	menu = true;
 }
-if(MouseX > 325 && MouseX < 811 && MouseY	 > 504 && MouseY < 604 && data4 > 0 && Mouse.getButton() == 1){
+if(MouseX > 325 && MouseX < 811 && MouseY	 > 504 && MouseY < 604 && data4 > 0 && MouseB == 1&&select == 4){
 	System.out.println("loading...");
 	Game.level = new ReadLevel("/textures/world" + data4 + ".png" );
 	loaded = true;
 	LevelSelect = false;
 	WorldS = false;
 	menu = true;
-}
+}*/
 
 }
 if(WorldS == false){
@@ -439,7 +497,13 @@ if (LevelSelect){
 		g.dispose();
 		bs.show();	
 		
-
+		if(Mouse.getButton() == 1){
+			if(wait % 10 == 0){
+			MouseB = 0;
+		}
+			wait ++;
+		}
+	
 	}
 	
 public static void main (String[] args){
