@@ -330,30 +330,38 @@ if (WorldS){
 	g.drawImage (WorldScrn,getWidth ()/2 - WorldScrn.getWidth()/2 - 38, getHeight()/4 - WorldScrn.getHeight()/2 + 160, null);
 	g.drawImage (WorldQuit,getWidth ()/2 - WorldQuit.getWidth()/2 - 470, getHeight()/4 - WorldScrn.getHeight()/2 + 160, null);
 
-	if (select == 1){
-		g.drawImage (Play,getWidth ()/2 - Play.getWidth()/2 + 400, 35, null);
-		g.drawImage (Delete,getWidth ()/2 - Delete.getWidth()/2 + 400, 70, null);
-		g.drawImage (Rename,getWidth ()/2 - Rename.getWidth()/2 + 400, 105, null);
-
+	if (SideButton){
+		g.drawImage (Play,getWidth ()/2 - Play.getWidth()/2 + 400, 125, null);
+		g.drawImage (Delete,getWidth ()/2 - Delete.getWidth()/2 + 400, 165, null);
+		g.drawImage (Rename,getWidth ()/2 - Rename.getWidth()/2 + 400, 200, null);
+		SideButton1 = false;
+		SideButton2 = false;
+		SideButton3 = false;
 	}
-	if (select == 2){
-		g.drawImage (Play,getWidth ()/2 - Play.getWidth()/2 + 400, 155, null);
-		g.drawImage (Delete,getWidth ()/2 - Delete.getWidth()/2 + 400, 190, null);
-		g.drawImage (Rename,getWidth ()/2 - Rename.getWidth()/2 + 400, 225, null);
-	 
-	}
-	if (select == 3){
-		g.drawImage (Play,getWidth ()/2 - Play.getWidth()/2 + 400, 275, null);
-		g.drawImage (Delete,getWidth ()/2 - Delete.getWidth()/2 + 400, 325, null);
-		g.drawImage (Rename,getWidth ()/2 - Rename.getWidth()/2 + 400, Rename.getHeight()/2 + 100, null);
-	 
-	}
-	if (select == 4){
+	/*if (SideButton1){
 		g.drawImage (Play,getWidth ()/2 - Play.getWidth()/2 + 400, Play.getHeight()/2 + 25, null);
 		g.drawImage (Delete,getWidth ()/2 - Delete.getWidth()/2 + 400, Delete.getHeight()/2 + 60, null);
 		g.drawImage (Rename,getWidth ()/2 - Rename.getWidth()/2 + 400, Rename.getHeight()/2 + 100, null);
- 
+		SideButton = false;
+		SideButton2 = false;
+		SideButton3 = false;
 	}
+	if (SideButton2){
+		g.drawImage (Play,getWidth ()/2 - Play.getWidth()/2 + 400, Play.getHeight()/2 + 25, null);
+		g.drawImage (Delete,getWidth ()/2 - Delete.getWidth()/2 + 400, Delete.getHeight()/2 + 60, null);
+		g.drawImage (Rename,getWidth ()/2 - Rename.getWidth()/2 + 400, Rename.getHeight()/2 + 100, null);
+		SideButton1 = false;
+		SideButton = false;
+		SideButton3 = false;
+	}
+	if (SideButton3){
+		g.drawImage (Play,getWidth ()/2 - Play.getWidth()/2 + 400, Play.getHeight()/2 + 25, null);
+		g.drawImage (Delete,getWidth ()/2 - Delete.getWidth()/2 + 400, Delete.getHeight()/2 + 60, null);
+		g.drawImage (Rename,getWidth ()/2 - Rename.getWidth()/2 + 400, Rename.getHeight()/2 + 100, null);
+		SideButton1 = false;
+		SideButton2 = false;
+		SideButton = false;
+	}*/
 	if(select == 1){
 		g.drawImage(Selectworld, 261,33 + Selectworld.getHeight()*0,null);
 		}

@@ -329,30 +329,13 @@ if(MouseB == 1 && WorldS == false){
 if (WorldS){
 	g.drawImage (WorldScrn,getWidth ()/2 - WorldScrn.getWidth()/2 - 38, getHeight()/4 - WorldScrn.getHeight()/2 + 160, null);
 	g.drawImage (WorldQuit,getWidth ()/2 - WorldQuit.getWidth()/2 - 470, getHeight()/4 - WorldScrn.getHeight()/2 + 160, null);
-
-	if (select == 1){
-		g.drawImage (Play,getWidth ()/2 - Play.getWidth()/2 + 400, 35, null);
-		g.drawImage (Delete,getWidth ()/2 - Delete.getWidth()/2 + 400, 70, null);
-		g.drawImage (Rename,getWidth ()/2 - Rename.getWidth()/2 + 400, 105, null);
-
+	if(Mouse.getButton() == 1 && Mouse.getX() > 326 && Mouse.getX() < 811 && Mouse.getY() > 75 && Mouse.getY() < 175){
+		SideButton = true;
 	}
-	if (select == 2){
-		g.drawImage (Play,getWidth ()/2 - Play.getWidth()/2 + 400, 155, null);
-		g.drawImage (Delete,getWidth ()/2 - Delete.getWidth()/2 + 400, 190, null);
-		g.drawImage (Rename,getWidth ()/2 - Rename.getWidth()/2 + 400, 225, null);
-	 
-	}
-	if (select == 3){
-		g.drawImage (Play,getWidth ()/2 - Play.getWidth()/2 + 400, 275, null);
-		g.drawImage (Delete,getWidth ()/2 - Delete.getWidth()/2 + 400, 325, null);
-		g.drawImage (Rename,getWidth ()/2 - Rename.getWidth()/2 + 400, Rename.getHeight()/2 + 100, null);
-	 
-	}
-	if (select == 4){
+	if (SideButton){
 		g.drawImage (Play,getWidth ()/2 - Play.getWidth()/2 + 400, Play.getHeight()/2 + 25, null);
 		g.drawImage (Delete,getWidth ()/2 - Delete.getWidth()/2 + 400, Delete.getHeight()/2 + 60, null);
 		g.drawImage (Rename,getWidth ()/2 - Rename.getWidth()/2 + 400, Rename.getHeight()/2 + 100, null);
- 
 	}
 	if(select == 1){
 		g.drawImage(Selectworld, 261,33 + Selectworld.getHeight()*0,null);
@@ -432,19 +415,15 @@ if(MouseB == 1 && WorldS){
 	}
 
 	if(MouseX > 325 && MouseX < 811 && MouseY	 > 75 && MouseY < 175 && data1 > 0 && MouseB == 1 && select != 1){
-		SideButton = true;
 		select = 1;
 	}
 	if(MouseX > 325 && MouseX < 811 && MouseY	 > 218 && MouseY < 318 && data2 > 0 && MouseB == 1&&select != 2){
-		SideButton1 = true;
 		select = 2;
 	}
 	if(MouseX > 325 && MouseX < 811 && MouseY	 > 361 && MouseY < 461 && data3 > 0 && MouseB == 1&&select != 3){
-		SideButton2 = true;
 		select = 3;
 	}
 	if(MouseX > 325 && MouseX < 811 && MouseY	 > 504 && MouseY < 604 && data4 > 0 && MouseB == 1&&select != 4){
-		SideButton3 = true;
 		select = 4;
 	}
 
