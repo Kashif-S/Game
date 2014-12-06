@@ -333,7 +333,7 @@ if (WorldS){
 	
 	if(select == 1){
 		g.drawImage(Selectworld, 261,33 + Selectworld.getHeight()*0,null);
-		g.drawImage (Play,getWidth ()/2 - Play.getWidth()/2 + 400, 30, null);
+		g.drawImage (Play,getWidth ()/2 - Play.getWidth()/2 + 400, 35, null);
 		g.drawImage (Delete,getWidth ()/2 - Delete.getWidth()/2 + 400, 80, null);
 		g.drawImage (Rename,getWidth ()/2 - Rename.getWidth()/2 + 400, 125, null);
 		}
@@ -346,13 +346,13 @@ if (WorldS){
 		}
 	if(select == 3){
 		g.drawImage(Selectworld, 261,33  + Selectworld.getHeight()*2,null);
-		g.drawImage (Play,getWidth ()/2 - Play.getWidth()/2 + 400, 335, null);
-		g.drawImage (Delete,getWidth ()/2 - Delete.getWidth()/2 + 400, 365, null);
+		g.drawImage (Play,getWidth ()/2 - Play.getWidth()/2 + 400, 325, null);
+		g.drawImage (Delete,getWidth ()/2 - Delete.getWidth()/2 + 400, 372, null);
 		g.drawImage (Rename,getWidth ()/2 - Rename.getWidth()/2 + 400, 415, null);
 	 }
 	if(select == 4){
 		g.drawImage(Selectworld, 261,33 + Selectworld.getHeight()*3,null);
-		g.drawImage (Play,getWidth ()/2 - Play.getWidth()/2 + 400, 485, null);
+		g.drawImage (Play,getWidth ()/2 - Play.getWidth()/2 + 400, 465, null);
 		g.drawImage (Delete,getWidth ()/2 - Delete.getWidth()/2 + 400, 515, null);
 		g.drawImage (Rename,getWidth ()/2 - Rename.getWidth()/2 + 400, 560, null);
  

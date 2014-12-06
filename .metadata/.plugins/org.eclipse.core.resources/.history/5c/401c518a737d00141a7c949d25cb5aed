@@ -333,7 +333,7 @@ if (WorldS){
 	
 	if(select == 1){
 		g.drawImage(Selectworld, 261,33 + Selectworld.getHeight()*0,null);
-		g.drawImage (Play,getWidth ()/2 - Play.getWidth()/2 + 400, 30, null);
+		g.drawImage (Play,getWidth ()/2 - Play.getWidth()/2 + 400, 35, null);
 		g.drawImage (Delete,getWidth ()/2 - Delete.getWidth()/2 + 400, 80, null);
 		g.drawImage (Rename,getWidth ()/2 - Rename.getWidth()/2 + 400, 125, null);
 		}
