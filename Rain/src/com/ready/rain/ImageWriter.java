@@ -37,18 +37,18 @@ public class ImageWriter {
         	  
           {
 // add more variety through smaller ranges
-            if (data[x][y]>= 0.5){
+        	  /*   if (data[x][y]>= 0.5){
                 data[x][y]=1;
             }
             if (data[x][y] < 0.5){
                 data[x][y]=0;
             }
-        /*    if (data[x][y] >= 0.3 && data[x][y] < 0.5){
+           if (data[x][y] >= 0.3 && data[x][y] < 0.5){
                 data[x][y]=0.3;
             }
            if (data[x][y] >= 0.1 && data[x][y] < 0.3){
                 data[x][y]=0;
-            }*/
+            }
             if (data2[x][y]>= 0.5){
                 data2[x][y]=1;
             }
@@ -60,7 +60,7 @@ public class ImageWriter {
             }
             if (data2[x][y] >= 0.1 && data2[x][y] < 0.3){
                 data2[x][y]=0;
-            }*/
+            }
             if (data3[x][y]>= 0.5){
                 data3[x][y]=1;
             }
@@ -74,9 +74,23 @@ public class ImageWriter {
                 data3[x][y]=0;
             }*/
 
-          
 
-
+        	  if(data[x][y]>data2[x][y] && data[x][y] > data3[x][y]){
+        		  data[x][y] = 1;
+        		  data2[x][y] = 0;
+        		  data3[x][y] = 0;
+        		
+        	  }else if(data2[x][y]>data[x][y] && data2[x][y] > data3[x][y]){
+        		  data[x][y] = 0;
+        		  data2[x][y] = 1;
+        		  data3[x][y] = 0;
+        		
+        	  }else if(data3[x][y]>data[x][y] && data3[x][y] > data2[x][y]){
+        		  data[x][y] = 0;
+        		  data2[x][y] = 0;
+        		  data3[x][y] = 1;
+        		
+        	  }
 
             
             Color col=new Color((float)data[x][y],(float)data2[x][y],(float)data3[x][y]); 

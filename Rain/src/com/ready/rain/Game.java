@@ -70,6 +70,7 @@ public class Game extends Canvas implements Runnable {
 	public int MouseX = Mouse.getX();
 	public int MouseY = Mouse.getY();
 	public int MouseB = Mouse.getButton();
+	public int click;
 	public int wait = 0;
 	
 	public int data1 = 0;
@@ -224,15 +225,15 @@ public class Game extends Canvas implements Runnable {
 		key.update();
 		if(loaded){
 		if (key.up) 
-			y-=1;
+			y-=3;
 		if (key.down) 
-			y+=1.5;
+			y+=3.5;
 		if (key.left){
-			x-=1;
+			x-=3;
 			facing = true;
 		}
 		if (key.right){
-			x+=1.5; 
+			x+=3.5; 
 			facing = false;
 		}
 		}
@@ -280,7 +281,7 @@ public class Game extends Canvas implements Runnable {
 
 			
 		}
-		if(MouseB == 1 && WorldS == false){
+		if(click == 1 && WorldS == false){
 		if(Mouse.getX() > 512 && Mouse.getX() < 615 && Mouse.getY() > 144 && Mouse.getY() < 168){
 			System.out.println(menu);
 			//menu = true;
@@ -289,9 +290,67 @@ public class Game extends Canvas implements Runnable {
 		//	ImageWriter.greyWriteImage(result,result2,result3);
 		}
 		}
-		MouseX = Mouse.getX();
-		MouseY = Mouse.getY();
+		
+
+if(MouseX > 325 && MouseX < 811 && MouseY	 > 75 && MouseY < 175 && data1 > 0 && click == 1 && select == 1){
+	System.out.println("loading...");
+	Game.level = new ReadLevel("/textures/world" + data1 + ".png" );
+	loaded = true;
+	LevelSelect = false;
+	WorldS = false;
+	menu = true;
+}
+
+if(MouseX > 325 && MouseX < 811 && MouseY	 > 218 && MouseY < 318 && data2 > 0 && click == 1&&select == 2){
+	System.out.println("loading...");
+	Game.level = new ReadLevel("/textures/world" + data2 + ".png" );
+	loaded = true;
+	LevelSelect = false;
+	WorldS = false;
+	menu = true;
+}
+if(MouseX > 325 && MouseX < 811 && MouseY	 > 361 && MouseY < 461 && data3 > 0 && click == 1&&select == 3){
+	System.out.println("loading...");
+	Game.level = new ReadLevel("/textures/world" + data3 + ".png" );
+	loaded = true;
+	LevelSelect = false;
+	WorldS = false;
+	menu = true;
+}
+if(MouseX > 325 && MouseX < 811 && MouseY	 > 504 && MouseY < 604 && data4 > 0 && click == 1&&select == 4){
+	System.out.println("loading...");
+	Game.level = new ReadLevel("/textures/world" + data4 + ".png" );
+	loaded = true;
+	LevelSelect = false;
+	WorldS = false;
+	menu = true;
+}
+if(MouseX > 325 && MouseX < 811 && MouseY	 > 75 && MouseY < 175 && data1 > 0 && click == 1 && select != 1){
+	SideButton = true;
+	select = 1;
+}
+if(MouseX > 325 && MouseX < 811 && MouseY	 > 218 && MouseY < 318 && data2 > 0 && click == 1&&select != 2){
+	SideButton1 = true;
+	select = 2;
+}
+if(MouseX > 325 && MouseX < 811 && MouseY	 > 361 && MouseY < 461 && data3 > 0 && click == 1&&select != 3){
+	SideButton2 = true;
+	select = 3;
+}
+if(MouseX > 325 && MouseX < 811 && MouseY	 > 504 && MouseY < 604 && data4 > 0 && click == 1&&select != 4){
+	SideButton3 = true;
+	select = 4;
+}
+		
+		click = 0;
+		if(MouseB == 1 && Mouse.getButton() == -1){
+			click = 1;
+		}
 		MouseB = Mouse.getButton();
+		MouseY = Mouse.getY();
+		MouseX = Mouse.getX();
+	
+
 	}
 
 	
@@ -310,7 +369,7 @@ public class Game extends Canvas implements Runnable {
 		g.setColor(Color.WHITE);
 		g.setFont(new Font("Times New Roman", 0, 25));
 		if(menu == false){
-		g.drawString("Mouse x: " + MouseX + ",  Mouse y: " + MouseY + ", MouseBValue:" + MouseB, 20 , 20);
+		g.drawString("Mouse x: " + MouseX + ",  Mouse y: " + MouseY + ", clickValue:" + click, 20 , 20);
 		}
 		if (menu == false){
 			
@@ -319,7 +378,7 @@ public class Game extends Canvas implements Runnable {
 			g.drawImage (Help,getWidth ()/2 - Help.getWidth()/2 - 38, getHeight()/4 - Help.getHeight()/2 + 50, null);
 			g.drawImage (Quit,getWidth ()/2 - Quit.getWidth()/2 -50, getHeight()/3 - Quit.getHeight()/2 + 50, null);
 			g.fillRect(Mouse.getX() - 10/2, Mouse.getY() -10 /2, 10, 10);
-if(MouseB == 1 && WorldS == false){
+if(click == 1 && WorldS == false){
 			if(Mouse.getX() > 512 && Mouse.getX() < 615 && Mouse.getY() > 250 && Mouse.getY() < 270){
 				System.exit(0);
 				
@@ -395,7 +454,7 @@ if (WorldS){
 	}
 
 }
-if(MouseB == 1 && WorldS){
+if(click == 1 && WorldS){
 	if(Mouse.getX() > 11 && Mouse.getX() < 250 && Mouse.getY() > 50 && Mouse.getY() < 70){
 		WorldS = false;
 		select = 0;
@@ -422,56 +481,7 @@ if(MouseB == 1 && WorldS){
 		select = 0;
 	}
 
-	if(MouseX > 325 && MouseX < 811 && MouseY	 > 75 && MouseY < 175 && data1 > 0 && MouseB == 1 && select != 1){
-		SideButton = true;
-		select = 1;
-	}
-	if(MouseX > 325 && MouseX < 811 && MouseY	 > 218 && MouseY < 318 && data2 > 0 && MouseB == 1&&select != 2){
-		SideButton1 = true;
-		select = 2;
-	}
-	if(MouseX > 325 && MouseX < 811 && MouseY	 > 361 && MouseY < 461 && data3 > 0 && MouseB == 1&&select != 3){
-		SideButton2 = true;
-		select = 3;
-	}
-	if(MouseX > 325 && MouseX < 811 && MouseY	 > 504 && MouseY < 604 && data4 > 0 && MouseB == 1&&select != 4){
-		SideButton3 = true;
-		select = 4;
-	}
 
-/*if(MouseX > 325 && MouseX < 811 && MouseY	 > 75 && MouseY < 175 && data1 > 0 && MouseB == 1 && select == 1){
-	System.out.println("loading...");
-	Game.level = new ReadLevel("/textures/world" + data1 + ".png" );
-	loaded = true;
-	LevelSelect = false;
-	WorldS = false;
-	menu = true;
-}
-
-if(MouseX > 325 && MouseX < 811 && MouseY	 > 218 && MouseY < 318 && data2 > 0 && MouseB == 1&&select == 2){
-	System.out.println("loading...");
-	Game.level = new ReadLevel("/textures/world" + data2 + ".png" );
-	loaded = true;
-	LevelSelect = false;
-	WorldS = false;
-	menu = true;
-}
-if(MouseX > 325 && MouseX < 811 && MouseY	 > 361 && MouseY < 461 && data3 > 0 && MouseB == 1&&select == 3){
-	System.out.println("loading...");
-	Game.level = new ReadLevel("/textures/world" + data3 + ".png" );
-	loaded = true;
-	LevelSelect = false;
-	WorldS = false;
-	menu = true;
-}
-if(MouseX > 325 && MouseX < 811 && MouseY	 > 504 && MouseY < 604 && data4 > 0 && MouseB == 1&&select == 4){
-	System.out.println("loading...");
-	Game.level = new ReadLevel("/textures/world" + data4 + ".png" );
-	loaded = true;
-	LevelSelect = false;
-	WorldS = false;
-	menu = true;
-}*/
 
 }
 if(WorldS == false){
@@ -510,14 +520,7 @@ if (LevelSelect){
 		}
 		g.dispose();
 		bs.show();	
-		
-		if(Mouse.getButton() == 1){
-			if(wait % 10 == 0){
-			MouseB = 0;
-		}
-			wait ++;
-		}
-	
+
 	}
 	
 public static void main (String[] args){
