@@ -294,7 +294,7 @@ public class Game extends Canvas implements Runnable {
 		MouseB = Mouse.getButton();
 	}
 
-	
+		
 	
 
 	public void render () {
