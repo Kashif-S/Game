@@ -91,22 +91,19 @@ public class ImageWriter {
         		  data3[x][y] = 1;
         		
         	  }
-
-        	 // System.out.println("im still alive");
-            
-            Color col=new Color((float)data[x][y],(float)data2[x][y],(float)data3[x][y]); 
-            image.setRGB(x, y, col.getRGB());
-            
-      	  if(x % 33 == 0){
-      	  try {
+        	  if(x % 10 == 0){
+        	  try {
 				Thread.sleep(1);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-      	  }
+        	  }
+        	  System.out.println("im still alive");
+            
+            Color col=new Color((float)data[x][y],(float)data2[x][y],(float)data3[x][y]); 
+            image.setRGB(x, y, col.getRGB());
           }
-          System.out.println(y);
         }
       
 

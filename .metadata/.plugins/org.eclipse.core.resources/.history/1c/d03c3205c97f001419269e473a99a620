@@ -264,60 +264,8 @@ public class Game extends Canvas implements Runnable {
 
 		
 		if(LevelSelect){
-			
-			SimplexNoise simplexNoise=new SimplexNoise(100,0.1,5000);
-			
-		    double xStart=Math.random()*10000;
-		    double XEnd=xStart+2500/1.25;
-		    double yStart=xStart;
-		    double yEnd=XEnd;
-
-		    for(int i=0;i<xResolution;i++){
-		        for(int j=0;j<yResolution;j++){
-		            int x=(int)(xStart+i*((XEnd-xStart)/xResolution));
-		            int y=(int)(yStart+j*((yEnd-yStart)/yResolution));
-		            result[i][j]=0.5*(1+simplexNoise.getNoise(x,y));
-		        }
-		    }
-		    double xStart2=Math.random()*10000;
-		    double XEnd2=xStart2+2500/1.25;
-		    double yStart2=xStart2;
-		    double yEnd2=XEnd2;
-
-		    int xResolution2=xResolution;
-		    int yResolution2=yResolution;
-
-
-
-		    for(int i=0;i<xResolution2;i++){
-		        for(int j=0;j<yResolution2;j++){
-		            int x=(int)(xStart2+i*((XEnd2-xStart2)/xResolution2));
-		            int y=(int)(yStart2+j*((yEnd2-yStart2)/yResolution2));
-		            result2[i][j]=0.5*(1+simplexNoise.getNoise(x,y));
-		        }
-		    }
-		    
-		    
-		    double xStart3=Math.random()*10000;
-		    double XEnd3=xStart3+2500/1.25;
-		    double yStart3=xStart3;
-		    double yEnd3=XEnd3;
-
-		    int xResolution3=xResolution;
-		    int yResolution3=yResolution;
-
-
-
-		    for(int i=0;i<xResolution3;i++){
-		        for(int j=0;j<yResolution3;j++){
-		            int x=(int)(xStart3+i*((XEnd3-xStart3)/xResolution3));
-		            int y=(int)(yStart3+j*((yEnd3-yStart3)/yResolution3));
-		            result3[i][j]=0.5*(1+simplexNoise.getNoise(x,y));
-		        }
-		    }
 			LevelSelect = false;
 			ImageWriter.greyWriteImage(result,result2,result3);
-			if(loaded){
 			//Game.level = new ReadLevel("/textures/world" + (int)ImageWriter.getRand() + ".png" );
 				if(data1 == -1){
 					data1 = (int)ImageWriter.getRand();
@@ -328,8 +276,7 @@ public class Game extends Canvas implements Runnable {
 				}else if(data4 == -1){
 					data4 = (int)ImageWriter.getRand();
 				}
-				loaded = false;
-			}
+
 			
 
 			
@@ -592,10 +539,57 @@ public static void main (String[] args){
 	System.out.println(Game.menu);
 	
 	
-
+		SimplexNoise simplexNoise=new SimplexNoise(100,0.1,5000);
 		
 		System.out.println(Game.menu);
+	    double xStart=Math.random()*10000;
+	    double XEnd=xStart+2500/1.25;
+	    double yStart=xStart;
+	    double yEnd=XEnd;
 
+	    for(int i=0;i<xResolution;i++){
+	        for(int j=0;j<yResolution;j++){
+	            int x=(int)(xStart+i*((XEnd-xStart)/xResolution));
+	            int y=(int)(yStart+j*((yEnd-yStart)/yResolution));
+	            result[i][j]=0.5*(1+simplexNoise.getNoise(x,y));
+	        }
+	    }
+	    double xStart2=Math.random()*10000;
+	    double XEnd2=xStart2+2500/1.25;
+	    double yStart2=xStart2;
+	    double yEnd2=XEnd2;
+
+	    int xResolution2=xResolution;
+	    int yResolution2=yResolution;
+
+
+
+	    for(int i=0;i<xResolution2;i++){
+	        for(int j=0;j<yResolution2;j++){
+	            int x=(int)(xStart2+i*((XEnd2-xStart2)/xResolution2));
+	            int y=(int)(yStart2+j*((yEnd2-yStart2)/yResolution2));
+	            result2[i][j]=0.5*(1+simplexNoise.getNoise(x,y));
+	        }
+	    }
+	    
+	    
+	    double xStart3=Math.random()*10000;
+	    double XEnd3=xStart3+2500/1.25;
+	    double yStart3=xStart3;
+	    double yEnd3=XEnd3;
+
+	    int xResolution3=xResolution;
+	    int yResolution3=yResolution;
+
+
+
+	    for(int i=0;i<xResolution3;i++){
+	        for(int j=0;j<yResolution3;j++){
+	            int x=(int)(xStart3+i*((XEnd3-xStart3)/xResolution3));
+	            int y=(int)(yStart3+j*((yEnd3-yStart3)/yResolution3));
+	            result3[i][j]=0.5*(1+simplexNoise.getNoise(x,y));
+	        }
+	    }
 	  if(Game.menu){
 			    
 	    WriteFile = new WriteFile("WorldSave.txt");
