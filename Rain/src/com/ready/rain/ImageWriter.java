@@ -107,8 +107,7 @@ public class ImageWriter {
 			}
       	  }*/
           }
-          System.out.println(y);
-        }
+          }
       
 
       

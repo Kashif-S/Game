@@ -203,11 +203,11 @@ public class Animation extends JPanel {
 		g8.drawImage(img5, x + xjoint8 - xjoint9, y + yjoint8 - yjoint9 - img5.getHeight(), null);
 	
 	}else{
-		xjoint8 -= character.lefttorso.getWidth() - xjoint9;
+		xjoint8 = character.lefttorso.getWidth() - xjoint8;
 		g8.translate(x + xjoint8, y - yjoint8 - yjoint9);
 		g8.rotate(Math.toRadians(-rot));
 		g8.translate(-(x + xjoint8), -(y - yjoint8 - yjoint9));
-		g8.drawImage(img5, x - xjoint8 - xjoint9, y + yjoint8 - yjoint9 - img5.getHeight(), null);
+		g8.drawImage(img5, x + xjoint8 - xjoint9, y + yjoint8 - yjoint9 - img5.getHeight(), null);
 	}
 	
 	g8.dispose();
