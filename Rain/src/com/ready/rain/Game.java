@@ -88,6 +88,7 @@ public class Game extends Canvas implements Runnable {
 	public BufferedImage image6;
 	public BufferedImage image7;
 	public BufferedImage image8;
+	public BufferedImage image9;
 	public BufferedImage Selectworld;
 	public BufferedImage Play;
 	public BufferedImage Delete;
@@ -150,6 +151,7 @@ public class Game extends Canvas implements Runnable {
 		image6 = load.LoadImage("/textures/leo_leftleg.png");
 		image7 = load.LoadImage("/textures/leo_righthead.png");
 		image8 = load.LoadImage("/textures/leo_lefthead.png");
+		image9 = load.LoadImage("/textures/Penguin gun.png");
 		loading = load.LoadImage("/textures/loading.png");
 		loading1 = load.LoadImage("/textures/loading1.png");
 		loading2 = load.LoadImage("/textures/loading2.png");
@@ -172,8 +174,8 @@ public class Game extends Canvas implements Runnable {
 		DeleteB = load.LoadImage("/textures/Button/DeleteB.png");
 		Selectworld = load.LoadImage("/textures/WorldSelect.png");
 
-		character.init(level);
-		character = new Character (width*scale/2,height*scale/2,image1,image2,image3,image4,image5,image6,image7,image8,0,10,11,-16,44,10,11,-16,35,68,14,12,17,69,20,0,12,21);
+		//character.init(level);
+		character = new Character (width*scale/2,height*scale/2,image1,image2,image3,image4,image5,image6,image7,image8,image9,0,10,11,-16,44,10,11,-16,35,68,14,12,17,69,20,0,12,21);
 	}
 	
 	public synchronized void start () {
@@ -249,15 +251,6 @@ public class Game extends Canvas implements Runnable {
 			}
 			if(count >= 180){
 				dir = true;
-			}
-			if(count == 0){
-				loadingscrn = loading;
-			}else if(count == 60){
-				loadingscrn = loading1;
-			}else if(count == 120){
-				loadingscrn = loading2;
-			}else if(count == 180){
-				loadingscrn = loading3;
 			}
 
 
@@ -582,7 +575,7 @@ if (LevelSelect){
 public static void main (String[] args){
 	
 	Game game = new Game ();
-	game.frame.setResizable (false);
+	game.frame.setResizable (true);
 	game.frame.setTitle (Game.title);
 	game.frame.add(game);
 	game.frame.pack();

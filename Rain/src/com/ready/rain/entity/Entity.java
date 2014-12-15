@@ -32,5 +32,8 @@ public abstract class Entity {
 	public void init(Level level){
 		this.level = level;
 	}
+	public boolean can(){
+		return false;
+	}
 	}
 	

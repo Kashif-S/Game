@@ -29,11 +29,13 @@ public class Animation extends JPanel {
 	BufferedImage image6;
 	BufferedImage image7;
 	BufferedImage image8;
+	BufferedImage image9;
 	BufferedImage img3;
 	BufferedImage img1;
 	BufferedImage img2;
 	BufferedImage img4;
 	BufferedImage img5;
+	BufferedImage img6;
 
 
 	public void AnimateLegs(BufferStrategy bs, Character character, boolean moving,boolean facing){
@@ -89,13 +91,14 @@ public class Animation extends JPanel {
 			img3 = character.leftarm;
 			img4 = character.leftleg;
 			img5 = character.lefthead;
+			img6 = character.gun;
 		}else{	
 			img3 = character.rightarm;
 			img1 = image1;
 			img2 = character.righttorso;
 			img4 = character.rightleg;
 			img5 = character.righthead;
-		
+			img6 = character.gun;
 		}
 		//img3 = image5;
 		//img4 = image6;
@@ -184,13 +187,14 @@ public class Animation extends JPanel {
 		g5.rotate(Math.toRadians(rot));
 		g5.translate(-x - xjoint3, -y + yjoint3);
 		g5.drawImage(img3, x + xjoint3 - xjoint4, y - yjoint3 + yjoint4, null);
-	
+		g5.drawImage(img6, x + xjoint3 - xjoint4, y - yjoint3 + yjoint4, null);
 	}else{
 		xjoint3 -= character.lefttorso.getWidth() - xjoint4;
 		g5.translate(x + xjoint3, y - yjoint3);
 		g5.rotate(Math.toRadians(rot));
 		g5.translate(-x - xjoint3, -y + yjoint3);
 		g5.drawImage(img3, x + xjoint3 -2 * xjoint4, y - yjoint3 + yjoint4, null);
+		g5.drawImage(img6, x + xjoint3 - xjoint4, y - yjoint3 + yjoint4, null);
 	}
 	g5.dispose();
 	
