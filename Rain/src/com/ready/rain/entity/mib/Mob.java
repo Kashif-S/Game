@@ -10,12 +10,13 @@ public abstract class Mob extends Entity {
 	protected boolean moving = false;
 	
 	public void move(int xa, int ya){  //the mob tracking method
-		// -1, 0 , 1 are the values here that x or y can equal to
+		// -1, 0 , 1 are the values here that xa or ya can equal to
 		if (xa > 0) dir = 1;
 		if (xa < 0) dir = 3;
 		if (ya > 0) dir = 2;
 		if (ya < 0) dir = 0;
-		if (!collision()) {
+		
+		if (!collision(xa, ya)) {
 		x += xa;
 		y += ya;
 		}
@@ -28,8 +29,12 @@ public abstract class Mob extends Entity {
 		
 	}
 	
-	private boolean collision(){
-		return false;
+	private boolean collision(int xa, int ya){
+		boolean solid = false;
+		if (level.getTile((x+xa) / 16,(y+ ya) /16).solid()) {
+			solid = true;
+		}
+		return solid;
 	}
 	
 	

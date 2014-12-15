@@ -172,6 +172,7 @@ public class Game extends Canvas implements Runnable {
 		DeleteB = load.LoadImage("/textures/Button/DeleteB.png");
 		Selectworld = load.LoadImage("/textures/WorldSelect.png");
 
+		character.init(level);
 		character = new Character (width*scale/2,height*scale/2,image1,image2,image3,image4,image5,image6,image7,image8,0,10,11,-16,44,10,11,-16,35,68,14,12,17,69,20,0,12,21);
 	}
 	
