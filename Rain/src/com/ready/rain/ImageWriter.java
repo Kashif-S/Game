@@ -19,6 +19,8 @@ public class ImageWriter {
 	public static float rand;
 	private static float i = 0.5f;
 	private static float rand1= i;
+	static int errornum = 0;
+    static double datacol = 3;
 
 
 
@@ -73,9 +75,23 @@ public class ImageWriter {
             if (data3[x][y] >= 0.1 && data3[x][y] < 0.3){
                 data3[x][y]=0;
             }*/
+        	  
 
-
-        	  if(data[x][y]>data2[x][y] && data[x][y] > data3[x][y]){
+        	  data[x][y] *= 200;
+    		  data2[x][y] *= 200;
+    		  data3[x][y] *=  200;
+    		  
+    		  if((int)data[x][y] * 255 ==(int)data2[x][y] * 255){
+    			  data[x][y] -= 1;
+       		
+       	  }if((int)data2[x][y] * 255 ==(int)data3[x][y] * 255){
+       		data2[x][y] -= 1;
+       		
+       	  } if((int)data3[x][y] * 255 ==(int)data[x][y] * 255){
+       		data3[x][y] -= 1;
+       	  }
+       	  
+        	 if(data[x][y]>data2[x][y] && data[x][y] > data3[x][y]){
         		  data[x][y] = 1;
         		  data2[x][y] = 0;
         		  data3[x][y] = 0;
@@ -92,7 +108,7 @@ public class ImageWriter {
         		
         	  }
 
-        	 // System.out.println("im still alive");
+        //	 System.out.println("stalling...");
             
             Color col=new Color((float)data[x][y],(float)data2[x][y],(float)data3[x][y]); 
             image.setRGB(x, y, col.getRGB());
@@ -108,9 +124,183 @@ public class ImageWriter {
       	  }*/
           }
           }
-      
+       
+        for(int i = 0; i < 100; i ++){
+        	int y = (int) (Math.random()*data[0].length);
+        	int x = (int) (Math.random()*data.length);
+        	
+        	
+        	
+        	datacol = 3;
+        
+        if(data[x][y] == 1 && data2[x][y] == 0&&data3[x][y] == 0){
+        	datacol = 0;
+        }
+        if(data2[x][y] == 1&& data3[x][y] == 0&&data[x][y] == 0){
+        	datacol = 1;
+        }
+        if(data3[x][y] == 1&& data[x][y] == 0&&data2[x][y] == 0){
+        	datacol = 2;
+        }
+        
+		  data[x][y] = 1;
+		  data2[x][y] = 1;
+		  data3[x][y] = 1;
+		  
+       // Color col=new Color((float)data[x][y],(float)data2[x][y],(float)data3[x][y]); 
+       // image.setRGB(x, y, col.getRGB());
+        
 
+
+        	
+        	
+        }
       
+for(int i = 0; i < 100; i++){
+        for (int a = 0; a < data[0].length; a++)
+        {
+        	
+          for (int b = 0; b < data.length; b++)
+          {
+        	  if(a > 0 && a < data[0].length -1 && b > 0 && b < data.length -1){
+        	  if((data[a-1][b] == 1 && data2[a-1][b] == 1 && data3[a-1][b] == 1)||(data[a+1][b] == 1 && data2[a+1][b] == 1 && data3[a+1][b] == 1)||(data[a][b-1] == 1 && data2[a][b-1] == 1 && data3[a][b-1] == 1)||(data[a][b+1] == 1 && data2[a][b+1] == 1 && data3[a][b+1] == 1))
+          {
+        	  if(data[a][b] == 1 && datacol == 0){
+        		  data[a][b] = 1;
+        		  data2[a][b] = 1;
+        		  data3[a][b] = 1;
+        	  }else if(data2[a][b] == 1 && datacol == 1){
+        		  data[a][b] = 1;
+        		  data2[a][b] = 1;
+        		  data3[a][b] = 1;
+        	  }else if(data3[a][b] == 1 && datacol == 2){
+        		  data[a][b] = 1;
+        		  data2[a][b] = 1;
+        		  data3[a][b] = 1;
+        	  }
+              Color col=new Color((float)data[a][b],(float)data2[a][b],(float)data3[a][b]); 
+              image.setRGB(a, b, col.getRGB());
+          }
+          }
+          }
+        }
+        
+        for (int a = data[0].length; a > 0; a--)
+        {
+        	
+          for (int b = data.length; b > 0 ; b--)
+          {
+        	  if(a > 0 && a < data[0].length -1 && b > 0 && b < data.length -1){
+        	  if((data[a-1][b] == 1 && data2[a-1][b] == 1 && data3[a-1][b] == 1)||(data[a+1][b] == 1 && data2[a+1][b] == 1 && data3[a+1][b] == 1)||(data[a][b-1] == 1 && data2[a][b-1] == 1 && data3[a][b-1] == 1)||(data[a][b+1] == 1 && data2[a][b+1] == 1 && data3[a][b+1] == 1))
+          {
+        	  if(data[a][b] == 1 && datacol == 0){
+        		  data[a][b] = 1;
+        		  data2[a][b] = 1;
+        		  data3[a][b] = 1;
+        	  }else if(data2[a][b] == 1 && datacol == 1){
+        		  data[a][b] = 1;
+        		  data2[a][b] = 1;
+        		  data3[a][b] = 1;
+        	  }else if(data3[a][b] == 1 && datacol == 2){
+        		  data[a][b] = 1;
+        		  data2[a][b] = 1;
+        		  data3[a][b] = 1;
+        	  }
+              Color col=new Color((float)data[a][b],(float)data2[a][b],(float)data3[a][b]); 
+              image.setRGB(a, b, col.getRGB());
+          }
+          }
+          }
+        }
+}
+for(int i = 0; i < 200; i ++){
+	int y = (int) (Math.random()*data[0].length);
+	int x = (int) (Math.random()*data.length);
+	
+	
+	
+	datacol = 3;
+
+if(data[x][y] == 1 && data2[x][y] == 0&&data3[x][y] == 0){
+	datacol = 0;
+}
+if(data2[x][y] == 1&& data3[x][y] == 0&&data[x][y] == 0){
+	datacol = 1;
+}
+if(data3[x][y] == 1&& data[x][y] == 0&&data2[x][y] == 0){
+	datacol = 2;
+}
+
+  data[x][y] = 0;
+  data2[x][y] = 0;
+  data3[x][y] = 0;
+  
+// Color col=new Color((float)data[x][y],(float)data2[x][y],(float)data3[x][y]); 
+// image.setRGB(x, y, col.getRGB());
+
+
+
+	
+	
+}
+
+for(int i = 0; i < 50; i++){
+for (int a = 0; a < data[0].length; a++)
+{
+	
+  for (int b = 0; b < data.length; b++)
+  {
+	  if(a > 0 && a < data[0].length -1 && b > 0 && b < data.length -1){
+		  if((data[a-1][b] == 0 && data2[a-1][b] == 0 && data3[a-1][b] == 0)||(data[a+1][b] == 0 && data2[a+1][b] == 0 && data3[a+1][b] == 0)||(data[a][b-1] == 0 && data2[a][b-1] == 0 && data3[a][b-1] == 0)||(data[a][b+1] == 0 && data2[a][b+1] == 0 && data3[a][b+1] == 0))
+  {
+	  if(data[a][b] == 1 && datacol == 0){
+		  data[a][b] = 0;
+		  data2[a][b] = 0;
+		  data3[a][b] = 0;
+	  }else if(data2[a][b] == 1 && datacol == 1){
+		  data[a][b] = 0;
+		  data2[a][b] = 0;
+		  data3[a][b] = 0;
+	  }else if(data3[a][b] == 1 && datacol == 2){
+		  data[a][b] = 0;
+		  data2[a][b] = 0;
+		  data3[a][b] = 0;
+	  }
+      Color col=new Color((float)data[a][b],(float)data2[a][b],(float)data3[a][b]); 
+      image.setRGB(a, b, col.getRGB());
+  }
+  }
+  }
+}
+
+for (int a = data[0].length; a > 0; a--)
+{
+	
+  for (int b = data.length; b > 0 ; b--)
+  {
+	  if(a > 0 && a < data[0].length -1 && b > 0 && b < data.length -1){
+	  if((data[a-1][b] == 0 && data2[a-1][b] == 0 && data3[a-1][b] == 0)||(data[a+1][b] == 0 && data2[a+1][b] == 0 && data3[a+1][b] == 0)||(data[a][b-1] == 0 && data2[a][b-1] == 0 && data3[a][b-1] == 0)||(data[a][b+1] == 0 && data2[a][b+1] == 0 && data3[a][b+1] == 0))
+  {
+	  if(data[a][b] == 1 && datacol == 0){
+		  data[a][b] = 0;
+		  data2[a][b] = 0;
+		  data3[a][b] = 0;
+	  }else if(data2[a][b] == 1 && datacol == 1){
+		  data[a][b] = 0;
+		  data2[a][b] = 0;
+		  data3[a][b] = 0;
+	  }else if(data3[a][b] == 1 && datacol == 2){
+		  data[a][b] = 0;
+		  data2[a][b] = 0;
+		  data3[a][b] = 0;
+	  }
+      Color col=new Color((float)data[a][b],(float)data2[a][b],(float)data3[a][b]); 
+      image.setRGB(a, b, col.getRGB());
+  }
+  }
+  }
+}
+}
 
         try {
             // retrieve image

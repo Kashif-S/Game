@@ -16,7 +16,7 @@ public class Sprite {
 	public static Sprite desert2 = new Sprite(16, 1, 1, SpriteSheet.tiles) ;
 	public static Sprite desert3 = new Sprite(16, 2, 1, SpriteSheet.tiles) ;
 	public static Sprite desert4 = new Sprite(16, 3, 1, SpriteSheet.tiles) ;
-	
+	public static Sprite water = new Sprite(16, 0, 2, SpriteSheet.tiles) ;
 
 	public static Sprite voidSprite = new Sprite(16, 0x62F0ED);
 	

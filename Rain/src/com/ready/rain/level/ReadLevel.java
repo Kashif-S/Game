@@ -67,43 +67,14 @@ public class ReadLevel extends Level{
 		}
 		}
 			else if (wrldpx[p] == 0x00FFFFFF) {
-				if(tilenum < 10){
-				tiles[p] = Tile.grass4;
-		}		else if (tilenum >= 10 && tilenum < 20){
-				tiles[p] = Tile.grass5;
-		}		else if (tilenum >= 20 && tilenum < 25){
-				tiles[p] = Tile.grass2;
-		}		else if (tilenum >= 25 && tilenum < 30){
-				tiles[p] = Tile.grass3;
-		}		else{
-				tiles[p] = Tile.grass;
-		}
+				tiles[p] = Tile.water;
 		}
 			else if (wrldpx[p] == 0xFFFFFFFF) {
-				if(tilenum < 10){
-				tiles[p] = Tile.grass4;
-		}		else if (tilenum >= 10 && tilenum < 20){
-				tiles[p] = Tile.grass5;
-		}		else if (tilenum >= 20 && tilenum < 25){
-				tiles[p] = Tile.grass2;
-		}		else if (tilenum >= 25 && tilenum < 30){
-				tiles[p] = Tile.grass3;
-		}		else{
-				tiles[p] = Tile.grass;
-		}
+				tiles[p] = Tile.water;
 		}
 			else if (wrldpx[p] == 0xFF000000) {
-				if(tilenum < 5){
-					tiles[p] = Tile.desert2;
-					}		else if (tilenum >= 5 && tilenum < 10){
-					tiles[p] = Tile.desert3;
-					}		else if (tilenum >= 10 && tilenum < 15){
-					tiles[p] = Tile.desert4;
-					}		else{
-					tiles[p] = Tile.desert;
-					}
-				}		
-			else if (wrldpx[p] == 0x00FF0000) {
+				tiles[p] = Tile.water;	
+		}	else if (wrldpx[p] == 0x00FF0000) {
 				if(tilenum < 10){
 				tiles[p] = Tile.grass4;
 		}		else if (tilenum >= 10 && tilenum < 20){
@@ -170,17 +141,8 @@ public class ReadLevel extends Level{
 		}
 		}
 			else if (wrldpx[p] == 0x00000000) {
-				if(tilenum < 10){
-				tiles[p] = Tile.grass4;
-		}		else if (tilenum >= 10 && tilenum < 20){
-				tiles[p] = Tile.grass5;
-		}		else if (tilenum >= 20 && tilenum < 25){
-				tiles[p] = Tile.grass2;
-		}		else if (tilenum >= 25 && tilenum < 30){
-				tiles[p] = Tile.grass3;
-		}		else{
-				tiles[p] = Tile.grass;
-		}
+				tiles[p] = Tile.water;
+
 		}
 		else tiles[p] = Tile.voidTile;
 		}

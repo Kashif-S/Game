@@ -18,6 +18,7 @@ public class Tile {
 	public static Tile desert2 = new desert2(Sprite.desert2);
 	public static Tile desert3 = new desert3(Sprite.desert3);
 	public static Tile desert4 = new desert4(Sprite.desert4);
+	public static Tile water = new Water(Sprite.water);
 	
 	public Tile(Sprite sprite) {
 		this.sprite = sprite;
