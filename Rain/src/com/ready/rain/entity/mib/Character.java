@@ -6,6 +6,7 @@ import com.ready.rain.input.Keyboard;
 
 
 public class Character extends Mob {
+	private Keyboard input;
 	public int xjoint1;
 	public int yjoint1;
 	public int xjoint2;
@@ -34,6 +35,9 @@ public class Character extends Mob {
 	public BufferedImage lefthead;
 	public BufferedImage gun;
 	
+	public Character (Keyboard input) {
+		this.input = input;
+	}
 	public Character (
 			int x,
 			int y,
@@ -55,7 +59,9 @@ public class Character extends Mob {
 			int xjoint7,int yjoint7, //on Torso
 			int xjoint8,int yjoint8, //on Torso
 			int xjoint9,int yjoint9 //on Head
+, Keyboard input
 			) {
+		this.input = input;
 		this.righttorso = righttorso;
 		this.lefttorso = lefttorso;
 		this.rightarm = rightarm;
@@ -87,5 +93,5 @@ public class Character extends Mob {
 		this.y = y + righttorso.getHeight()/2;
 		 
 		}
-	
+		
 }
