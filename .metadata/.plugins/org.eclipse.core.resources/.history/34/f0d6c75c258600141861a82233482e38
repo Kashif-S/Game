@@ -232,9 +232,20 @@ public class Game extends Canvas implements Runnable {
 		key.update();
 		character1.update();
 		if(loaded){
-	
+		if (key.up) 
+			//y-=3;
+		if (key.down) 
+			//y+=3.5;
+		if (key.left){
+			//x-=3;
+			facing = true;
 		}
-		/*else{
+		if (key.right){
+			//x+=3.5; 
+			facing = false;
+		}
+		}
+		else{
 			if(dir){
 				count --;
 			}else{
@@ -248,7 +259,7 @@ public class Game extends Canvas implements Runnable {
 			}
 
 
-			}*/
+			}
 
 		
 		if(LevelSelect){

@@ -2,12 +2,10 @@ package com.ready.rain.entity.mib;
 
 import java.awt.image.BufferedImage;
 
-import com.ready.rain.Game;
 import com.ready.rain.input.Keyboard;
 
 
 public class Character extends Mob {
-
 	private Keyboard input;
 	public int xjoint1;
 	public int yjoint1;
@@ -95,21 +93,5 @@ public class Character extends Mob {
 		this.y = y + righttorso.getHeight()/2;
 		 
 		}
-	public void update(){
-		if(Game.loaded){
-			if (input.up) 
-				Game.y-=3;
-			if (input.down) 
-				Game.y+=3.5;
-			if (input.left){
-				Game.facing = true;
-				Game.x-=3;
-			}
-			if (input.right){
-				Game.facing = false;
-				Game.x+=3.5; 
-			}
-	}
 		
-}
 }

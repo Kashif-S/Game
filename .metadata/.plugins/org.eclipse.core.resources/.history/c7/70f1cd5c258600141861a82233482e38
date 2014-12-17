@@ -102,11 +102,9 @@ public class Character extends Mob {
 			if (input.down) 
 				Game.y+=3.5;
 			if (input.left){
-				Game.facing = true;
 				Game.x-=3;
 			}
 			if (input.right){
-				Game.facing = false;
 				Game.x+=3.5; 
 			}
 	}

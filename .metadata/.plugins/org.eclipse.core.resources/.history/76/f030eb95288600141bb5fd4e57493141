@@ -18,13 +18,13 @@ public abstract class Mob extends Entity {
 		if (ya < 0) dir = 0;
 		
 		if (!collision(xa, ya)) {
-		x += xa;
-		y += ya;
+			Game.x += 0;
+			Game.y += 0;
 		}
 	}
 	
 	public void update(){
-		
+	
 	}
 	public void render(){
 		
@@ -32,7 +32,8 @@ public abstract class Mob extends Entity {
 	
 	private boolean collision(int xa, int ya){
 		boolean solid = false;
-		if (level.getTile((x+xa) / 16,(y+ ya) /16).solid()) {
+		if (level.getTile((Game.x+xa),(Game.y+ ya)).solid()) {
+			System.out.println(Game.x + Game.y);
 			solid = true;
 		}
 		return solid;
