@@ -544,7 +544,7 @@ if (LevelSelect){
 }
 	}
 		else if(loaded){
-		level.render(character.x, character.y, screen);
+		level.render(character.x * 2, character.y * 2, screen);
 		
 	
 		for (int i = 0; i < pixels.length; i++) {

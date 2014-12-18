@@ -176,7 +176,7 @@ public class Game extends Canvas implements Runnable {
 		Selectworld = load.LoadImage("/textures/WorldSelect.png");
 
 		//character.init(level);
-		//character = new Character(x,y,image1,image2,image3,image4,image5,image6,image7,image8,image9,0,10,11,-16,44,10,11,-16,35,68,14,12,17,69,20,0,12,21,key);
+		character1 = new Character(x,y,image1,image2,image3,image4,image5,image6,image7,image8,image9,0,10,11,-16,44,10,11,-16,35,68,14,12,17,69,20,0,12,21,key);
 		character = new Character (width*scale/2,height*scale/2,image1,image2,image3,image4,image5,image6,image7,image8,image9,0,10,11,-16,44,10,11,-16,35,68,14,12,17,69,20,0,12,21,key);
 	}
 	
@@ -227,14 +227,12 @@ public class Game extends Canvas implements Runnable {
 	}
 	//public static int x = (3000 * 16 / 2);
 	//public static int y = (3000 * 16 / 2);
-	public static int x = 3000* 16 / 2;
-
-	public static int y = 3000* 16 /2;
+	int x = 300* 16 / 2, y = 3000* 16 /2;
 	public void update () {
 		key.update();
-		character.update();
+		character1.update();
 		if(loaded){
-			
+			character1.update();
 		}
 		else{
 			if(dir){
@@ -544,13 +542,13 @@ if (LevelSelect){
 }
 	}
 		else if(loaded){
-		level.render(character.x, character.y, screen);
+		level.render(x, y, screen);
 		
 	
 		for (int i = 0; i < pixels.length; i++) {
 			pixels [i] = screen.pixels [i];
 		}	
-	
+		animation.AnimateLegs(bs,character1,false,facing);
 		if(key.up || key.down || key.right || key.left){
 			animation.AnimateLegs(bs,character,true,facing);
 		}else{
@@ -559,7 +557,7 @@ if (LevelSelect){
 		}
 		g.setColor(Color.WHITE);
 		g.setFont(new Font("Times New Roman", 0, 25));
-		g.drawString("X: " + character.x / 16 + ", Y: " + character.y / 16, 0, 18);
+		g.drawString("X: " + x / 16 + ", Y: " + y / 16, 0, 18);
 		
 		}else{
 			g.drawImage (loadingscrn,getWidth ()/2 - loadingscrn.getWidth()/2, getHeight()/2 - loadingscrn.getHeight()/2, null);

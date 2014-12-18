@@ -7,6 +7,7 @@ import com.ready.rain.input.Keyboard;
 
 
 public class Character extends Mob {
+
 	private Keyboard input;
 	public int xjoint1;
 	public int yjoint1;
@@ -97,16 +98,16 @@ public class Character extends Mob {
 	public void update(){
 		if(Game.loaded){
 			if (input.up) 
-				y--;
+				y-=3;
 			if (input.down) 
-				y++;
+				y+=3.5;
 			if (input.left){
 				Game.facing = true;
-				x--;
+				x-=3;
 			}
 			if (input.right){
 				Game.facing = false;
-				x++; 
+				x+=3.5; 
 			}
 	}
 		

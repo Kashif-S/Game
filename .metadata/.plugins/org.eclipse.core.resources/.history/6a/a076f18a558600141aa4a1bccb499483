@@ -227,7 +227,7 @@ public class Game extends Canvas implements Runnable {
 	}
 	//public static int x = (3000 * 16 / 2);
 	//public static int y = (3000 * 16 / 2);
-	public static int x = 3000* 16 / 2;
+	public static int x = 300* 16 / 2;
 
 	public static int y = 3000* 16 /2;
 	public void update () {
@@ -559,7 +559,7 @@ if (LevelSelect){
 		}
 		g.setColor(Color.WHITE);
 		g.setFont(new Font("Times New Roman", 0, 25));
-		g.drawString("X: " + character.x / 16 + ", Y: " + character.y / 16, 0, 18);
+		g.drawString("X: " + x / 16 + ", Y: " + y / 16, 0, 18);
 		
 		}else{
 			g.drawImage (loadingscrn,getWidth ()/2 - loadingscrn.getWidth()/2, getHeight()/2 - loadingscrn.getHeight()/2, null);

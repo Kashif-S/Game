@@ -304,7 +304,7 @@ for (int a = data[0].length; a > 0; a--)
 
         try {
             // retrieve image
-            File outputfile = new File("res/textures/WorldGen/world" + (int)rand + ".png" );
+            File outputfile = new File("res/textures/world" + (int)rand + ".png" );
             outputfile.createNewFile();
             System.out.println("done");
             ImageIO.write(image, "png", outputfile);
