@@ -7,7 +7,8 @@ import com.ready.rain.level.Level;
 
 public abstract class Entity {
 
-	public int x, y;
+	public int x;
+	public int y;
 	private boolean removed = false;
 	protected Level level;
 	protected final Random random = new Random();

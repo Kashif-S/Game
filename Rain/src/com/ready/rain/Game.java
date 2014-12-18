@@ -73,7 +73,7 @@ public class Game extends Canvas implements Runnable {
 	public int click;
 	public int wait = 0;
 	
-	public int data1 = 0;
+	public int data1 = 1;
 	public int data2 = 0;
 	public int data3 = 0;
 	public int data4 = 0;
@@ -115,7 +115,6 @@ public class Game extends Canvas implements Runnable {
 	private Screen screen;
 	private Animation animation;
 	private Character character;
-	private Character character1;
 	private LoadImages load;
 	public static Level level;
 	
@@ -227,13 +226,29 @@ public class Game extends Canvas implements Runnable {
 	}
 	//public static int x = (3000 * 16 / 2);
 	//public static int y = (3000 * 16 / 2);
-	public static int x = 3000* 16 / 2;
+	int x = 3000* 16 / 2;
 
-	public static int y = 3000* 16 /2;
+	int y = 3000* 16 /2;
 	public void update () {
+	
 		key.update();
-		character.update();
+		
 		if(loaded){
+			character.update();
+			if (key.up) {
+				y--;
+				}
+			if (key.down) {
+				y++;
+				}
+			if (key.left){
+				facing = true;
+				x--;
+			}
+			if (key.right){
+				facing = false;
+				x++;
+			}
 			
 		}
 		else{
@@ -339,7 +354,8 @@ public class Game extends Canvas implements Runnable {
 
 if(MouseX > 325 && MouseX < 811 && MouseY	 > 75 && MouseY < 175 && data1 > 0 && click == 1 && select == 1){
 	System.out.println("loading...");
-	Game.level = new ReadLevel("/textures/WorldGen/world" + data1 + ".png" );
+	//Game.level = new ReadLevel("/textures/WorldGen/world" + data1 + ".png" );
+	Game.level = new ReadLevel("/textures/WorldGen/world1.png" );
 	loaded = true;
 	LevelSelect = false;
 	WorldS = false;
@@ -544,7 +560,8 @@ if (LevelSelect){
 }
 	}
 		else if(loaded){
-		level.render(character.x, character.y, screen);
+			screen.clear();
+		level.render(x, y, screen);
 		
 	
 		for (int i = 0; i < pixels.length; i++) {
@@ -559,7 +576,7 @@ if (LevelSelect){
 		}
 		g.setColor(Color.WHITE);
 		g.setFont(new Font("Times New Roman", 0, 25));
-		g.drawString("X: " + character.x / 16 + ", Y: " + character.y / 16, 0, 18);
+		g.drawString("X: " + x / 16 + ", Y: " + y / 16, 0, 18);
 		
 		}else{
 			g.drawImage (loadingscrn,getWidth ()/2 - loadingscrn.getWidth()/2, getHeight()/2 - loadingscrn.getHeight()/2, null);

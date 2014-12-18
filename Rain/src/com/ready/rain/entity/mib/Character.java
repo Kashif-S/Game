@@ -8,6 +8,8 @@ import com.ready.rain.input.Keyboard;
 
 public class Character extends Mob {
 	private Keyboard input;
+	public int xa;
+	public int ya;
 	public int xjoint1;
 	public int yjoint1;
 	public int xjoint2;
@@ -62,7 +64,8 @@ public class Character extends Mob {
 			int xjoint9,int yjoint9 //on Head
 , Keyboard input
 			) {
-		this.input = input;
+		this.x = x - righttorso.getWidth()/2;
+		this.y = y + righttorso.getHeight()/2;
 		this.righttorso = righttorso;
 		this.lefttorso = lefttorso;
 		this.rightarm = rightarm;
@@ -90,25 +93,18 @@ public class Character extends Mob {
 		this.yjoint8 = yjoint8;
 		this.xjoint9 = xjoint9;
 		this.yjoint9 = yjoint9 + righttorso.getHeight()/2;
-		this.x = x - righttorso.getWidth()/2;
-		this.y = y + righttorso.getHeight()/2;
+		this.input = input;
 		 
 		}
 	public void update(){
-		if(Game.loaded){
-			if (input.up) 
-				y--;
-			if (input.down) 
-				y++;
-			if (input.left){
-				Game.facing = true;
-				x--;
-			}
-			if (input.right){
-				Game.facing = false;
-				x++; 
-			}
-	}
+		
+			int xa = 0, ya = 0;
+			if (input.up) ya-= 0.5;
+			if (input.down) ya+= -0.5;
+			if (input.left)xa-= 0.5;
+			if (input.right)xa+= -0.5;
+			
+			if(xa != 0 || ya != 0) move (xa,ya);
 		
 		
 }
