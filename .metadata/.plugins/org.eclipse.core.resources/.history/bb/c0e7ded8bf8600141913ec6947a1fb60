@@ -8,8 +8,8 @@ import com.ready.rain.input.Keyboard;
 
 public class Character extends Mob {
 	private Keyboard input;
-	public int xa;
-	public int ya;
+	public static int xa = 1;
+	public static int ya = 1;
 	public int xjoint1;
 	public int yjoint1;
 	public int xjoint2;
@@ -98,8 +98,8 @@ public class Character extends Mob {
 		}
 	public void update(){
 		
-	int xa = 0;
-	int ya = 0;
+	//int xa = 0;
+	//int ya = 0;
 			if (input.up) ya--;
 			if (input.down) ya++;
 			if (input.left)xa--;

@@ -98,12 +98,11 @@ public class Character extends Mob {
 		}
 	public void update(){
 		
-	int xa = 0;
-	int ya = 0;
-			if (input.up) ya--;
-			if (input.down) ya++;
-			if (input.left)xa--;
-			if (input.right)xa++;
+			int xa = 0, ya = 0;
+			if (input.up) ya-= 3;
+			if (input.down) ya+= -0.5;
+			if (input.left)xa-= 0.5;
+			if (input.right)xa+= -0.5;
 			
 			if(xa != 0 || ya != 0) move (xa,ya);
 		

@@ -73,7 +73,7 @@ public class Game extends Canvas implements Runnable {
 	public int click;
 	public int wait = 0;
 	
-	public int data1 = 10;
+	public int data1 = 1;
 	public int data2 = 0;
 	public int data3 = 0;
 	public int data4 = 0;
@@ -249,8 +249,6 @@ public class Game extends Canvas implements Runnable {
 				facing = false;
 				x++;
 			}
-			character.x = width*scale/2;
-			character.y = height*scale/2;
 			
 		}
 		else{
@@ -357,7 +355,7 @@ public class Game extends Canvas implements Runnable {
 if(MouseX > 325 && MouseX < 811 && MouseY	 > 75 && MouseY < 175 && data1 > 0 && click == 1 && select == 1){
 	System.out.println("loading...");
 	//Game.level = new ReadLevel("/textures/WorldGen/world" + data1 + ".png" );
-	Game.level = new ReadLevel("/textures/WorldGen/world10.png" );
+	Game.level = new ReadLevel("/textures/WorldGen/world1.png" );
 	loaded = true;
 	LevelSelect = false;
 	WorldS = false;
@@ -556,7 +554,10 @@ if(Mouse.getX() > 512 && Mouse.getX() < 615 && Mouse.getY() > 250 && Mouse.getY(
 }
 }
 
-
+if (LevelSelect){
+	//Game.level = new ReadLevel("/textures/world" + (int)ImageWriter.getRand() + ".png" );
+	
+}
 	}
 		else if(loaded){
 			screen.clear();
@@ -575,8 +576,7 @@ if(Mouse.getX() > 512 && Mouse.getX() < 615 && Mouse.getY() > 250 && Mouse.getY(
 		}
 		g.setColor(Color.WHITE);
 		g.setFont(new Font("Times New Roman", 0, 25));
-		g.drawString("X: " + x / 16 + ", Y: " +  y / 16, 0, 18);
-		//g.drawString("Character xa " + character.xa + ",  Character ya: " + character.ya , 20 , 100);
+		g.drawString("X: " + x / 16 + ", Y: " + y / 16, 0, 18);
 		
 		}else{
 			g.drawImage (loadingscrn,getWidth ()/2 - loadingscrn.getWidth()/2, getHeight()/2 - loadingscrn.getHeight()/2, null);
