@@ -130,7 +130,7 @@ public class Game extends Canvas implements Runnable {
 	 static double[][] result2=new double[xResolution][yResolution];	
 	 static double[][] result3=new double[xResolution][yResolution];
 	 
-	public Game () {
+	public Game (Level level) {
 		Dimension size = new Dimension (width*scale, height*scale);
 		setPreferredSize (size);
 		load = new LoadImages();

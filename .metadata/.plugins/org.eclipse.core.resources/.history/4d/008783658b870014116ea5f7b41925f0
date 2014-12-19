@@ -136,7 +136,6 @@ public class Game extends Canvas implements Runnable {
 		load = new LoadImages();
 		screen = new Screen (width, height);
 		animation = new Animation();
-		level = Game.level;
 		frame = new JFrame() ;
 		key = new Keyboard();
 		Mouse mouse = new Mouse();
@@ -359,7 +358,7 @@ public class Game extends Canvas implements Runnable {
 if(MouseX > 325 && MouseX < 811 && MouseY	 > 75 && MouseY < 175 && data1 > 0 && click == 1 && select == 1){
 	System.out.println("loading...");
 	//Game.level = new ReadLevel("/textures/WorldGen/world" + data1 + ".png" );
-	level = new ReadLevel("/textures/WorldGen/world10.png" );
+	Game.level = new ReadLevel("/textures/WorldGen/world10.png" );
 	loaded = true;
 	LevelSelect = false;
 	WorldS = false;
@@ -368,7 +367,7 @@ if(MouseX > 325 && MouseX < 811 && MouseY	 > 75 && MouseY < 175 && data1 > 0 && 
 
 if(MouseX > 325 && MouseX < 811 && MouseY	 > 218 && MouseY < 318 && data2 > 0 && click == 1&&select == 2){
 	System.out.println("loading...");
-	level = new ReadLevel("/textures/WorldGen/world" + data2 + ".png" );
+	Game.level = new ReadLevel("/textures/WorldGen/world" + data2 + ".png" );
 	loaded = true;
 	LevelSelect = false;
 	WorldS = false;
@@ -376,7 +375,7 @@ if(MouseX > 325 && MouseX < 811 && MouseY	 > 218 && MouseY < 318 && data2 > 0 &&
 }
 if(MouseX > 325 && MouseX < 811 && MouseY	 > 361 && MouseY < 461 && data3 > 0 && click == 1&&select == 3){
 	System.out.println("loading...");
-	level = new ReadLevel("/textures/WorldGen/world" + data3 + ".png" );
+	Game.level = new ReadLevel("/textures/WorldGen/world" + data3 + ".png" );
 	loaded = true;
 	LevelSelect = false;
 	WorldS = false;
@@ -384,7 +383,7 @@ if(MouseX > 325 && MouseX < 811 && MouseY	 > 361 && MouseY < 461 && data3 > 0 &&
 }
 if(MouseX > 325 && MouseX < 811 && MouseY	 > 504 && MouseY < 604 && data4 > 0 && click == 1&&select == 4){
 	System.out.println("loading...");
-	level = new ReadLevel("/textures/WorldGen/world" + data4 + ".png" );
+	Game.level = new ReadLevel("/textures/WorldGen/world" + data4 + ".png" );
 	loaded = true;
 	LevelSelect = false;
 	WorldS = false;

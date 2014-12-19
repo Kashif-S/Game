@@ -3,14 +3,12 @@ package com.ready.rain.entity.mib;
 import com.ready.rain.Game;
 import com.ready.rain.entity.Entity;
 import com.ready.rain.graphics.Sprite;
-import com.ready.rain.level.Level;
 
 public abstract class Mob extends Entity {
 
 	protected Sprite sprite;
 	protected int dir = 0;
 	protected boolean moving = false;
-	protected boolean walking = false;
 	
 	public void move(int xa, int ya){  //the mob tracking method
 		// -1, 0 , 1 are the values here that xa or ya can equal to
@@ -28,16 +26,15 @@ public abstract class Mob extends Entity {
 	public void update(){
 		
 	}
+	public void render(){
+		
+	}
+	
 	private boolean collision(int xa, int ya){
 		boolean solid = false;
 		if (level.getTile((x + xa) / 16, (y + ya) / 16).solid()) solid = true;
 		return solid;
 	}
-	public void render(){
-		
-	}
-	
-	
 	
 	
 }

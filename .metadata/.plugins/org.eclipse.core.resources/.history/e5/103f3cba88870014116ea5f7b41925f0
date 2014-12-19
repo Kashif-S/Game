@@ -8,8 +8,6 @@ import com.ready.rain.input.Keyboard;
 
 public class Character extends Mob {
 	private Keyboard input;
-	private boolean walking = false;
-
 	public int xa;
 	public int ya;
 	public int xjoint1;
@@ -46,7 +44,7 @@ public class Character extends Mob {
 	public Character (
 			int x,
 			int y,
-			int i, int j, BufferedImage righttorso,
+			BufferedImage righttorso,
 			BufferedImage lefttorso,
 			BufferedImage rightarm,
 			BufferedImage leftarm,

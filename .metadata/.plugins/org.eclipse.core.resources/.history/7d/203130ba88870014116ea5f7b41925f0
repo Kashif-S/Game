@@ -3,7 +3,6 @@ package com.ready.rain.entity.mib;
 import com.ready.rain.Game;
 import com.ready.rain.entity.Entity;
 import com.ready.rain.graphics.Sprite;
-import com.ready.rain.level.Level;
 
 public abstract class Mob extends Entity {
 

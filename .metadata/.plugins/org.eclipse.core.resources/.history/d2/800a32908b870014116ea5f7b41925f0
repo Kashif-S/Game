@@ -136,7 +136,6 @@ public class Game extends Canvas implements Runnable {
 		load = new LoadImages();
 		screen = new Screen (width, height);
 		animation = new Animation();
-		level = Game.level;
 		frame = new JFrame() ;
 		key = new Keyboard();
 		Mouse mouse = new Mouse();

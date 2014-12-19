@@ -46,7 +46,7 @@ public class Character extends Mob {
 	public Character (
 			int x,
 			int y,
-			int i, int j, BufferedImage righttorso,
+			BufferedImage righttorso,
 			BufferedImage lefttorso,
 			BufferedImage rightarm,
 			BufferedImage leftarm,
