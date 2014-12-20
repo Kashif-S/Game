@@ -32,6 +32,7 @@ import com.ready.rain.level.ReadLevel;
 import com.ready.rain.level.SimplexNoise;
 import com.ready.rain.mobs.Animation;
 import com.ready.rain.entity.mib.Character;
+import com.ready.rain.entity.mib.PP;
 import com.ready.rain.graphics.LoadImages;
 import com.ready.rain.WriteFile;
 
@@ -73,7 +74,7 @@ public class Game extends Canvas implements Runnable {
 	public int click;
 	public int wait = 0;
 	
-	public int data1 = 10;
+	public int data1 = 0;
 	public int data2 = 0;
 	public int data3 = 0;
 	public int data4 = 0;
@@ -115,6 +116,7 @@ public class Game extends Canvas implements Runnable {
 	private Screen screen;
 	private Animation animation;
 	private Character character;
+	private PP player;
 	private LoadImages load;
 	public static Level level;
 	
@@ -136,12 +138,9 @@ public class Game extends Canvas implements Runnable {
 		load = new LoadImages();
 		screen = new Screen (width, height);
 		animation = new Animation();
-		level = Game.level;
 		frame = new JFrame() ;
 		key = new Keyboard();
 		Mouse mouse = new Mouse();
-		character.init(level);
-
 		addKeyListener (key);	
 		addMouseListener(mouse);
 		addMouseMotionListener(mouse);
@@ -175,10 +174,12 @@ public class Game extends Canvas implements Runnable {
 		Delete = load.LoadImage("/textures/Button/Delete.png");
 		DeleteB = load.LoadImage("/textures/Button/DeleteB.png");
 		Selectworld = load.LoadImage("/textures/WorldSelect.png");
-
-
 		
-		character = new Character (x,y,width*scale/2,height*scale/2,image1,image2,image3,image4,image5,image6,image7,image8,image9,0,10,11,-16,44,10,11,-16,35,68,14,12,17,69,20,0,12,21,key);
+
+		player = new PP (key);
+		player.x = 1250 * 16;
+		player.y = 1250 * 16;
+		character = new Character (width*scale/2,height*scale/2,image1,image2,image3,image4,image5,image6,image7,image8,image9,0,10,11,-16,44,10,11,-16,35,68,14,12,17,69,20,0,12,21);
 	}
 	
 	public synchronized void start () {
@@ -226,34 +227,15 @@ public class Game extends Canvas implements Runnable {
 		}
 	stop () ;
 	}
-	//public static int x = (3000 * 16 / 2);
-	//public static int y = (3000 * 16 / 2);
-	int x = 3000* 16 / 2;
 
-	int y = 3000* 16 /2;
 	public void update () {
 	
 		key.update();
-		
 		if(loaded){
 			character.update();
-			if (key.up) {
-				//y--;
-				}
-			if (key.down) {
-				//y++;
-				}
-			if (key.left){
-				facing = true;
-				//x--;
-			}
-			if (key.right){
-				facing = false;
-				//x++;
-			}
-			character.x = width*scale/2;
-			character.y = height*scale/2;
-			
+			player.update();
+			if (key.left)facing = true;
+			if (key.right)facing = false;		
 		}
 		else{
 			if(dir){
@@ -356,53 +338,57 @@ public class Game extends Canvas implements Runnable {
 		}
 		
 
-if(MouseX > 325 && MouseX < 811 && MouseY	 > 75 && MouseY < 175 && data1 > 0 && click == 1 && select == 1){
+if(MouseX > 325 && MouseX < 811 && MouseY > 75 && MouseY < 175 && data1 > 0 && click == 1 && select == 1){
 	System.out.println("loading...");
 	//Game.level = new ReadLevel("/textures/WorldGen/world" + data1 + ".png" );
-	level = new ReadLevel("/textures/WorldGen/world10.png" );
+	level = new ReadLevel("/textures/WorldGen/world" + data1 + ".png");
 	loaded = true;
 	LevelSelect = false;
 	WorldS = false;
 	menu = true;
+	select = 0;
 }
 
-if(MouseX > 325 && MouseX < 811 && MouseY	 > 218 && MouseY < 318 && data2 > 0 && click == 1&&select == 2){
+if(MouseX > 325 && MouseX < 811 && MouseY > 218 && MouseY < 318 && data2 > 0 && click == 1&&select == 2){
 	System.out.println("loading...");
-	level = new ReadLevel("/textures/WorldGen/world" + data2 + ".png" );
+	level = new ReadLevel("/textures/WorldGen/world" + data2 + ".png");
 	loaded = true;
 	LevelSelect = false;
 	WorldS = false;
 	menu = true;
+	select = 0;
 }
-if(MouseX > 325 && MouseX < 811 && MouseY	 > 361 && MouseY < 461 && data3 > 0 && click == 1&&select == 3){
+if(MouseX > 325 && MouseX < 811 && MouseY > 361 && MouseY < 461 && data3 > 0 && click == 1&&select == 3){
 	System.out.println("loading...");
-	level = new ReadLevel("/textures/WorldGen/world" + data3 + ".png" );
+	level = new ReadLevel("/textures/WorldGen/world" + data3 + ".png");
 	loaded = true;
 	LevelSelect = false;
 	WorldS = false;
 	menu = true;
+	select = 0;
 }
-if(MouseX > 325 && MouseX < 811 && MouseY	 > 504 && MouseY < 604 && data4 > 0 && click == 1&&select == 4){
+if(MouseX > 325 && MouseX < 811 && MouseY > 504 && MouseY < 604 && data4 > 0 && click == 1&&select == 4){
 	System.out.println("loading...");
-	level = new ReadLevel("/textures/WorldGen/world" + data4 + ".png" );
+	level = new ReadLevel("/textures/WorldGen/world" + data4 + ".png");
 	loaded = true;
 	LevelSelect = false;
 	WorldS = false;
 	menu = true;
+	select = 0;
 }
-if(MouseX > 325 && MouseX < 811 && MouseY	 > 75 && MouseY < 175 && data1 > 0 && click == 1 && select != 1){
+if(MouseX > 325 && MouseX < 811 && MouseY	 > 75 && MouseY < 175 && data1 > 0 && click == 1 && select != 1 && menu == false){
 	SideButton = true;
 	select = 1;
 }
-if(MouseX > 325 && MouseX < 811 && MouseY	 > 218 && MouseY < 318 && data2 > 0 && click == 1&&select != 2){
+if(MouseX > 325 && MouseX < 811 && MouseY	 > 218 && MouseY < 318 && data2 > 0 && click == 1 && select != 2 && menu == false){
 	SideButton1 = true;
 	select = 2;
 }
-if(MouseX > 325 && MouseX < 811 && MouseY	 > 361 && MouseY < 461 && data3 > 0 && click == 1&&select != 3){
+if(MouseX > 325 && MouseX < 811 && MouseY	 > 361 && MouseY < 461 && data3 > 0 && click == 1 && select != 3 && menu == false){
 	SideButton2 = true;
 	select = 3;
 }
-if(MouseX > 325 && MouseX < 811 && MouseY	 > 504 && MouseY < 604 && data4 > 0 && click == 1&&select != 4){
+if(MouseX > 325 && MouseX < 811 && MouseY	 > 504 && MouseY < 604 && data4 > 0 && click == 1 && select != 4 && menu == false){
 	SideButton3 = true;
 	select = 4;
 }
@@ -562,7 +548,7 @@ if(Mouse.getX() > 512 && Mouse.getX() < 615 && Mouse.getY() > 250 && Mouse.getY(
 	}
 		else if(loaded){
 			screen.clear();
-		level.render(x, y, screen);
+		level.render(player.x, player.y, screen);
 		
 	
 		for (int i = 0; i < pixels.length; i++) {
@@ -577,7 +563,7 @@ if(Mouse.getX() > 512 && Mouse.getX() < 615 && Mouse.getY() > 250 && Mouse.getY(
 		}
 		g.setColor(Color.WHITE);
 		g.setFont(new Font("Times New Roman", 0, 25));
-		g.drawString("X: " + x / 16 + ", Y: " +  y / 16, 0, 18);
+		g.drawString("X: " + player.x / 16  + ", Y: " +  player.y / 16 , 0, 18);
 		//g.drawString("Character xa " + character.xa + ",  Character ya: " + character.ya , 20 , 100);
 		
 		}else{

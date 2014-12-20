@@ -7,11 +7,10 @@ import com.ready.rain.input.Keyboard;
 
 
 public class Character extends Mob {
-	private Keyboard input;
-	private boolean walking = false;
 
-	public int xa;
-	public int ya;
+
+	public int x;
+	public int y;
 	public int xjoint1;
 	public int yjoint1;
 	public int xjoint2;
@@ -40,13 +39,10 @@ public class Character extends Mob {
 	public BufferedImage lefthead;
 	public BufferedImage gun;
 	
-	public Character (Keyboard input) {
-		this.input = input;
-	}
 	public Character (
 			int x,
 			int y,
-			int i, int j, BufferedImage righttorso,
+			BufferedImage righttorso,
 			BufferedImage lefttorso,
 			BufferedImage rightarm,
 			BufferedImage leftarm,
@@ -64,7 +60,6 @@ public class Character extends Mob {
 			int xjoint7,int yjoint7, //on Torso
 			int xjoint8,int yjoint8, //on Torso
 			int xjoint9,int yjoint9 //on Head
-, Keyboard input
 			) {
 		this.x = x - righttorso.getWidth()/2;
 		this.y = y + righttorso.getHeight()/2;
@@ -94,21 +89,9 @@ public class Character extends Mob {
 		this.xjoint8 = xjoint8;
 		this.yjoint8 = yjoint8;
 		this.xjoint9 = xjoint9;
-		this.yjoint9 = yjoint9 + righttorso.getHeight()/2;
-		this.input = input;
-		 
+		this.yjoint9 = yjoint9 + righttorso.getHeight()/2;		 
 		}
-	public void update(){
-		
-	int xa = 0;
-	int ya = 0;
-			if (input.up) ya--;
-			if (input.down) ya++;
-			if (input.left)xa--;
-			if (input.right)xa++;
-			
-			if(xa != 0 || ya != 0) move (xa,ya);
-		
+	public void update(){		
 		
 }
 	public void render() {
