@@ -21,6 +21,7 @@ public class Animation extends JPanel {
 	boolean dir = true;
 	boolean prev = false;
 	double rot = 0;
+	int target = 0;
 	BufferedImage image1;
 	BufferedImage image2;
 	BufferedImage image3;
@@ -60,6 +61,8 @@ public class Animation extends JPanel {
 		int yjoint8 = character.yjoint8;
 		int xjoint9 = character.xjoint9;
 		int yjoint9 = character.yjoint9;
+		int targetx = character.targetx;
+		int targety = character.targety;
 		if(facing != prev){
 			dir = true;
 			rot = 0;
@@ -91,7 +94,7 @@ public class Animation extends JPanel {
 			img3 = character.leftarm;
 			img4 = character.leftleg;
 			img5 = character.lefthead;
-			img6 = character.gun;
+			img6 = character.gun2;
 		}else{	
 			img3 = character.rightarm;
 			img1 = image1;
@@ -100,6 +103,14 @@ public class Animation extends JPanel {
 			img5 = character.righthead;
 			img6 = character.gun;
 		}
+		
+		if((targetx - x)!=0){
+			if(targetx < x){
+		target = (int) Math.toDegrees(Math.atan((targety -y)/(targetx - x))) + 90;
+			}else{
+				target = (int) -Math.toDegrees(Math.atan((targety -y)/(targetx - x))) + 90;
+			}
+	}
 		//img3 = image5;
 		//img4 = image6;
 		
@@ -184,17 +195,19 @@ public class Animation extends JPanel {
 	
 	if(facing == true){
 		g5.translate(x + xjoint3, y - yjoint3);
-		g5.rotate(Math.toRadians(rot));
+		g5.rotate(Math.toRadians(target));
 		g5.translate(-x - xjoint3, -y + yjoint3);
+		g5.drawImage(img6, x + xjoint3 - xjoint4 - img3.getWidth() + img6.getWidth() + 5, y - yjoint3 + yjoint4 + img3.getHeight() - img6.getWidth()/2, null);
 		g5.drawImage(img3, x + xjoint3 - xjoint4, y - yjoint3 + yjoint4, null);
-		g5.drawImage(img6, x + xjoint3 - xjoint4, y - yjoint3 + yjoint4, null);
+		
 	}else{
 		xjoint3 -= character.lefttorso.getWidth() - xjoint4;
 		g5.translate(x + xjoint3, y - yjoint3);
-		g5.rotate(Math.toRadians(rot));
+		g5.rotate(Math.toRadians(target));
 		g5.translate(-x - xjoint3, -y + yjoint3);
+		g5.drawImage(img6, x + xjoint3 - xjoint4 + img3.getWidth() - img6.getWidth(), y - yjoint3 + yjoint4+ img3.getHeight() - img6.getWidth()/2, null);
 		g5.drawImage(img3, x + xjoint3 -2 * xjoint4, y - yjoint3 + yjoint4, null);
-		g5.drawImage(img6, x + xjoint3 - xjoint4, y - yjoint3 + yjoint4, null);
+		
 	}
 	g5.dispose();
 	

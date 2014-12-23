@@ -74,7 +74,7 @@ public class Game extends Canvas implements Runnable {
 	public int click;
 	public int wait = 0;
 	
-	public int data1 = 0;
+	public int data1 = 10;
 	public int data2 = 0;
 	public int data3 = 0;
 	public int data4 = 0;
@@ -90,6 +90,7 @@ public class Game extends Canvas implements Runnable {
 	public BufferedImage image7;
 	public BufferedImage image8;
 	public BufferedImage image9;
+	public BufferedImage image10;
 	public BufferedImage Selectworld;
 	public BufferedImage Play;
 	public BufferedImage Delete;
@@ -152,7 +153,8 @@ public class Game extends Canvas implements Runnable {
 		image6 = load.LoadImage("/textures/leo_leftleg.png");
 		image7 = load.LoadImage("/textures/leo_righthead.png");
 		image8 = load.LoadImage("/textures/leo_lefthead.png");
-		image9 = load.LoadImage("/textures/Penguin gun.png");
+		image9 = load.LoadImage("/textures/pistol.png");
+		image10 = load.LoadImage("/textures/pistol2.png");
 		loading = load.LoadImage("/textures/loading.png");
 		loading1 = load.LoadImage("/textures/loading1.png");
 		loading2 = load.LoadImage("/textures/loading2.png");
@@ -179,7 +181,7 @@ public class Game extends Canvas implements Runnable {
 		player = new PP (key);
 		player.x = 1250 * 16;
 		player.y = 1250 * 16;
-		character = new Character (width*scale/2,height*scale/2,image1,image2,image3,image4,image5,image6,image7,image8,image9,0,10,11,-16,44,10,11,-16,35,68,14,12,17,69,20,0,12,21);
+		character = new Character (width*scale/2,height*scale/2,image1,image2,image3,image4,image5,image6,image7,image8,image9,image10,0,10,11,-16,44,10,11,-16,35,68,14,12,17,69,20,0,12,21,0,0);
 	}
 	
 	public synchronized void start () {
@@ -554,7 +556,9 @@ if(Mouse.getX() > 512 && Mouse.getX() < 615 && Mouse.getY() > 250 && Mouse.getY(
 		for (int i = 0; i < pixels.length; i++) {
 			pixels [i] = screen.pixels [i];
 		}	
-	
+		
+		character.targetx = Mouse.getX();
+		character.targety = Mouse.getY();
 		if(key.up || key.down || key.right || key.left){
 			animation.AnimateLegs(bs,character,true,facing);
 		}else{

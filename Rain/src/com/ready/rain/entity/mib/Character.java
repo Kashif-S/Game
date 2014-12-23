@@ -29,6 +29,8 @@ public class Character extends Mob {
 	public int yjoint8;
 	public int xjoint9;
 	public int yjoint9;
+	public int targetx;
+	public int targety;
 	public BufferedImage righttorso;
 	public BufferedImage lefttorso;
 	public BufferedImage rightarm;
@@ -38,6 +40,7 @@ public class Character extends Mob {
 	public BufferedImage righthead;
 	public BufferedImage lefthead;
 	public BufferedImage gun;
+	public BufferedImage gun2;
 	
 	public Character (
 			int x,
@@ -51,6 +54,7 @@ public class Character extends Mob {
 			BufferedImage righthead,
 			BufferedImage lefthead,
 			BufferedImage gun,
+			BufferedImage gun2,
 			int xjoint1,int yjoint1, //on Torso
 			int xjoint2,int yjoint2, //on Arm
 			int xjoint3,int yjoint3, //on Torso
@@ -59,7 +63,8 @@ public class Character extends Mob {
 			int xjoint6,int yjoint6, //on Leg
 			int xjoint7,int yjoint7, //on Torso
 			int xjoint8,int yjoint8, //on Torso
-			int xjoint9,int yjoint9 //on Head
+			int xjoint9,int yjoint9,//on Head
+			int targetx,int targety
 			) {
 		this.x = x - righttorso.getWidth()/2;
 		this.y = y + righttorso.getHeight()/2;
@@ -72,6 +77,7 @@ public class Character extends Mob {
 		this.righthead = righthead;
 		this.lefthead = lefthead;
 		this.gun = gun;
+		this.gun2 = gun2;
 		this.xjoint1 = xjoint1;
 		this.yjoint1 = yjoint1 + righttorso.getHeight()/2;
 		this.xjoint2 = xjoint2;
@@ -90,6 +96,8 @@ public class Character extends Mob {
 		this.yjoint8 = yjoint8;
 		this.xjoint9 = xjoint9;
 		this.yjoint9 = yjoint9 + righttorso.getHeight()/2;		 
+		this.targetx = targetx; 
+		this.targety = targety;
 		}
 	public void update(){		
 		
