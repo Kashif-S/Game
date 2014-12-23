@@ -69,7 +69,19 @@ public class Animation extends JPanel {
 			prev = facing;
 		}
 		
-
+		if((targetx - x != 0&& targety - y!=0)){
+			if(targetx>x){
+			target = Math.toDegrees(Math.atan((targety -y)/(targetx - x))) - 90;
+			}else{
+			target = Math.toDegrees(Math.atan((targety -y)/(targetx - x))) - 90 + 180;	
+			}
+		}
+		if(target > 0){
+			facing = true;
+		}else{
+			facing = false;
+		}
+		System.out.println(target);
 		
 		if (moving == true){
 		if(rot >= 50){
@@ -103,14 +115,9 @@ public class Animation extends JPanel {
 			img5 = character.righthead;
 			img6 = character.gun;
 		}
-		
-		if((targetx - x)!=0){
-			if(targetx < x){
-		target = Math.toDegrees(Math.atan((targety -y)/(targetx - x))) + 90;
-			}else{
-				target = -Math.toDegrees(Math.atan((targety -y)/(targetx - x))) + 90;
-			}
-	}
+
+
+			
 		//img3 = image5;
 		//img4 = image6;
 		
