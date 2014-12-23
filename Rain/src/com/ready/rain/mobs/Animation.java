@@ -21,7 +21,7 @@ public class Animation extends JPanel {
 	boolean dir = true;
 	boolean prev = false;
 	double rot = 0;
-	int target = 0;
+	double target = 0;
 	BufferedImage image1;
 	BufferedImage image2;
 	BufferedImage image3;
@@ -106,9 +106,9 @@ public class Animation extends JPanel {
 		
 		if((targetx - x)!=0){
 			if(targetx < x){
-		target = (int) Math.toDegrees(Math.atan((targety -y)/(targetx - x))) + 90;
+		target = Math.toDegrees(Math.atan((targety -y)/(targetx - x))) + 90;
 			}else{
-				target = (int) -Math.toDegrees(Math.atan((targety -y)/(targetx - x))) + 90;
+				target = -Math.toDegrees(Math.atan((targety -y)/(targetx - x))) + 90;
 			}
 	}
 		//img3 = image5;

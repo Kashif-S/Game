@@ -10,8 +10,10 @@ public class PP extends Mob{
 		this.input = input;
 	}
 	public PP (int x, int y, Keyboard input){
-		this.x = x + 1000 * 16;
-		this.y = y = 1000 * 16;
+		this.x = x;
+		this.y = y;
+		//this.x = x = ReadLevel.Readw/ 2;
+		//this.y = y = ReadLevel.Readh/ 2;	
 		this.input = input;
 	}
 	public void update(){

@@ -10,6 +10,11 @@ import com.ready.rain.level.tile.Tile;
 
 public class ReadLevel extends Level{
 
+	public static int Readw;
+	public static int Readh;	
+	public static int biome_grass = 0xFF0000FF;
+	public static int biome_ocean = 0x00FFFFFF;
+	public static int biome_desert = 0xFF0000FF;
 	
 	private int[] wrldpx;
 	
@@ -18,12 +23,15 @@ public class ReadLevel extends Level{
 		super (path);	
 	}
 
-		
-	protected void loadLevel (String path) {
+		   
+	protected void loadLevel (String path) {  
 		try{
 			BufferedImage image = ImageIO.read(ReadLevel.class.getResource(path));
-		int w = image.getWidth();
-		int h = image.getHeight();
+		int w = width = image.getWidth();
+		int h = height = image.getHeight();
+
+		int Readw = width;
+		int Readh = height;	
 		tiles = new Tile [w * h];
 		wrldpx = new int [w * h];		
 		image.getRGB(0, 0, w, h, wrldpx, 0, w);
@@ -66,7 +74,7 @@ public class ReadLevel extends Level{
 				tiles[p] = Tile.grass;
 		}
 		}
-			else if (wrldpx[p] == 0x00FFFFFF) {
+			else if (wrldpx[p] == biome_ocean) {
 				tiles[p] = Tile.water;
 		}
 			else if (wrldpx[p] == 0xFFFFFFFF) {
@@ -143,7 +151,7 @@ public class ReadLevel extends Level{
 			else if (wrldpx[p] == 0x00000000) {
 				tiles[p] = Tile.water;
 
-		}
+		} 
 		else tiles[p] = Tile.voidTile;
 		}
 	}

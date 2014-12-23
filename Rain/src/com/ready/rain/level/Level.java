@@ -11,7 +11,7 @@ public class Level {
 
 		public boolean menu = Game.menu;
 		public boolean loaded = Game.loaded;
-		public static Tile[] tiles;
+		public static Tile[] tiles;		
 		protected int width, height;
 		public static int[] tilesDif;	
 		public Level(int width, int height) {
@@ -62,7 +62,8 @@ public class Level {
 		
 		public  Tile getTile(int x, int y) {
 			if (x < 0 || y < 0 || x >= width || y >= height) return Tile.voidTile;
-			return Tile.grass;
+			if(tiles[x + y * width] == Tile.water) return Tile.water;
+			return Tile.voidTile;
 		}
 
 
