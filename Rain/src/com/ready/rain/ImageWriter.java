@@ -7,8 +7,6 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
-import com.ready.rain.level.Level;
-import com.ready.rain.level.ReadLevel;
 import com.ready.rain.Game;
 
 import java.util.Random;
@@ -17,8 +15,6 @@ public class ImageWriter {
 	protected static final Random random = new Random();
 	protected static final Random random1 = new Random();
 	public static float rand;
-	private static float i = 0.5f;
-	private static float rand1= i;
 	static int errornum = 0;
     static double datacol = 3;
 

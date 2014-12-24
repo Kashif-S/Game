@@ -81,7 +81,7 @@ public class Animation extends JPanel {
 		}else{
 			facing = false;
 		}
-		System.out.println(target);
+	
 		
 		if (moving == true){
 		if(rot >= 50){
