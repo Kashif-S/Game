@@ -42,9 +42,9 @@ public class Game extends Canvas implements Runnable {
 
 	public  Image img = null;
 	private static double count1 = 1;
-	private static int width = 300;  //4800
-	private static int height = width / 16 * 9;
-	private static int scale = 4;
+	public static int width = 300;  //4800
+	public static int height = 180;
+	public static int scale = 4;
 	public static  String title = "Rain";	
 	private static int rand = (int) ImageWriter.getRand();
 	private static WriteFile WriteFile;
@@ -185,12 +185,7 @@ public class Game extends Canvas implements Runnable {
 	
 		character = new Character (width*scale/2,height*scale/2,image1,image2,image3,image4,image5,image6,image7,image8,image9,image10,0,10,11,-16,44,10,11,-16,35,68,14,12,17,69,20,0,12,21,0,0);
 	}
-	public static int getScreenWidth(){
-		return width * scale;
-	}
-	public static int getScreenHeight(){
-		return height * scale;
-	}
+	
 	public synchronized void start () {
 		running = true;
 		thread = new Thread (this, "Display"); 

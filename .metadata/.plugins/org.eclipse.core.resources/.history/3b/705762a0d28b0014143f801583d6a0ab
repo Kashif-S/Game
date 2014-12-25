@@ -20,8 +20,7 @@ public class Mouse implements MouseListener, MouseMotionListener{
 		return mB;
 	}
 	public void mouseDragged(MouseEvent e) {
-		mX = e.getX();
-		mY = e.getY();
+		
 		
 	}
 
