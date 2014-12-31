@@ -239,9 +239,8 @@ public class Game extends Canvas implements Runnable {
 
 	public void update () {
 		key.update();
-		level.update();
 		if(loaded){
-			
+			level.update();
 			character.update();
 			player.update();
 			if (key.left)facing = true;

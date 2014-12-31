@@ -1,0 +1,29 @@
+package com.ready.rain.entity;
+
+import com.ready.rain.graphics.Screen;
+import com.ready.rain.graphics.Sprite;
+
+public class BaseBullet extends Projectile{
+	public BaseBullet (int x, int y, double comp) {
+	super(x, y, comp);
+	range = 100;
+	sprite = Sprite.grass;
+	speed = 5;
+	dmg = 50;
+	RPM = 20;
+	ix = speed * Math.cos(angle);
+	iy = speed * Math.sin(angle);
+	}
+	public void update(){
+		move();
+	}
+	protected void move() {
+		x += ix;
+		y += iy;
+		
+		
+	}
+	public void render(Screen screen){
+		screen.renderTile(x, y, sprite);
+	}
+}

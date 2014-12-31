@@ -22,7 +22,7 @@ public abstract class Entity {
 	}
 	
 	public void remove(){
-
+		//this is our entity remove method
 		removed = true;
 	}
 	

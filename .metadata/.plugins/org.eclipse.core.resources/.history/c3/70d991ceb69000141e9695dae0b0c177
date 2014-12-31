@@ -1,12 +1,7 @@
 package com.ready.rain.entity.mib;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.ready.rain.Game;
-import com.ready.rain.entity.BaseBullet;
 import com.ready.rain.entity.Entity;
-import com.ready.rain.entity.Projectile;
 import com.ready.rain.graphics.Sprite;
 import com.ready.rain.level.Level;
 import com.ready.rain.level.ReadLevel;
@@ -17,7 +12,6 @@ public abstract class Mob extends Entity {
 	protected int comp = 0;
 	protected boolean moving = false;
 	protected boolean walking = false;
-	protected List<Projectile> projectiles = new ArrayList<Projectile>();
 
 	
 	public void move(int xa, int ya){  //the mob tracking method
@@ -42,10 +36,8 @@ public abstract class Mob extends Entity {
 	
 	}
 	protected void Fire(int x, int y, double comp) {
-		//comp *= 180 / Math.PI;
-	Projectile n = new BaseBullet(x, y, comp);
-	projectiles.add(n);
-	level.add(n);
+		comp *= 180 / Math.PI;
+		System.out.println("Angle: " + comp);
 	}
 	private boolean collision(int xa, int ya){
 		boolean solid = false;

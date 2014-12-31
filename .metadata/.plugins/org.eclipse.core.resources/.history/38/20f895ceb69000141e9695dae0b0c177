@@ -1,0 +1,5 @@
+package com.ready.rain.entity;
+
+public class BaseBullet {
+
+}

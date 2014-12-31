@@ -1,17 +1,11 @@
 package com.ready.rain.level;
-import java.util.ArrayList;
-import java.util.List;
-
 import com.ready.rain.Game;
 import com.ready.rain.ImageWriter;
 import com.ready.rain.WriteFile;
 import com.ready.rain.level.tile.Tile;
-import com.ready.rain.entity.Entity;
 import com.ready.rain.graphics.Screen;
 
 public class Level {
-	
-	private List<Entity>entities = new ArrayList <Entity>();
 	private static int rand = (int) ImageWriter.getRand();
 	private static WriteFile WriteFile;
 
@@ -42,9 +36,7 @@ public class Level {
 		}
 		
 		public void update(){
-			for (int i = 0; i < entities.size(); i++){
-			entities.get(i).update();
-			}
+			
 		}
 	
 		private void time() {
@@ -65,14 +57,7 @@ public class Level {
 						}			
 					tiles[x + y * 2500].render(x, y, screen);
 			}
-				for (int i = 0; i < entities.size(); i++){
-					entities.get(i).render(screen);
-					}
 		}
-		}
-		
-		public void add (Entity e){
-			entities.add(e);
 		}
 		
 		public  Tile getTile(int x, int y) {

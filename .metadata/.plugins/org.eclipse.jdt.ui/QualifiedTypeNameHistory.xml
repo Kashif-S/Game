@@ -28,6 +28,13 @@
 <fullyQualifiedTypeName name="com.ready.rain.Game"/>
 <fullyQualifiedTypeName name="java.lang.System"/>
 <fullyQualifiedTypeName name="com.ready.rain.input.Mouse"/>
-<fullyQualifiedTypeName name="com.ready.rain.graphics.Screen"/>
 <fullyQualifiedTypeName name="java.lang.Math"/>
+<fullyQualifiedTypeName name="com.ready.rain.entity.Projectile"/>
+<fullyQualifiedTypeName name="com.ready.rain.entity.BaseBullet"/>
+<fullyQualifiedTypeName name="com.ready.rain.entity.Entity"/>
+<fullyQualifiedTypeName name="java.awt.List"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="com.ready.rain.graphics.Screen"/>
+<fullyQualifiedTypeName name="com.ready.rain.graphics.Sprite"/>
 </qualifiedTypeNameHistroy>
