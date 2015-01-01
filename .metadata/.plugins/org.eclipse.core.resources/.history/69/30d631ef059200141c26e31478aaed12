@@ -68,12 +68,11 @@ public class Level {
 						}			
 					tiles[x + y * 2500].render(x, y, screen);
 			}
-		
+				for (int i = 0; i < entities.size(); i++){
+					entities.get(i).render(screen);
+					System.out.println("This runs");
+					}
 		}
-			for (int i = 0; i < entities.size(); i++){
-				entities.get(i).render(screen);
-				System.out.println("This runs");
-				}
 		}
 		
 		public void add (Entity e){

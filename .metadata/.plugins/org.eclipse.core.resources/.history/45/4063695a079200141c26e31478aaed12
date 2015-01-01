@@ -1,7 +1,6 @@
 package com.ready.rain.entity;
-import com.ready.rain.entity.Entity;
+
 import com.ready.rain.graphics.Sprite;
-import com.ready.rain.entity.mib.PP;
 
 public abstract class Projectile extends Entity{
 	

@@ -37,16 +37,16 @@ public abstract class Mob extends Entity {
 		y += ya;
 		}
 	}
+	
 	public void update(){
 	
 	}
 	protected void Fire(int x, int y, double comp) {
 		//comp *= 180 / Math.PI;
-	Projectile p = new BaseBullet(x, y, comp);
-	projectiles.add(p);
-	level.add(p);
+	Projectile n = new BaseBullet(x, y, comp);
+	projectiles.add(n);
+	level.add(n);
 	}
-	
 	private boolean collision(int xa, int ya){
 		boolean solid = false;
 		int Gw = Game.getScreenWidth()/2;
@@ -56,7 +56,7 @@ public abstract class Mob extends Entity {
 			int ycorn = (((y + ya)+ Gh) + i / 2 * 10 + 11)/16;
 			if (level.getTile(xcorn, ycorn).solid()) solid = true;
 		}
-		System.out.println(("Y :" +(x + xa)/16 +", X :"+ (y + ya)/16));
+		System.out.println(((x + xa)/16 +","+ (y + ya)/16));
 		return solid;
 	}
 	public void render(){

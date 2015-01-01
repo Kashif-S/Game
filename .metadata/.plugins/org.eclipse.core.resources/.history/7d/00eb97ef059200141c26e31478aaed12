@@ -42,9 +42,9 @@ public abstract class Mob extends Entity {
 	}
 	protected void Fire(int x, int y, double comp) {
 		//comp *= 180 / Math.PI;
-	Projectile p = new BaseBullet(x, y, comp);
-	projectiles.add(p);
-	level.add(p);
+	Projectile e = new BaseBullet(x, y, comp);
+	projectiles.add(e);
+	level.add(e);
 	}
 	
 	private boolean collision(int xa, int ya){

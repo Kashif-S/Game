@@ -2,7 +2,6 @@ package com.ready.rain.entity;
 
 import com.ready.rain.graphics.Screen;
 import com.ready.rain.graphics.Sprite;
-import com.ready.rain.entity.Entity;
 
 public class BaseBullet extends Projectile{
 	public BaseBullet (int x, int y, double comp) {
