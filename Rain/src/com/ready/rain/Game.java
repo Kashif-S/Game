@@ -32,6 +32,7 @@ import com.ready.rain.level.ReadLevel;
 import com.ready.rain.level.SimplexNoise;
 import com.ready.rain.mobs.Animation;
 import com.ready.rain.entity.mib.Character;
+import com.ready.rain.entity.mib.Gun;
 import com.ready.rain.entity.mib.PP;
 import com.ready.rain.graphics.LoadImages;
 import com.ready.rain.WriteFile;
@@ -62,6 +63,7 @@ public class Game extends Canvas implements Runnable {
 	
 	public static double count;
 	public boolean dir = false;
+	double c;
 
 	private Thread thread;	
 	private JFrame frame;
@@ -80,6 +82,9 @@ public class Game extends Canvas implements Runnable {
 	public int data4 = 0;
 	
 	public int select;
+	public boolean firing;
+	public int l = 0;
+	public int j = 0;
 	
 	public BufferedImage image1;
 	public BufferedImage image2;
@@ -91,6 +96,7 @@ public class Game extends Canvas implements Runnable {
 	public BufferedImage image8;
 	public BufferedImage image9;
 	public BufferedImage image10;
+	public BufferedImage image11;
 	public BufferedImage Selectworld;
 	public BufferedImage Play;
 	public BufferedImage Delete;
@@ -116,7 +122,8 @@ public class Game extends Canvas implements Runnable {
 	
 	private Screen screen;
 	private Animation animation;
-	private Character character;
+	private Character Player;
+	private Gun pistol;
 	private PP player;
 	private LoadImages load;
 	public Level level;
@@ -155,6 +162,7 @@ public class Game extends Canvas implements Runnable {
 		image8 = load.LoadImage("/textures/leo_lefthead.png");
 		image9 = load.LoadImage("/textures/pistol.png");
 		image10 = load.LoadImage("/textures/pistol2.png");
+		image11 = load.LoadImage("/textures/pistolbullet.png");
 		loading = load.LoadImage("/textures/loading.png");
 		loading1 = load.LoadImage("/textures/loading1.png");
 		loading2 = load.LoadImage("/textures/loading2.png");
@@ -182,8 +190,8 @@ public class Game extends Canvas implements Runnable {
 		player.init (level);
 		//player.x = 1250*16;
 		//player.y = 1250*16;
-	
-		character = new Character (width*scale/2,height*scale/2,image1,image2,image3,image4,image5,image6,image7,image8,image9,image10,0,10,11,-16,44,10,11,-16,35,68,14,12,17,69,20,0,12,21,0,0);
+		pistol = new Gun(image9,image10,image11,"pistol");
+		Player = new Character (width*scale/2,height*scale/2,image1,image2,image3,image4,image5,image6,image7,image8,pistol,0,10,11,-16,44,10,11,-16,35,68,14,12,17,69,20,0,12,21,0,0);
 	}
 	public static int getScreenWidth(){
 		return width;
@@ -242,7 +250,7 @@ public class Game extends Canvas implements Runnable {
 		key.update();
 		if(loaded){
 			
-			character.update();
+			Player.update();
 			player.update();
 			if (key.left)facing = true;
 			if (key.right)facing = false;		
@@ -565,13 +573,34 @@ if(Mouse.getX() > 512 && Mouse.getX() < 615 && Mouse.getY() > 250 && Mouse.getY(
 			pixels [i] = screen.pixels [i];
 		}	
 		
-		character.targetx = Mouse.getX();
-		character.targety = Mouse.getY();
+		Player.targetx = Mouse.getX();
+		Player.targety = Mouse.getY();
 		if(key.up || key.down || key.right || key.left){
-			animation.AnimateLegs(bs,character,true,facing);
+			animation.AnimateLegs(bs,Player,true,facing);
 		}else{
-			animation.AnimateLegs(bs,character,false,facing);
+			animation.AnimateLegs(bs,Player,false,facing);
 			
+		}
+		Graphics2D g6 = (Graphics2D) bs.getDrawGraphics();
+		if(click == 1){
+			
+			if(Player.gun.type == "pistol"){
+				c = animation.target + 90;
+
+				firing = true;
+	
+
+			}
+
+		}
+		if(firing){
+			g6.translate(getWidth()/2,getHeight()/2);
+			g6.rotate(Math.toRadians(c));
+			g6.translate(-getWidth()/2,-getHeight()/2);
+		l++;
+		//j++;
+		g6.drawImage(Player.gun.bullet,getWidth()/2+l,getHeight()/2+j,null);
+		g6.dispose();
 		}
 		g.setColor(Color.WHITE);
 		g.setFont(new Font("Times New Roman", 0, 25));

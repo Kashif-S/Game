@@ -1,0 +1,5 @@
+package com.ready.rain.entity.mib;
+
+public class Gun {
+
+}

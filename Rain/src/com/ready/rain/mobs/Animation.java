@@ -21,7 +21,7 @@ public class Animation extends JPanel {
 	boolean dir = true;
 	boolean prev = false;
 	double rot = 0;
-	double target = 0;
+	public double target = 0;
 	BufferedImage image1;
 	BufferedImage image2;
 	BufferedImage image3;
@@ -106,14 +106,14 @@ public class Animation extends JPanel {
 			img3 = character.leftarm;
 			img4 = character.leftleg;
 			img5 = character.lefthead;
-			img6 = character.gun2;
+			img6 = character.gun.gun2;
 		}else{	
 			img3 = character.rightarm;
 			img1 = image1;
 			img2 = character.righttorso;
 			img4 = character.rightleg;
 			img5 = character.righthead;
-			img6 = character.gun;
+			img6 = character.gun.gun;
 		}
 
 

@@ -39,8 +39,7 @@ public class Character extends Mob {
 	public BufferedImage leftleg;
 	public BufferedImage righthead;
 	public BufferedImage lefthead;
-	public BufferedImage gun;
-	public BufferedImage gun2;
+	public Gun gun;
 	
 	public Character (
 			int x,
@@ -53,8 +52,7 @@ public class Character extends Mob {
 			BufferedImage leftleg,
 			BufferedImage righthead,
 			BufferedImage lefthead,
-			BufferedImage gun,
-			BufferedImage gun2,
+			Gun gun,
 			int xjoint1,int yjoint1, //on Torso
 			int xjoint2,int yjoint2, //on Arm
 			int xjoint3,int yjoint3, //on Torso
@@ -77,7 +75,6 @@ public class Character extends Mob {
 		this.righthead = righthead;
 		this.lefthead = lefthead;
 		this.gun = gun;
-		this.gun2 = gun2;
 		this.xjoint1 = xjoint1;
 		this.yjoint1 = yjoint1 + righttorso.getHeight()/2;
 		this.xjoint2 = xjoint2;
