@@ -25,17 +25,18 @@
 <fullyQualifiedTypeName name="java.awt.event.MouseEvent"/>
 <fullyQualifiedTypeName name="java.net.URL"/>
 <fullyQualifiedTypeName name="com.ready.rain.level.ReadLevel"/>
-<fullyQualifiedTypeName name="com.ready.rain.Game"/>
-<fullyQualifiedTypeName name="java.lang.System"/>
 <fullyQualifiedTypeName name="com.ready.rain.input.Mouse"/>
 <fullyQualifiedTypeName name="java.lang.Math"/>
 <fullyQualifiedTypeName name="com.ready.rain.entity.Projectile"/>
-<fullyQualifiedTypeName name="com.ready.rain.entity.BaseBullet"/>
 <fullyQualifiedTypeName name="com.ready.rain.entity.Entity"/>
-<fullyQualifiedTypeName name="java.awt.List"/>
 <fullyQualifiedTypeName name="java.util.List"/>
-<fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="com.ready.rain.graphics.Screen"/>
 <fullyQualifiedTypeName name="com.ready.rain.graphics.Sprite"/>
 <fullyQualifiedTypeName name="com.ready.rain.entity.mib.Gun"/>
+<fullyQualifiedTypeName name="com.ready.rain.entity.mib.Bullet"/>
+<fullyQualifiedTypeName name="com.ready.rain.Game"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="java.awt.List"/>
+<fullyQualifiedTypeName name="com.ready.rain.entity.BaseBullet"/>
+<fullyQualifiedTypeName name="java.lang.System"/>
 </qualifiedTypeNameHistroy>

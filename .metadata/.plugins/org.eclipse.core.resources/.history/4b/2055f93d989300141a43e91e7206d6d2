@@ -426,7 +426,7 @@ if(MouseX > 325 && MouseX < 811 && MouseY	 > 504 && MouseY < 604 && data4 > 0 &&
 		MouseB = Mouse.getButton();
 		MouseY = Mouse.getY();
 		MouseX = Mouse.getX();
-		Player.gun.cd --;
+	
 		for(int i = 0; i<bullets.size();i++){
 		bullets.get(i).x ++;
 		}
@@ -605,7 +605,7 @@ if(Mouse.getX() > 512 && Mouse.getX() < 615 && Mouse.getY() > 250 && Mouse.getY(
 				
 		}
 
-		
+		Player.gun.cd --;
 	
 		for(int i = 0; i<bullets.size();i++){
 		shoot(bullets.get(i),bs);
