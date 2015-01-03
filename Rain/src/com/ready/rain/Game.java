@@ -22,6 +22,8 @@ import javax.swing.JMenuItem;
 import javax.swing.JRadioButtonMenuItem;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.ready.rain.graphics.Screen;
 import com.ready.rain.input.Keyboard;
@@ -31,6 +33,9 @@ import com.ready.rain.level.Randomlevel;
 import com.ready.rain.level.ReadLevel;
 import com.ready.rain.level.SimplexNoise;
 import com.ready.rain.mobs.Animation;
+import com.ready.rain.entity.BaseBullet;
+import com.ready.rain.entity.Entity;
+import com.ready.rain.entity.mib.Bullet;
 import com.ready.rain.entity.mib.Character;
 import com.ready.rain.entity.mib.Gun;
 import com.ready.rain.entity.mib.PP;
@@ -63,7 +68,8 @@ public class Game extends Canvas implements Runnable {
 	
 	public static double count;
 	public boolean dir = false;
-	double c;
+	public static double c = 0;
+
 
 	private Thread thread;	
 	private JFrame frame;
@@ -73,7 +79,7 @@ public class Game extends Canvas implements Runnable {
 	public int MouseX = Mouse.getX();
 	public int MouseY = Mouse.getY();
 	public int MouseB = Mouse.getButton();
-	public int click;
+	public static int click;
 	public int wait = 0;
 	
 	public int data1 = 10;
@@ -85,6 +91,8 @@ public class Game extends Canvas implements Runnable {
 	public boolean firing;
 	public int l = 0;
 	public int j = 0;
+	
+
 	
 	public BufferedImage image1;
 	public BufferedImage image2;
@@ -121,8 +129,8 @@ public class Game extends Canvas implements Runnable {
 	public BufferedImage WorldQuit;
 	
 	private Screen screen;
-	private Animation animation;
-	private Character Player;
+	public static Animation animation;
+	public static Character Player;
 	private Gun pistol;
 	private PP player;
 	private LoadImages load;
@@ -190,7 +198,7 @@ public class Game extends Canvas implements Runnable {
 		player.init (level);
 		//player.x = 1250*16;
 		//player.y = 1250*16;
-		pistol = new Gun(image9,image10,image11,"pistol");
+		pistol = new Gun(image9,image10,image11,100,"pistol");
 		Player = new Character (width*scale/2,height*scale/2,image1,image2,image3,image4,image5,image6,image7,image8,pistol,0,10,11,-16,44,10,11,-16,35,68,14,12,17,69,20,0,12,21,0,0);
 	}
 	public static int getScreenWidth(){
@@ -419,7 +427,9 @@ if(MouseX > 325 && MouseX < 811 && MouseY	 > 504 && MouseY < 604 && data4 > 0 &&
 		MouseY = Mouse.getY();
 		MouseX = Mouse.getX();
 	
-
+		for(int i = 0; i<BaseBullet.bullets.size();i++){
+		BaseBullet.bullets.get(i).x ++;
+		}
 	}
 
 	
@@ -581,26 +591,14 @@ if(Mouse.getX() > 512 && Mouse.getX() < 615 && Mouse.getY() > 250 && Mouse.getY(
 			animation.AnimateLegs(bs,Player,false,facing);
 			
 		}
-		Graphics2D g6 = (Graphics2D) bs.getDrawGraphics();
-		if(click == 1){
-			
-			if(Player.gun.type == "pistol"){
-				c = animation.target + 90;
-
-				firing = true;
-	
-
-			}
-
+		for(int i = 0; i<BaseBullet.bullets.size();i++){
+		shoot(BaseBullet.bullets.get(i),bs);
 		}
+		
 		if(firing){
-			g6.translate(getWidth()/2,getHeight()/2);
-			g6.rotate(Math.toRadians(c));
-			g6.translate(-getWidth()/2,-getHeight()/2);
-		l++;
+
 		//j++;
-		g6.drawImage(Player.gun.bullet,getWidth()/2+l,getHeight()/2+j,null);
-		g6.dispose();
+
 		}
 		g.setColor(Color.WHITE);
 		g.setFont(new Font("Times New Roman", 0, 25));
@@ -613,6 +611,15 @@ if(Mouse.getX() > 512 && Mouse.getX() < 615 && Mouse.getY() > 250 && Mouse.getY(
 		g.dispose();
 		bs.show();	
 
+	}
+	
+	public void shoot (Bullet bullet, BufferStrategy bs){
+		Graphics2D g = (Graphics2D) bs.getDrawGraphics();
+		g.translate(getWidth()/2,getHeight()/2);
+		g.rotate(Math.toRadians(bullet.angle));
+		g.translate(-getWidth()/2,-getHeight()/2);
+		g.drawImage(bullet.gun.bullet,bullet.x,bullet.y,null);
+		g.dispose();
 	}
 	
 public static void main (String[] args){

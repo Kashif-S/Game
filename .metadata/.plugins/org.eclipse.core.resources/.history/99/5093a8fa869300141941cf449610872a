@@ -1,0 +1,12 @@
+package com.ready.rain.entity.mib;
+
+public class Bullet {
+
+	public double angle;
+	public Gun gun;
+	
+	public Bullet (Double angle, Gun gun){
+		this.angle = angle;
+		this.gun = gun;
+	}
+}
