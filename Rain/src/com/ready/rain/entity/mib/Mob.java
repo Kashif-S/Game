@@ -8,11 +8,12 @@ import com.ready.rain.entity.BaseBullet;
 import com.ready.rain.entity.Entity;
 import com.ready.rain.entity.Projectile;
 import com.ready.rain.graphics.Sprite;
+import com.ready.rain.input.Mouse;
 import com.ready.rain.level.Level;
 import com.ready.rain.level.ReadLevel;
 
 public abstract class Mob extends Entity {
-
+	
 	protected Sprite sprite;
 	protected int comp = 0;
 	protected boolean moving = false;
@@ -36,15 +37,16 @@ public abstract class Mob extends Entity {
 		x += xa;
 		y += ya;
 		}
+		
 	}
 	public void update(){
-	
+
 	}
 	protected void Fire(int x, int y, double comp) {
 		//comp *= 180 / Math.PI;
 	Projectile p = new BaseBullet(x, y, comp);
 	projectiles.add(p);
-	level.add(p);
+	Level.add(p);
 	}
 	
 	private boolean collision(int xa, int ya){

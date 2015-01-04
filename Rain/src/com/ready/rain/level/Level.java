@@ -11,7 +11,7 @@ import com.ready.rain.graphics.Screen;
 
 public class Level {
 	
-	private List<Entity>entities = new ArrayList <Entity>();
+	private static List<Entity>entities = new ArrayList <Entity>();
 	private static int rand = (int) ImageWriter.getRand();
 	
 	private static WriteFile WriteFile;
@@ -43,9 +43,10 @@ public class Level {
 		}
 		
 		public void update(){
-			//System.out.println("This is being run");
+			int yup = entities.size();
+			System.out.println(yup);
 			for (int i = 0; i < entities.size(); i++){
-				System.out.println("This is being run"); //doesnt work!
+				//System.out.println("This is being run"); 
 				entities.get(i).update();
 			}
 		}
@@ -72,11 +73,11 @@ public class Level {
 		}
 			for (int i = 0; i < entities.size(); i++){
 				entities.get(i).render(screen);
-				System.out.println("This runs");
+				//System.out.println("This runs");
 				}
 		}
 		
-		public void add (Entity e){
+		public static void add (Entity e){
 			entities.add(e);
 		}
 		

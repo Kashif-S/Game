@@ -426,9 +426,9 @@ if(MouseX > 325 && MouseX < 811 && MouseY	 > 504 && MouseY < 604 && data4 > 0 &&
 		MouseB = Mouse.getButton();
 		MouseY = Mouse.getY();
 		MouseX = Mouse.getX();
-		Player.gun.cd --;
+		Player.gun.cd -= 5;
 		for(int i = 0; i<bullets.size();i++){
-		bullets.get(i).x ++;
+		bullets.get(i).x += 10;
 		}
 	}
 
