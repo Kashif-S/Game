@@ -1,4 +1,5 @@
 package com.ready.rain.entity;
+import com.ready.rain.Game;
 import com.ready.rain.entity.Entity;
 import com.ready.rain.graphics.Sprite;
 import com.ready.rain.entity.mib.PP;
@@ -15,8 +16,8 @@ public abstract class Projectile extends Entity{
 		xO = x;
 		yO = y;
 		angle = comp;
-		this.x = x;
-		this.y = y;
+		this.x = x + Game.getScreenWidth()/2;
+		this.y = y+ Game.getScreenHeight()/2 - 16;
 	}
 	
 	protected void move() {

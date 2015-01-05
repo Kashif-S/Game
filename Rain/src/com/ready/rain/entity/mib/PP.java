@@ -40,10 +40,12 @@ public class PP extends Mob{
 
 	private void UpdateBullet() {
 		if (Mouse.getButton() == 1){
-			double adj = Mouse.getX()- Game.getScreenWidth() / 2;
-			double opp = Mouse.getY() - Game.getScreenHeight() / 2;
+			double adj = Mouse.getX()- Game.getScreenWidth() * Game.scale / 2;
+			double opp = Mouse.getY()  - Game.getScreenHeight() * Game.scale / 2;
 			double comp = Math.atan2(opp, adj);
 			Fire(x, y, comp);
+			System.out.println("Width " + Game.getScreenWidth() * Game.scale / 2 + " Height " + Game.getScreenHeight() * Game.scale / 2);
+		//	System.out.println("Mouse X  " + Mouse.getX() + " Mouse Y " + Mouse.getY());
 		}
 		
 	}

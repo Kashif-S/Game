@@ -43,8 +43,8 @@ public class Level {
 		}
 		
 		public void update(){
-			int yup = entities.size();
-			System.out.println(yup);
+			//int yup = entities.size();
+			//System.out.println("Entities " + yup);
 			for (int i = 0; i < entities.size(); i++){
 				//System.out.println("This is being run"); 
 				entities.get(i).update();
@@ -77,7 +77,7 @@ public class Level {
 				}
 		}
 		
-		public static void add (Entity e){
+		public void add (Entity e){
 			entities.add(e);
 		}
 		

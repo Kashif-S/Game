@@ -50,7 +50,7 @@ public class Game extends Canvas implements Runnable {
 	private static double count1 = 1;
 	private static int width = 300;  //4800
 	private static int height = width / 16 * 9;
-	private static int scale = 4;
+	public static int scale = 4;
 	public static  String title = "Rain";	
 	private static int rand = (int) ImageWriter.getRand();
 	private static WriteFile WriteFile;
@@ -355,11 +355,7 @@ public class Game extends Canvas implements Runnable {
 		}
 		if(click == 1 && WorldS == false){
 		if(Mouse.getX() > 512 && Mouse.getX() < 615 && Mouse.getY() > 144 && Mouse.getY() < 168){
-			System.out.println(menu);
-			//menu = true;
-			WorldS = true;
-			System.out.println(menu);			
-		//	ImageWriter.greyWriteImage(result,result2,result3);
+			WorldS = true;		
 		}
 		}
 		
@@ -592,7 +588,6 @@ if(Mouse.getX() > 512 && Mouse.getX() < 615 && Mouse.getY() > 250 && Mouse.getY(
 			
 		}
 		if(click == 1){
-			System.out.println("YES");
 			if(Player.gun.type == "pistol"){
 				c = animation.target + 90;
 				if(Player.gun.cd < 0){
@@ -651,12 +646,7 @@ public static void main (String[] args){
 	
 	game.frame.setVisible(true);
 	game.start();
-	System.out.println(Game.menu);
-	
-	
 
-		
-		System.out.println(Game.menu);
 
 	  if(Game.menu){
 			    

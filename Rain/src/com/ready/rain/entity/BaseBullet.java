@@ -15,7 +15,7 @@ public class BaseBullet extends Projectile{
 	super(x, y, comp);
 	range = 100;
 	sprite = Sprite.Bullet;
-	speed = 5;
+	speed = 2;
 	dmg = 50;
 	RPM = 20;
 	ix = speed * Math.cos(angle);

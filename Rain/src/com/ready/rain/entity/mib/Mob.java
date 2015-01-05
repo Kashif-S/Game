@@ -46,7 +46,7 @@ public abstract class Mob extends Entity {
 		//comp *= 180 / Math.PI;
 	Projectile p = new BaseBullet(x, y, comp);
 	projectiles.add(p);
-	Level.add(p);
+	level.add(p);
 	}
 	
 	private boolean collision(int xa, int ya){
@@ -58,7 +58,7 @@ public abstract class Mob extends Entity {
 			int ycorn = (((y + ya)+ Gh) + i / 2 * 10 + 11)/16;
 			if (level.getTile(xcorn, ycorn).solid()) solid = true;
 		}
-		System.out.println(("Y :" +(x + xa)/16 +", X :"+ (y + ya)/16));
+	//	System.out.println(("Y :" +(x + xa)/16 +", X :"+ (y + ya)/16));
 		return solid;
 	}
 	public void render(){
