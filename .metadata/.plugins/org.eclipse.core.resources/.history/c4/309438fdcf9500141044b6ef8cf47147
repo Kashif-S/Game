@@ -17,7 +17,6 @@ public class PP extends Mob{
 		//this.y = y = ReadLevel.Readh/ 2;	
 		this.input = input;
 	}
-
 	public void update(){
 		
 		int xa = 0;
@@ -45,7 +44,7 @@ public class PP extends Mob{
 			double opp = Mouse.getY()  - Game.getScreenHeight() * Game.getscale() / 2 ;
 			double comp = Math.atan2(opp, adj) ;
 			Fire(x, y, comp);
-		//	System.out.println("Width " + Game.getScreenWidth() * Game.getscale() / 2 + " Height " + Game.getScreenHeight() * Game.getscale() / 2);
+			System.out.println("Width " + Game.getScreenWidth() * Game.getscale() / 2 + " Height " + Game.getScreenHeight() * Game.getscale() / 2);
 		//	System.out.println("Mouse X  " + Mouse.getX() + " Mouse Y " + Mouse.getY());
 		}
 		

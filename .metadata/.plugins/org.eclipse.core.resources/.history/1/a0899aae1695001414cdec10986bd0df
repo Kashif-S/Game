@@ -200,7 +200,6 @@ public class Game extends Canvas implements Runnable {
 		//player.y = 1250*16;
 		pistol = new Gun(image9,image10,image11,100,"pistol");
 		Player = new Character (width*scale/2,height*scale/2,image1,image2,image3,image4,image5,image6,image7,image8,pistol,0,10,11,-16,44,10,11,-16,35,68,14,12,17,69,20,0,12,21,0,0);
-	
 	}
 	public static int getScreenWidth(){
 		return width;
@@ -428,7 +427,7 @@ if(MouseX > 325 && MouseX < 811 && MouseY	 > 504 && MouseY < 604 && data4 > 0 &&
 		MouseX = Mouse.getX();
 		Player.gun.cd -= 5;
 		for(int i = 0; i<bullets.size();i++){
-		bullets.get(i).x ++;
+		bullets.get(i).x += 10;
 		}
 	}
 
@@ -618,7 +617,6 @@ if(Mouse.getX() > 512 && Mouse.getX() < 615 && Mouse.getY() > 250 && Mouse.getY(
 		g.setColor(Color.WHITE);
 		g.setFont(new Font("Times New Roman", 0, 25));
 		g.drawString("X: " + player.x / 16  + ", Y: " +  player.y / 16 , 0, 18);
-		
 		//g.drawString("Character xa " + character.xa + ",  Character ya: " + character.ya , 20 , 100);
 		
 		}else{

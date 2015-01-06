@@ -50,7 +50,7 @@ public class Game extends Canvas implements Runnable {
 	private static double count1 = 1;
 	private static int width = 300;  //4800
 	private static int height = width / 16 * 9;
-	private static int scale = 4;
+	public static int scale = 4;
 	public static  String title = "Rain";	
 	private static int rand = (int) ImageWriter.getRand();
 	private static WriteFile WriteFile;
@@ -200,16 +200,12 @@ public class Game extends Canvas implements Runnable {
 		//player.y = 1250*16;
 		pistol = new Gun(image9,image10,image11,100,"pistol");
 		Player = new Character (width*scale/2,height*scale/2,image1,image2,image3,image4,image5,image6,image7,image8,pistol,0,10,11,-16,44,10,11,-16,35,68,14,12,17,69,20,0,12,21,0,0);
-	
 	}
 	public static int getScreenWidth(){
 		return width;
 	}
 	public static int getScreenHeight(){
 		return height;
-	}
-	public static int getscale(){
-		return scale;
 	}
 	public synchronized void start () {
 		running = true;
@@ -428,7 +424,7 @@ if(MouseX > 325 && MouseX < 811 && MouseY	 > 504 && MouseY < 604 && data4 > 0 &&
 		MouseX = Mouse.getX();
 		Player.gun.cd -= 5;
 		for(int i = 0; i<bullets.size();i++){
-		bullets.get(i).x ++;
+		bullets.get(i).x += 10;
 		}
 	}
 
@@ -618,7 +614,6 @@ if(Mouse.getX() > 512 && Mouse.getX() < 615 && Mouse.getY() > 250 && Mouse.getY(
 		g.setColor(Color.WHITE);
 		g.setFont(new Font("Times New Roman", 0, 25));
 		g.drawString("X: " + player.x / 16  + ", Y: " +  player.y / 16 , 0, 18);
-		
 		//g.drawString("Character xa " + character.xa + ",  Character ya: " + character.ya , 20 , 100);
 		
 		}else{

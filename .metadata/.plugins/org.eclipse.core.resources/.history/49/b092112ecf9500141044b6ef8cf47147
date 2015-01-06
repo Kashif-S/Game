@@ -36,18 +36,8 @@ public abstract class Mob extends Entity {
 		if (!collision(xa, ya)) {
 		x += xa;
 		y += ya;
-	
 		}
-		int Xp = x;
-		int Yp = y;
-	}
-	public int getX(){
-		int Xp = x;
-		return Xp;
-	}
-	public int getY(){
-		int Yp = y;
-		return Yp;
+		
 	}
 	public void update(){
 
@@ -58,14 +48,11 @@ public abstract class Mob extends Entity {
 	//System.out.println(comp);
 	projectiles.add(p);
 	level.add(p);
-	System.out.println( getX()/16);
 	for(int i = 0; i < projectiles.size(); i++){
-		
-		if (projectiles.get(i).x / 16 > (projectiles.get(i).x / 16 + Game.getScreenWidth() * Game.getscale() /2) /*||projectiles.get(i).y > (Game.getScreenHeight()  * Game.getscale() + getY()/16) ||projectiles.get(i).x < (Game.getScreenWidth() * Game.getscale() + getX()/16) ||projectiles.get(i).y< (Game.getScreenHeight()* Game.getscale() + getY() / 16)*/){
-			System.out.println("Out");
-			//	level.remove(p);
-		}
-		}
+	if (projectiles.get(i).x > Game.getScreenWidth() * Game.getscale() ||projectiles.get(i).y > Game.getScreenHeight()  * Game.getscale()/* ||projectiles.get(i).x < Game.getScreenWidth() ||projectiles.get(i).y< Game.getScreenHeight()*/){
+	//	level.remove(p);
+	}
+	}
 	}
 	
 	private boolean collision(int xa, int ya){
