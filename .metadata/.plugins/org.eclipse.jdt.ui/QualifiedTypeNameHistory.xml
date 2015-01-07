@@ -2,7 +2,6 @@
 <qualifiedTypeNameHistroy>
 <fullyQualifiedTypeName name="com.ready.rain.graphics.LoadImages"/>
 <fullyQualifiedTypeName name="com.ready.rain.entity.mib.Character"/>
-<fullyQualifiedTypeName name="com.ready.rain.entity.mib.Mob"/>
 <fullyQualifiedTypeName name="java.awt.Font"/>
 <fullyQualifiedTypeName name="com.ready.rain.input.Keyboard"/>
 <fullyQualifiedTypeName name="com.ready.rain.level.SimplexNoise"/>
@@ -39,4 +38,5 @@
 <fullyQualifiedTypeName name="com.ready.rain.Game"/>
 <fullyQualifiedTypeName name="com.ready.rain.entity.mib.Bullet"/>
 <fullyQualifiedTypeName name="java.lang.System"/>
+<fullyQualifiedTypeName name="com.ready.rain.entity.mib.Mob"/>
 </qualifiedTypeNameHistroy>

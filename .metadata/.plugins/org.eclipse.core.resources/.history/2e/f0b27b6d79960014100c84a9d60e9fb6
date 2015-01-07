@@ -261,7 +261,9 @@ public class Game extends Canvas implements Runnable {
 	public void update () {
 		level.update();
 		key.update();
-		
+		for(int i = 0; i < Mob.projectiles.size(); i++){
+		System.out.println(Mob.projectiles.get(i).x / 16 > (Mob.projectiles.get(i).x / 16 + Game.getScreenWidth() * Game.getscale() /2));
+		}
 		if(loaded){
 			
 			Player.update();

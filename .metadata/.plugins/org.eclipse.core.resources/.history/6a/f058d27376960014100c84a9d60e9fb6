@@ -22,6 +22,4 @@ public abstract class Projectile extends Entity{
 	
 	protected void move() {
 	}
-
-
 	}

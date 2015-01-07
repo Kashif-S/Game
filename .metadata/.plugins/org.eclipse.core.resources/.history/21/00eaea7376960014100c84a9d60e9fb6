@@ -18,7 +18,7 @@ public abstract class Mob extends Entity {
 	protected int comp = 0;
 	protected boolean moving = false;
 	protected boolean walking = false;
-	public static List<Projectile> projectiles = new ArrayList<Projectile>();
+	protected List<Projectile> projectiles = new ArrayList<Projectile>();
 
 	
 	public void move(int xa, int ya){  //the mob tracking method
@@ -50,7 +50,7 @@ public abstract class Mob extends Entity {
 		return Yp;
 	}
 	public void update(){
-	
+
 	}
 	protected void Fire(int x, int y, double comp) {
 		//comp *= 180 / Math.PI;
@@ -61,9 +61,10 @@ public abstract class Mob extends Entity {
 	System.out.println( getX()/16);
 	for(int i = 0; i < projectiles.size(); i++){
 		
-		if (projectiles.get(i).x / 16 > (projectiles.get(i).x / 16 + Game.getScreenWidth() * Game.getscale() /2) /*||projectiles.get(i).y > (Game.getScreenHeight()  * Game.getscale() + getY()/16) ||projectiles.get(i).x < (Game.getScreenWidth() * Game.getscale() + getX()/16) ||projectiles.get(i).y< (Game.getScreenHeight()* Game.getscale() + getY() / 16)*/){
-//level.remove(p);
-		}
+		//if (projectiles.get(i).x / 16 > (projectiles.get(i).x / 16 + Game.getScreenWidth() * Game.getscale() /2) /*||projectiles.get(i).y > (Game.getScreenHeight()  * Game.getscale() + getY()/16) ||projectiles.get(i).x < (Game.getScreenWidth() * Game.getscale() + getX()/16) ||projectiles.get(i).y< (Game.getScreenHeight()* Game.getscale() + getY() / 16)*/){
+			System.out.println(projectiles.get(i).x / 16);
+			//	level.remove(p);
+		//}
 		}
 	}
 	

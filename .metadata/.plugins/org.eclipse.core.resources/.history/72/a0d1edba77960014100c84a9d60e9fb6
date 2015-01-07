@@ -38,7 +38,6 @@ import com.ready.rain.entity.Entity;
 import com.ready.rain.entity.mib.Bullet;
 import com.ready.rain.entity.mib.Character;
 import com.ready.rain.entity.mib.Gun;
-import com.ready.rain.entity.mib.Mob;
 import com.ready.rain.entity.mib.PP;
 import com.ready.rain.graphics.LoadImages;
 import com.ready.rain.WriteFile;
@@ -136,7 +135,6 @@ public class Game extends Canvas implements Runnable {
 	private PP player;
 	private LoadImages load;
 	public Level level;
-
 	
 	
 	
@@ -194,6 +192,7 @@ public class Game extends Canvas implements Runnable {
 		Delete = load.LoadImage("/textures/Button/Delete.png");
 		DeleteB = load.LoadImage("/textures/Button/DeleteB.png");
 		Selectworld = load.LoadImage("/textures/WorldSelect.png");
+		
 		level = new ReadLevel("/textures/WorldGen/Blank.png" );
 		player = new PP (1180*16,1269*16,key);
 		player.init (level);
@@ -261,7 +260,6 @@ public class Game extends Canvas implements Runnable {
 	public void update () {
 		level.update();
 		key.update();
-		
 		if(loaded){
 			
 			Player.update();

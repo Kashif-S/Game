@@ -136,7 +136,7 @@ public class Game extends Canvas implements Runnable {
 	private PP player;
 	private LoadImages load;
 	public Level level;
-
+	private Mob Mob;
 	
 	
 	
@@ -261,7 +261,7 @@ public class Game extends Canvas implements Runnable {
 	public void update () {
 		level.update();
 		key.update();
-		
+		Mob.update();
 		if(loaded){
 			
 			Player.update();
