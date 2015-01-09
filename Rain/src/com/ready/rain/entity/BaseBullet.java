@@ -13,7 +13,6 @@ public class BaseBullet extends Projectile{
 
 	public BaseBullet (int x, int y, double comp) {
 	super(x, y, comp);
-	range = 100;
 	sprite = Sprite.Bullet;
 	speed = 2;
 	dmg = 50;
@@ -27,10 +26,21 @@ public class BaseBullet extends Projectile{
 	protected void move() {
 		x += ix;
 		y += iy;
-		
+
+		if(NewDistance() > getrange()) remove();
+	
 		
 	}
+	private double getrange() {
+		range = 200;
+		return range;
+	}
+	private double NewDistance() {
+		double dis = 0;
+		dis = Math.sqrt(Math.abs((xO - x) * (xO - x) + (yO - y) * (yO - y)));
+		return dis;
+	}
 	public void render(Screen screen){
-		screen.renderTile(x, y, sprite);
+		screen.renderBullet((int)x - 8, (int)y - 12, this);
 	}
 }

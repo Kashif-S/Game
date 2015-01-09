@@ -18,11 +18,12 @@ public abstract class Mob extends Entity {
 	protected int comp = 0;
 	protected boolean moving = false;
 	protected boolean walking = false;
-	public static List<Projectile> projectiles = new ArrayList<Projectile>();
+
 
 	
 	public void move(int xa, int ya){  //the mob tracking method
 		// -1, 0 , 1 are the values here that xa or ya can equal to
+	
 		if(xa!=0 && ya!= 0){
 			move(xa,0);
 			move(0,ya);
@@ -38,8 +39,6 @@ public abstract class Mob extends Entity {
 		y += ya;
 	
 		}
-		int Xp = x;
-		int Yp = y;
 	}
 	public int getX(){
 		int Xp = x;
@@ -53,18 +52,9 @@ public abstract class Mob extends Entity {
 	
 	}
 	protected void Fire(int x, int y, double comp) {
-		//comp *= 180 / Math.PI;
 	Projectile p = new BaseBullet(x, y,(double) comp);
-	//System.out.println(comp);
-	projectiles.add(p);
-	level.add(p);
-	System.out.println( getX()/16);
-	for(int i = 0; i < projectiles.size(); i++){
-		
-		if (projectiles.get(i).x / 16 > (projectiles.get(i).x / 16 + Game.getScreenWidth() * Game.getscale() /2) /*||projectiles.get(i).y > (Game.getScreenHeight()  * Game.getscale() + getY()/16) ||projectiles.get(i).x < (Game.getScreenWidth() * Game.getscale() + getX()/16) ||projectiles.get(i).y< (Game.getScreenHeight()* Game.getscale() + getY() / 16)*/){
-//level.remove(p);
-		}
-		}
+	level.addProjectile(p);
+	
 	}
 	
 	private boolean collision(int xa, int ya){
@@ -76,7 +66,6 @@ public abstract class Mob extends Entity {
 			int ycorn = (((y + ya)+ Gh) + i / 2 * 10 + 11)/16;
 			if (level.getTile(xcorn, ycorn).solid()) solid = true;
 		}
-	//	System.out.println(("Y :" +(x + xa)/16 +", X :"+ (y + ya)/16));
 		return solid;
 	}
 	public void render(){

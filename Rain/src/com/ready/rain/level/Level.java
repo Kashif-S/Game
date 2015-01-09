@@ -7,12 +7,13 @@ import com.ready.rain.ImageWriter;
 import com.ready.rain.WriteFile;
 import com.ready.rain.level.tile.Tile;
 import com.ready.rain.entity.Entity;
+import com.ready.rain.entity.Projectile;
 import com.ready.rain.entity.mib.Mob;
 import com.ready.rain.graphics.Screen;
 
 public class Level {
-	
 	private static List<Entity>entities = new ArrayList <Entity>();
+	private static List<Projectile>projectiles = new ArrayList <Projectile>();
 	private static int rand = (int) ImageWriter.getRand();
 	
 	private static WriteFile WriteFile;
@@ -44,17 +45,16 @@ public class Level {
 		}
 		
 		public void update(){
-			for(int i = 0; i < Mob.projectiles.size(); i++){
-				System.out.println(Mob.projectiles.get(i).x / 16);
+			for (int i = 0; i < projectiles.size(); i++){
+				projectiles.get(i).update();
 				}
-			int yup = entities.size();
-			System.out.println("Entities " + yup);
-			for (int i = 0; i < entities.size(); i++){
-				//System.out.println("This is being run"); 
+			for (int i = 0; i < entities.size(); i++){ 
 				entities.get(i).update();
 			}
 		}
-	
+		public List<Projectile> getProjectiles(){
+			return projectiles;
+		}
 		private void time() {
 			
 		}
@@ -77,15 +77,17 @@ public class Level {
 		}
 			for (int i = 0; i < entities.size(); i++){
 				entities.get(i).render(screen);
-				//System.out.println("This runs");
+				}
+			for (int i = 0; i < projectiles.size(); i++){
+				projectiles.get(i).render(screen);
 				}
 		}
 		
 		public void add (Entity e){
 			entities.add(e);
 		}
-		public void remove (Entity e){
-			entities.remove(e);
+		public void addProjectile (Projectile p){
+			projectiles.add(p);
 		}
 		
 		

@@ -1,6 +1,8 @@
 package com.ready.rain.graphics;
 
 import java.util.Random;
+
+import com.ready.rain.entity.Projectile;
 import com.ready.rain.level.tile.Tile;
 
 public class Screen {
@@ -33,7 +35,22 @@ public class Screen {
 			pixels[i] = 0;
 		}
 	}
-
+	public void renderBullet(int xp, int yp, Projectile p){
+		xp -= xOffset;
+		yp -= yOffset;
+		 for (int y = 0; y < p.getSpriteSize(); y++) {
+			 int ya =  y + yp;
+			 for (int x = 0; x <  p.getSpriteSize(); x++) {
+				 int xa =  x + xp;
+				 	if(xa <  p.getSpriteSize() || xa >= width || ya < 0 || ya >= width)break;
+				 	if (xa < 0) xa = 0;
+				 	int colour = p.getSprite().pixels[x + y * 16];
+				 	if (colour != 0xFFFF0AB1){
+				 	pixels[xa + ya * width] =  colour;
+				 	}
+		 }
+	}
+}
 		public void renderTile(int xp, int yp, Tile tile){
 			xp -= xOffset;
 			yp -= yOffset;

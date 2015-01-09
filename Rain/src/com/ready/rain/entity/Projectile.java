@@ -9,18 +9,26 @@ public abstract class Projectile extends Entity{
 	final protected int xO, yO;
 	protected double angle;
 	protected Sprite sprite;
+	protected double x, y;
 	protected double ix,iy;
 	protected double speed, RPM, dmg, range;
+	protected double distance;
 	
 	public Projectile(int x, int y, double comp){
-		xO = x;
-		yO = y;
 		angle = comp;
 		this.x = x + Game.getScreenWidth()/2;
-		this.y = y+ Game.getScreenHeight()/2 - 16;
+		this.y = y + Game.getScreenHeight()/2;
+		xO = x;
+		yO = y;
 	}
 	
 	protected void move() {
+	}
+	public Sprite getSprite(){
+		return sprite;
+	}
+	public int getSpriteSize(){
+		return sprite.SIZE;
 	}
 
 

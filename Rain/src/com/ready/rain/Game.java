@@ -429,9 +429,9 @@ if(MouseX > 325 && MouseX < 811 && MouseY	 > 504 && MouseY < 604 && data4 > 0 &&
 		MouseY = Mouse.getY();
 		MouseX = Mouse.getX();
 		Player.gun.cd -= 5;
-		for(int i = 0; i<bullets.size();i++){
-		bullets.get(i).x ++;
-		}
+		//for(int i = 0; i<bullets.size();i++){
+		//bullets.get(i).x ++;
+		//}
 	}
 
 	
@@ -593,7 +593,7 @@ if(Mouse.getX() > 512 && Mouse.getX() < 615 && Mouse.getY() > 250 && Mouse.getY(
 			animation.AnimateLegs(bs,Player,false,facing);
 			
 		}
-		if(click == 1){
+		/*if(click == 1){
 			if(Player.gun.type == "pistol"){
 				c = animation.target + 90;
 				if(Player.gun.cd < 0){
@@ -605,18 +605,13 @@ if(Mouse.getX() > 512 && Mouse.getX() < 615 && Mouse.getY() > 250 && Mouse.getY(
 			
 				
 		}
-
 		
 	
 		for(int i = 0; i<bullets.size();i++){
 		shoot(bullets.get(i),bs);
-		}
+		}*/
 		
-		if(firing){
-
-		//j++;
-
-		}
+		
 		g.setColor(Color.WHITE);
 		g.setFont(new Font("Times New Roman", 0, 25));
 		g.drawString("X: " + player.x / 16  + ", Y: " +  player.y / 16 , 0, 18);
@@ -631,14 +626,14 @@ if(Mouse.getX() > 512 && Mouse.getX() < 615 && Mouse.getY() > 250 && Mouse.getY(
 
 	}
 	
-	public void shoot (Bullet bullet, BufferStrategy bs){
+	/*public void shoot (Bullet bullet, BufferStrategy bs){
 		Graphics2D g = (Graphics2D) bs.getDrawGraphics();
 		g.translate(getWidth()/2,getHeight()/2);
 		g.rotate(Math.toRadians(bullet.angle));
 		g.translate(-getWidth()/2,-getHeight()/2);
 		g.drawImage(bullet.gun.bullet,bullet.x,bullet.y,null);
 		g.dispose();
-	}
+	}*/
 	
 public static void main (String[] args){
 	
