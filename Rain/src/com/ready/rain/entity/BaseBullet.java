@@ -14,12 +14,13 @@ public class BaseBullet extends Projectile{
 
 	public BaseBullet (int x, int y, double comp, int range) {
 	super(x, y, comp, range);
+	double random =   Math.random()*0.2 -0.1;
 	sprite = Sprite.Bullet;
-	speed = 2;
+	speed = 5;
 	dmg = 50;
 	RPM = 20;
-	ix = speed * Math.cos(angle);
-	iy = speed * Math.sin(angle);
+	ix = speed * Math.cos(angle + random);
+	iy = speed * Math.sin(angle + random);
 	range = 500;
 	}
 	public void update(){
@@ -30,7 +31,7 @@ public class BaseBullet extends Projectile{
 		y += iy;
 		for (int q = 0; q < Level.projectiles.size(); q++){
 			if (Level.projectiles.get(q).range <= -300) Level.projectiles.get(q).remove();
-			System.out.println(Level.projectiles.get(q).range);
+			//System.out.println(Level.projectiles.get(q).range);
 		}
 		
 	

@@ -31,7 +31,6 @@
 <fullyQualifiedTypeName name="com.ready.rain.entity.mib.Gun"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="java.awt.List"/>
-<fullyQualifiedTypeName name="com.ready.rain.entity.BaseBullet"/>
 <fullyQualifiedTypeName name="com.ready.rain.input.Mouse"/>
 <fullyQualifiedTypeName name="com.ready.rain.Game"/>
 <fullyQualifiedTypeName name="com.ready.rain.entity.mib.Bullet"/>
@@ -39,4 +38,5 @@
 <fullyQualifiedTypeName name="com.ready.rain.entity.mib.Mob"/>
 <fullyQualifiedTypeName name="java.lang.Math"/>
 <fullyQualifiedTypeName name="com.ready.rain.entity.Projectile"/>
+<fullyQualifiedTypeName name="com.ready.rain.entity.BaseBullet"/>
 </qualifiedTypeNameHistroy>

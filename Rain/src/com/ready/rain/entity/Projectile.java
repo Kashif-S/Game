@@ -14,6 +14,7 @@ public abstract class Projectile extends Entity{
 	protected double speed, RPM, dmg;
 	public double range;
 	protected double distance;
+	public static double cooldown = 35;
 	
 	public Projectile(int x, int y, double comp, int range){
 		angle = comp;

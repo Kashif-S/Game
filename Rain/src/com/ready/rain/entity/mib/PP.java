@@ -3,11 +3,13 @@ package com.ready.rain.entity.mib;
 import com.ready.rain.Game;
 import com.ready.rain.input.Keyboard;
 import com.ready.rain.input.Mouse;
+import com.ready.rain.entity.BaseBullet;
 import com.ready.rain.entity.Projectile;
 import com.ready.rain.graphics.Screen;
 
 public class PP extends Mob{
 	private Keyboard input;
+	int cd = 0;
 	public PP (Keyboard input) {
 		this.input = input;
 	}
@@ -46,15 +48,19 @@ public class PP extends Mob{
 		
 	}
 	private void UpdateBullet() {
+		cd ++;
 		if (Mouse.getButton() == 1){
 			int range = 200;
 			double adj = Mouse.getX()- Game.getScreenWidth() * Game.getscale() / 2 ;
 			double opp = Mouse.getY()  - Game.getScreenHeight() * Game.getscale() / 2 ;
 			double comp = Math.atan2(opp, adj) ;
+			if(cd >= BaseBullet.cooldown){
 			Fire(x, y, comp, range);
+			cd = 0;
+			}
 
-		}
 		
+		}
 	}
 	public void render(){
 		
