@@ -13,7 +13,7 @@ import com.ready.rain.graphics.Screen;
 
 public class Level {
 	private static List<Entity>entities = new ArrayList <Entity>();
-	private static List<Projectile>projectiles = new ArrayList <Projectile>();
+	public static List<Projectile>projectiles = new ArrayList <Projectile>();
 	private static int rand = (int) ImageWriter.getRand();
 	
 	private static WriteFile WriteFile;

@@ -259,6 +259,12 @@ public class Game extends Canvas implements Runnable {
 	}
 
 	public void update () {
+		
+		
+		for (int q = 0; q < Level.projectiles.size(); q++){
+			Level.projectiles.get(q).range --;
+		//	System.out.println(Level.projectiles.get(q).range);
+		}
 		level.update();
 		key.update();
 		

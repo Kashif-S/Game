@@ -47,10 +47,11 @@ public class PP extends Mob{
 	}
 	private void UpdateBullet() {
 		if (Mouse.getButton() == 1){
+			int range = 200;
 			double adj = Mouse.getX()- Game.getScreenWidth() * Game.getscale() / 2 ;
 			double opp = Mouse.getY()  - Game.getScreenHeight() * Game.getscale() / 2 ;
 			double comp = Math.atan2(opp, adj) ;
-			Fire(x, y, comp);
+			Fire(x, y, comp, range);
 
 		}
 		

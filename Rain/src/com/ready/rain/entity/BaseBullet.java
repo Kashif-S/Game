@@ -6,19 +6,21 @@ import java.util.List;
 import com.ready.rain.Game;
 import com.ready.rain.graphics.Screen;
 import com.ready.rain.graphics.Sprite;
+import com.ready.rain.level.Level;
 import com.ready.rain.entity.Entity;
 import com.ready.rain.entity.mib.Bullet;
 
 public class BaseBullet extends Projectile{
 
-	public BaseBullet (int x, int y, double comp) {
-	super(x, y, comp);
+	public BaseBullet (int x, int y, double comp, int range) {
+	super(x, y, comp, range);
 	sprite = Sprite.Bullet;
 	speed = 2;
 	dmg = 50;
 	RPM = 20;
 	ix = speed * Math.cos(angle);
 	iy = speed * Math.sin(angle);
+	range = 500;
 	}
 	public void update(){
 		move();
@@ -26,8 +28,11 @@ public class BaseBullet extends Projectile{
 	protected void move() {
 		x += ix;
 		y += iy;
-
-		if(NewDistance() > getrange()) remove();
+		for (int q = 0; q < Level.projectiles.size(); q++){
+			if (Level.projectiles.get(q).range <= -300) Level.projectiles.get(q).remove();
+			System.out.println(Level.projectiles.get(q).range);
+		}
+		
 	
 		
 	}
