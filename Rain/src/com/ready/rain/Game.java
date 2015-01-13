@@ -35,6 +35,7 @@ import com.ready.rain.level.SimplexNoise;
 import com.ready.rain.mobs.Animation;
 import com.ready.rain.entity.BaseBullet;
 import com.ready.rain.entity.Entity;
+import com.ready.rain.entity.Projectile;
 import com.ready.rain.entity.mib.Bullet;
 import com.ready.rain.entity.mib.Character;
 import com.ready.rain.entity.mib.Gun;
@@ -47,6 +48,7 @@ import com.ready.rain.WriteFile;
 public class Game extends Canvas implements Runnable {
 	private static final long serialVersionUID = 1L; 
 	public static List<Bullet>bullets = new ArrayList <Bullet>();
+	public static List<Character>characters = new ArrayList <Character>();
 	public  Image img = null;
 	private static double count1 = 1;
 	private static int width = 300;  //4800
@@ -132,6 +134,9 @@ public class Game extends Canvas implements Runnable {
 	private Screen screen;
 	public static Animation animation;
 	public static Character Player;
+	public static Character ch1;
+	public static Character ch2;
+	public static Character ch3;
 	private Gun pistol;
 	private PP player;
 	private LoadImages load;
@@ -201,7 +206,12 @@ public class Game extends Canvas implements Runnable {
 		//player.y = 1250*16;
 		pistol = new Gun(image9,image10,image11,100,"pistol");
 		Player = new Character (width*scale/2,height*scale/2,image1,image2,image3,image4,image5,image6,image7,image8,pistol,0,10,11,-16,44,10,11,-16,35,68,14,12,17,69,20,0,12,21,0,0);
-	
+		ch1 = new Character (width*scale/2,height*scale/2,image1,image2,image3,image4,image5,image6,image7,image8,pistol,0,10,11,-16,44,10,11,-16,35,68,14,12,17,69,20,0,12,21,0,0);
+		characters.add(ch1);
+		ch2 = new Character (width*scale/2-40,height*scale/2+100,image1,image2,image3,image4,image5,image6,image7,image8,pistol,0,10,11,-16,44,10,11,-16,35,68,14,12,17,69,20,0,12,21,0,0);
+		characters.add(ch2);
+		ch3 = new Character (width*scale/2+200,height*scale/2-100,image1,image2,image3,image4,image5,image6,image7,image8,pistol,0,10,11,-16,44,10,11,-16,35,68,14,12,17,69,20,0,12,21,0,0);
+		characters.add(ch3);
 	}
 	public static int getScreenWidth(){
 		return width;
@@ -272,8 +282,32 @@ public class Game extends Canvas implements Runnable {
 			
 			Player.update();
 			player.update();
-			if (key.left)facing = true;
-			if (key.right)facing = false;		
+			if (key.left){
+				facing = true;
+				for(int i = 0;i<characters.size();i++){
+					characters.get(i).x+=4;
+				}
+			}
+			if (key.right){
+				facing = false;
+				for(int i = 0;i<characters.size();i++){
+					characters.get(i).x-=4;
+				}
+			}
+			if (key.up){
+				for(int i = 0;i<characters.size();i++){
+					characters.get(i).y+=4;
+				}
+			}
+			if (key.down){
+				for(int i = 0;i<characters.size();i++){
+					characters.get(i).y-=4;
+				}
+			}
+			for(int i = 0;i<characters.size();i++){
+				characters.get(i).targetx = Player.x ;
+				characters.get(i).targety = Player.y ;
+			}
 		}
 		else{
 			if(dir){
@@ -599,6 +633,11 @@ if(Mouse.getX() > 512 && Mouse.getX() < 615 && Mouse.getY() > 250 && Mouse.getY(
 			animation.AnimateLegs(bs,Player,false,facing);
 			
 		}
+		for(int i = 0;i<characters.size();i++){
+			animation.AnimateLegs(bs,characters.get(i),true,facing);
+		}
+		
+
 		/*if(click == 1){
 			if(Player.gun.type == "pistol"){
 				c = animation.target + 90;
