@@ -11,31 +11,36 @@ import com.ready.rain.entity.Entity;
 import com.ready.rain.entity.mib.Bullet;
 
 public class BaseBullet extends Projectile{
-	public static int RPM = 5;
+
 	public BaseBullet (int x, int y, double comp, int range) {
 	super(x, y, comp, range);
 	double random =   Math.random()*0.2 -0.1;
 	sprite = Sprite.Bullet;
-	speed = 2;
+	speed = 5;
 	dmg = 50;
+	RPM = 20;
 	ix = speed * Math.cos(angle + random);
 	iy = speed * Math.sin(angle + random);
+	range = 500;
 	}
 	public void update(){
 		move();
 	}
 	protected void move() {
-		if (!level.Projectilecollision(x, y, ix, iy, 64)){
 		x += ix;
 		y += iy;
-		
-		}
-	for (int q = 0; q < Level.projectiles.size(); q++){
+		for (int q = 0; q < Level.projectiles.size(); q++){
 			if (Level.projectiles.get(q).range <= -300) Level.projectiles.get(q).remove();
+			//System.out.println(Level.projectiles.get(q).range);
 		}
+		
+	
 		
 	}
-
+	private double getrange() {
+		range = 200;
+		return range;
+	}
 	private double NewDistance() {
 		double dis = 0;
 		dis = Math.sqrt(Math.abs((xO - x) * (xO - x) + (yO - y) * (yO - y)));
