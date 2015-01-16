@@ -16,7 +16,7 @@ public boolean solid(){
 	return true;	
 }
 public boolean Bulletsolid(){
-	return false;
+	return true;
 }
 
 }

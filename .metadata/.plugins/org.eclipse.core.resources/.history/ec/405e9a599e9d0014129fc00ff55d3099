@@ -27,7 +27,7 @@ public class BaseBullet extends Projectile{
 		move();
 	}
 	protected void move() {
-		if (!level.Bulletcollision(x, y, ix, iy, 4)){
+		if (!level.Bulletcollision(x, y, ix, iy, 64)){
 		x += ix;
 		y += iy;
 		}

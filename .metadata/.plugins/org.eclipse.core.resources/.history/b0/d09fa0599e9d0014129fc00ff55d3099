@@ -62,7 +62,7 @@ public class Level {
 			boolean Bulletsolid = false;
 			for(int i = 0; i < 4; i++){
 				int xcorn = ((((int)x + (int)xa)) + i % 2 * size/10+ 1)/16;
-				int ycorn = ((((int)y + (int)ya)) + i / 2 * size/10 - 8)/16;
+				int ycorn = ((((int)y + (int)ya)) + i / 2 * size/10 - 12)/16;
 				if (getTile(xcorn, ycorn).Bulletsolid()) Bulletsolid = true;
 			}
 			return Bulletsolid;

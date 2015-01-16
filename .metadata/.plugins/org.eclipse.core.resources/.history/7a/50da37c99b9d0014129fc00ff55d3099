@@ -33,7 +33,7 @@ public class BaseBullet extends Projectile{
 		}
 		for (int q = 0; q < Level.projectiles.size(); q++){
 			if (Level.projectiles.get(q).range <= -350) Level.projectiles.get(q).remove();
-			System.out.println(Level.projectiles.size());
+			//System.out.println(Level.projectiles.get(q).range);
 		}
 		
 	
