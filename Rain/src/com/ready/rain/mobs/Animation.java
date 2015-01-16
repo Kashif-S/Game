@@ -70,20 +70,20 @@ public class Animation extends JPanel {
 			prev = facing;
 		}
 		
-		if((targetx - x != 0&& targety - y!=0)){
+	//	if((targetx - x != 0&& targety - y!=0)){
 			if(targetx>x){
 				double adj = Mouse.getX()- Game.getScreenWidth() * Game.getscale() / 2;
 				double opp = Mouse.getY()  - Game.getScreenHeight() * Game.getscale() / 2 ;
-				target = Math.toDegrees(Math.atan2(opp, adj) + 90) ;
+				target = Math.toDegrees(Math.atan2(opp, adj)) -90 ;
 			//target = Math.toDegrees(Math.atan((targety -y)/(targetx - x))) - 90;
 			}else{
 				double adj = Mouse.getX()- Game.getScreenWidth() * Game.getscale() / 2;
 				double opp = Mouse.getY()  - Game.getScreenHeight() * Game.getscale() / 2 ;
-				target = Math.toDegrees(Math.atan2(opp, adj) + 270);
+				target = Math.toDegrees(Math.atan2(opp, adj)) -90;
 			//target = Math.toDegrees(Math.atan((targety -y)/(targetx - x))) - 90 + 180;	
 			}
-		}
-		if(target > 0){
+	//	}
+		if(targetx<x){
 			facing = true;
 		}else{
 			facing = false;
