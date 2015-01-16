@@ -27,10 +27,12 @@ public class BaseBullet extends Projectile{
 		move();
 	}
 	protected void move() {
+		if (!level.Bulletcollision(x, y, ix, iy, 4)){
 		x += ix;
 		y += iy;
+		}
 		for (int q = 0; q < Level.projectiles.size(); q++){
-			if (Level.projectiles.get(q).range <= -300) Level.projectiles.get(q).remove();
+			if (Level.projectiles.get(q).range <= -1000000) Level.projectiles.get(q).remove();
 			//System.out.println(Level.projectiles.get(q).range);
 		}
 		

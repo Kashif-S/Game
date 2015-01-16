@@ -58,6 +58,17 @@ public class Level {
 		private void time() {
 			
 		}
+		public boolean Bulletcollision(double x, double y, double xa, double ya, int size){
+			boolean solid = false;
+			int Gw = Game.getScreenWidth()/2;
+			int Gh = Game.getScreenHeight()/2;
+			for(int i = 0; i < 4; i++){
+				int xcorn = ((((int)x + (int)xa)) + i % 2 * size/8 + 1)/16;
+				int ycorn = ((((int)y + (int)ya)) + i / 2 * size/8 - 8)/16;
+				if (getTile(xcorn, ycorn).solid()) solid = true;
+			}
+			return solid;
+		}
 		public void render(int xScroll, int yScroll, Screen screen) {
 		screen.setOffset(xScroll, yScroll);	
 		int x0 = xScroll >> 4; 
@@ -87,6 +98,7 @@ public class Level {
 			entities.add(e);
 		}
 		public void addProjectile (Projectile p){
+			p.init(this);
 			projectiles.add(p);
 		}
 		
