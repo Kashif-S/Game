@@ -16,12 +16,12 @@ public class BaseBullet extends Projectile{
 	super(x, y, comp, range);
 	double random =   Math.random()*0.2 -0.1;
 	sprite = Sprite.Bullet;
-	speed = 5;
+	speed = 3;
 	dmg = 50;
 	RPM = 20;
 	ix = speed * Math.cos(angle + random);
 	iy = speed * Math.sin(angle + random);
-	range = 500;
+	//range = 350;
 	}
 	public void update(){
 		move();
