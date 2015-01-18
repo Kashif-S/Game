@@ -51,6 +51,22 @@ public class Screen {
 		 }
 	}
 }
+	public void renderMob(int xp, int yp, Sprite sprite){
+		xp -= xOffset;
+		yp -= yOffset;
+		 for (int y = 0; y < 32; y++) {
+			 int ya =  y + yp;
+			 for (int x = 0; x <  32; x++) {
+				 int xa =  x + xp;
+				 	if(xa <  32 || xa >= width || ya < 0 || ya >= width)break;
+				 	if (xa < 0) xa = 0;
+				 	int colour = sprite.pixels[x + y * 32];
+				 	if (colour != 0xFFFF0AB1){
+				 	pixels[xa + ya * width] =  colour;
+				 	}
+		 }
+	}
+}
 		public void renderTile(int xp, int yp, Tile tile){
 			xp -= xOffset;
 			yp -= yOffset;

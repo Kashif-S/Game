@@ -5,7 +5,7 @@ import java.util.Random;
 import com.ready.rain.graphics.Screen;
 import com.ready.rain.level.Level;
 
-public abstract class Entity {
+public class Entity {
 
 	public int x;
 	public int y;
@@ -15,8 +15,8 @@ public abstract class Entity {
 	
 	
 	public void update(){
-			
-	} 
+		
+	}
 	public void render(Screen screen){
 		
 	}
