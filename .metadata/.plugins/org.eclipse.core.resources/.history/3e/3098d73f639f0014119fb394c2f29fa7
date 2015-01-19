@@ -65,10 +65,5 @@ public class PP extends Mob{
 	public void render(){
 		
 	}
-	@Override
-	public void render(Screen screen) {
-		// TODO Auto-generated method stub
-		
-	}
 
 }

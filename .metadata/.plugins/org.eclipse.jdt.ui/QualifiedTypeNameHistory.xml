@@ -9,7 +9,6 @@
 <fullyQualifiedTypeName name="com.ready.rain.graphics.ImageReader"/>
 <fullyQualifiedTypeName name="com.ready.rain.ImageWriter"/>
 <fullyQualifiedTypeName name="com.ready.rain.level.Level"/>
-<fullyQualifiedTypeName name="com.ready.rain.level.tile.Tile"/>
 <fullyQualifiedTypeName name="javax.imageio.ImageIO"/>
 <fullyQualifiedTypeName name="java.awt.image.BufferedImage"/>
 <fullyQualifiedTypeName name="java.io.IOException"/>
@@ -39,4 +38,6 @@
 <fullyQualifiedTypeName name="com.ready.rain.entity.BaseBullet"/>
 <fullyQualifiedTypeName name="com.ready.rain.graphics.Screen"/>
 <fullyQualifiedTypeName name="com.ready.rain.graphics.Sprite"/>
+<fullyQualifiedTypeName name="com.ready.rain.level.tile.Tile"/>
+<fullyQualifiedTypeName name="com.ready.rain.entity.mib.SpiderG"/>
 </qualifiedTypeNameHistroy>

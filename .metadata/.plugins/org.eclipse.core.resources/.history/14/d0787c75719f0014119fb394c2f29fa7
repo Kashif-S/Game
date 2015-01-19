@@ -19,17 +19,18 @@ public class Level {
 	
 	private static WriteFile WriteFile;
 
-		
+		public boolean menu = Game.menu;
+		public boolean loaded = Game.loaded;
 		public static Tile[] tiles;		
 		protected int width, height;
-		protected int[] tilesDif;	
+		public static int[] tilesDif;	
 		public Level(int width, int height) {
 		this.width = width;	
 		this.height = height;
 		tilesDif = new int[width * height];
 		generateLevel();
 		}
-
+		
 		public Level (String path) {
 		loadLevel (path);	
 		generateLevel();
@@ -41,7 +42,7 @@ public class Level {
 		}
 		
 		protected void loadLevel (String path) {
-			
+			add(new SpiderG (1180, 803));
 		}
 		
 		public void update(){

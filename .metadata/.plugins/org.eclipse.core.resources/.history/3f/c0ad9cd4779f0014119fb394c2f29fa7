@@ -8,7 +8,7 @@ public class SpiderG extends Mob{
 	public SpiderG(int x,int y){
 		this.x = x << 4;
 		this.y = y << 4;
-		sprite = Sprite.water;
+		sprite = Sprite.Bullet;
 	}
 	public void update() {
 

@@ -6,8 +6,8 @@ import com.ready.rain.graphics.Sprite;
 public class SpiderG extends Mob{
 
 	public SpiderG(int x,int y){
-		this.x = x << 4;
-		this.y = y << 4;
+		this.x = x;
+		this.y = y;
 		sprite = Sprite.water;
 	}
 	public void update() {

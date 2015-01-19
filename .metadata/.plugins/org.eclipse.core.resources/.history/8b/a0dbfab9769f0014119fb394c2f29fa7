@@ -29,7 +29,7 @@ public class Level {
 		tilesDif = new int[width * height];
 		generateLevel();
 		}
-
+		public static Level spawn = new SPL("/WorldGen/Blank.png");
 		public Level (String path) {
 		loadLevel (path);	
 		generateLevel();
