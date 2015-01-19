@@ -17,7 +17,7 @@ public class SpiderG extends Mob{
 
 
 	public void render(Screen screen) {
-		screen.renderMob(x, y, sprite, 0);
+		//screen.renderMob(x, y, sprite, 0);
 	}
 
 }

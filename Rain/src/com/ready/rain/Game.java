@@ -206,9 +206,9 @@ public class Game extends Canvas implements Runnable {
 		//player.y = 1250*16;
 		pistol = new Gun(image9,image10,image11,100,"pistol");
 		Player = new Character (width*scale/2,height*scale/2,image1,image2,image3,image4,image5,image6,image7,image8,pistol,0,10,11,-16,44,10,11,-16,35,68,14,12,17,69,20,0,12,21,0,0);
-		/*ch1 = new Character (width*scale/2,height*scale/2,image1,image2,image3,image4,image5,image6,image7,image8,pistol,0,10,11,-16,44,10,11,-16,35,68,14,12,17,69,20,0,12,21,0,0);
+		ch1 = new Character (width*scale/2,height*scale/2,image1,image2,image3,image4,image5,image6,image7,image8,pistol,0,10,11,-16,44,10,11,-16,35,68,14,12,17,69,20,0,12,21,0,0);
 		characters.add(ch1);
-		ch2 = new Character (width*scale/2-40,height*scale/2+100,image1,image2,image3,image4,image5,image6,image7,image8,pistol,0,10,11,-16,44,10,11,-16,35,68,14,12,17,69,20,0,12,21,0,0);
+		/*ch2 = new Character (width*scale/2-40,height*scale/2+100,image1,image2,image3,image4,image5,image6,image7,image8,pistol,0,10,11,-16,44,10,11,-16,35,68,14,12,17,69,20,0,12,21,0,0);
 		characters.add(ch2);
 		ch3 = new Character (width*scale/2+200,height*scale/2-100,image1,image2,image3,image4,image5,image6,image7,image8,pistol,0,10,11,-16,44,10,11,-16,35,68,14,12,17,69,20,0,12,21,0,0);
 		characters.add(ch3);*/
@@ -269,6 +269,7 @@ public class Game extends Canvas implements Runnable {
 	}
 
 	public void update () {
+
 		
 		
 		for (int q = 0; q < Level.projectiles.size(); q++){
@@ -282,6 +283,9 @@ public class Game extends Canvas implements Runnable {
 			
 			Player.update();
 			player.update();
+			if(!Mob.getColliding()){
+				
+			
 			if (key.left){
 				facing = true;
 				for(int i = 0;i<characters.size();i++){
@@ -304,10 +308,8 @@ public class Game extends Canvas implements Runnable {
 					characters.get(i).y-=4;
 				}
 			}
-			for(int i = 0;i<characters.size();i++){
-				characters.get(i).targetx = Player.x ;
-				characters.get(i).targety = Player.y ;
 			}
+
 		}
 		else{
 			if(dir){
@@ -625,8 +627,13 @@ if(Mouse.getX() > 512 && Mouse.getX() < 615 && Mouse.getY() > 250 && Mouse.getY(
 			pixels [i] = screen.pixels [i];
 		}	
 		
-		Player.targetx = Mouse.getX();
-		Player.targety = Mouse.getY();
+		Player.targetx =  Mouse.getX()-Player.x ;
+		Player.targety = Mouse.getY()-Player.y ;
+		for(int i = 0;i<characters.size();i++){
+			characters.get(i).targetx = Player.x-characters.get(i).x;
+			characters.get(i).targety = Player.y-characters.get(i).y;
+			System.out.println(characters.get(i).targetx);
+		}
 		if(key.up || key.down || key.right || key.left){
 			animation.AnimateLegs(bs,Player,true,facing);
 		}else{

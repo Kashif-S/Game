@@ -41,6 +41,8 @@ public class Character extends Mob {
 	public BufferedImage righthead;
 	public BufferedImage lefthead;
 	public Gun gun;
+	public double rot = 0;
+	public double target = 0;
 	
 	public Character (
 			int x,

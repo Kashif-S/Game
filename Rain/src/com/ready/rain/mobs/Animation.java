@@ -21,8 +21,6 @@ import com.ready.rain.Game;
 public class Animation extends JPanel {
 	boolean dir = true;
 	boolean prev = false;
-	double rot = 0;
-	public double target = 0;
 	BufferedImage image1;
 	BufferedImage image2;
 	BufferedImage image3;
@@ -66,24 +64,24 @@ public class Animation extends JPanel {
 		int targety = character.targety;
 		if(facing != prev){
 			dir = true;
-			rot = 0;
+			character.rot = 0;
 			prev = facing;
 		}
 		
 	//	if((targetx - x != 0&& targety - y!=0)){
 			if(targetx>x){
-				double adj = Mouse.getX()- Game.getScreenWidth() * Game.getscale() / 2 ;
-				double opp = Mouse.getY()  - Game.getScreenHeight() * Game.getscale() / 2 ;
-				target = Math.toDegrees(Math.atan2(opp, adj)) -90 + 10 ;
+				double adj =character.targetx;
+				double opp = character.targety;
+				character.target = Math.toDegrees(Math.atan2(opp, adj)) -90 + 10 ;
 			//target = Math.toDegrees(Math.atan((targety -y)/(targetx - x))) - 90;
 			}else{
-				double adj = Mouse.getX()- Game.getScreenWidth() * Game.getscale() / 2;
-				double opp = Mouse.getY()  - Game.getScreenHeight() * Game.getscale() / 2 ;
-				target = Math.toDegrees(Math.atan2(opp, adj)) -90 - 10;
+				double adj = character.targetx;
+				double opp = character.targety;
+				character.target = Math.toDegrees(Math.atan2(opp, adj)) -90 - 10;
 			//target = Math.toDegrees(Math.atan((targety -y)/(targetx - x))) - 90 + 180;	
 			}
 	//	}
-		if(targetx<x){
+		if(targetx<0){
 			facing = true;
 		}else{
 			facing = false;
@@ -91,20 +89,20 @@ public class Animation extends JPanel {
 	
 		
 		if (moving == true){
-		if(rot >= 50){
+		if(character.rot >= 50){
 			dir = true;
 		}
-		if(rot <= -50){
+		if(character.rot <= -50){
 			dir = false;
 		}
 		if(dir == false){
-			rot++;
+			character.rot++;
 		}else{
-			rot--;
+			character.rot--;
 		}
 		}else{
-			if(rot >= 0)rot -= 0.5;
-			if(rot <= 0)rot += 0.5;
+			if(character.rot >= 0)character.rot -= 0.5;
+			if(character.rot <= 0)character.rot += 0.5;
 			
 		}
 		if (facing == true){
@@ -133,12 +131,12 @@ public class Animation extends JPanel {
 		
 		if(facing == true){
 			g6.translate( x + xjoint5 - xjoint6 + xjoint6, y - yjoint5 + (yjoint5 - yjoint6) + yjoint6);
-			g6.rotate(Math.toRadians(-rot));
+			g6.rotate(Math.toRadians(-character.rot));
 			g6.translate(-(x + xjoint5 - xjoint6) - xjoint6,-( y - yjoint5 + (yjoint5 - yjoint6) )-yjoint6);
 			g6.drawImage(img4, x + xjoint5 - xjoint6, y - yjoint5 + (yjoint5 - yjoint6), null);
 			
 			g7.translate( x + xjoint7 - xjoint6 + xjoint6, y - yjoint7 + (yjoint7 - yjoint6) + yjoint6);
-			g7.rotate(Math.toRadians(rot));
+			g7.rotate(Math.toRadians(character.rot));
 			g7.translate(-(x + xjoint7 - xjoint6) - xjoint6,-( y - yjoint7 + (yjoint7 - yjoint6) )-yjoint6);
 			g7.drawImage(img4, x + xjoint7 - xjoint6, y - yjoint7 + (yjoint7 - yjoint6), null);
 		
@@ -146,12 +144,12 @@ public class Animation extends JPanel {
 			xjoint6 = (character.lefttorso.getWidth() - xjoint6);
 			
 			g6.translate((x)+img2.getWidth()-xjoint5,(y - img2.getHeight() + yjoint5 - xjoint6));
-			g6.rotate(Math.toRadians(rot));
+			g6.rotate(Math.toRadians(character.rot));
 			g6.translate(-((x)+img2.getWidth()-xjoint5),-(y - img2.getHeight() + yjoint5 - xjoint6));
 			g6.drawImage(img4, x + xjoint5 - xjoint6, y - yjoint5 + (yjoint5 - yjoint6), null);
 			
 			g7.translate((x)+img2.getWidth()-xjoint7,(y - img2.getHeight() + yjoint7 - xjoint6));
-			g7.rotate(Math.toRadians(-rot));
+			g7.rotate(Math.toRadians(-character.rot));
 			g7.translate(-((x)+img2.getWidth()-xjoint7),-(y - img2.getHeight() + yjoint7 - xjoint6));
 			g7.drawImage(img4, x - xjoint7 + xjoint6, y - yjoint7 + (yjoint7 - yjoint6), null);
 		}
@@ -162,14 +160,14 @@ public class Animation extends JPanel {
 		
 		if(facing == true){
 			g4.translate(x + xjoint1, y - yjoint1);
-			g4.rotate(Math.toRadians(-rot));
+			g4.rotate(Math.toRadians(-character.rot));
 			g4.translate(-x - xjoint1, -y + yjoint1);
 			g4.drawImage(img3, x + xjoint1 - xjoint2, y - yjoint1 + yjoint2, null);
 		
 		}else{
 			xjoint1 += character.lefttorso.getWidth();
 			g4.translate(x + xjoint1, y - yjoint1);
-			g4.rotate(Math.toRadians(-rot));
+			g4.rotate(Math.toRadians(-character.rot));
 			g4.translate(-x - xjoint1, -y + yjoint1);
 			g4.drawImage(img3, x + xjoint1 -2 * xjoint2, y - yjoint1 + yjoint2, null);
 		}
@@ -180,7 +178,7 @@ public class Animation extends JPanel {
 		Graphics2D g1 = (Graphics2D) bs.getDrawGraphics();
 		
 		g1.translate(x + 16 + 25, y - 5 - 10);
-		g1.rotate(Math.toRadians(rot));
+		g1.rotate(Math.toRadians(character.rot));
 		g1.translate(-x - 16 - 25, -y + 5 + 10);
 		g1.drawImage(img1, x + 25, y - 10, null);
 	
@@ -189,7 +187,7 @@ public class Animation extends JPanel {
 	Graphics2D g2 = (Graphics2D) bs.getDrawGraphics();
 		
 		g2.translate(x + 16, y - 5);
-		g2.rotate(Math.toRadians(-rot));
+		g2.rotate(Math.toRadians(-character.rot));
 		g2.translate(-x - 16, -y + 5);
 		g2.drawImage(img1, x - 3, y - 10, null);
 	
@@ -204,12 +202,30 @@ public class Animation extends JPanel {
 	g3.drawImage(img2, x, y - img2.getHeight(), null);
 
 	g3.dispose();
+	Graphics2D g8 = (Graphics2D) bs.getDrawGraphics();
+	
+	if(facing == true){
+		g8.translate(x + xjoint8, y - yjoint8 - yjoint9);
+		g8.rotate(Math.toRadians(character.rot));
+		g8.translate(-(x + xjoint8), -(y - yjoint8 - yjoint9));
+		g8.drawImage(img5, x + xjoint8 - xjoint9, y + yjoint8 - yjoint9 - img5.getHeight(), null);
+	
+	}else{
+		xjoint8 = character.lefttorso.getWidth() - xjoint8;
+		g8.translate(x + xjoint8, y - yjoint8 - yjoint9);
+		g8.rotate(Math.toRadians(-character.rot));
+		g8.translate(-(x + xjoint8), -(y - yjoint8 - yjoint9));
+		g8.drawImage(img5, x + xjoint8 - xjoint9, y + yjoint8 - yjoint9 - img5.getHeight(), null);
+	}
+	
+	g8.dispose();
+	
 	
 	Graphics2D g5 = (Graphics2D) bs.getDrawGraphics();
 	
 	if(facing == true){
 		g5.translate(x + xjoint3, y - yjoint3);
-		g5.rotate(Math.toRadians(target));
+		g5.rotate(Math.toRadians(character.target));
 		g5.translate(-x - xjoint3, -y + yjoint3);
 		g5.drawImage(img6, x + xjoint3 - xjoint4 - img3.getWidth() + img6.getWidth() + 5, y - yjoint3 + yjoint4 + img3.getHeight() - img6.getWidth()/2, null);
 		g5.drawImage(img3, x + xjoint3 - xjoint4, y - yjoint3 + yjoint4, null);
@@ -217,7 +233,7 @@ public class Animation extends JPanel {
 	}else{
 		xjoint3 -= character.lefttorso.getWidth() - xjoint4;
 		g5.translate(x + xjoint3, y - yjoint3);
-		g5.rotate(Math.toRadians(target));
+		g5.rotate(Math.toRadians(character.target));
 		g5.translate(-x - xjoint3, -y + yjoint3);
 		g5.drawImage(img6, x + xjoint3 - xjoint4 + img3.getWidth() - img6.getWidth(), y - yjoint3 + yjoint4+ img3.getHeight() - img6.getWidth()/2, null);
 		g5.drawImage(img3, x + xjoint3 -2 * xjoint4, y - yjoint3 + yjoint4, null);
@@ -225,24 +241,7 @@ public class Animation extends JPanel {
 	}
 	g5.dispose();
 	
-	Graphics2D g8 = (Graphics2D) bs.getDrawGraphics();
-	
-	if(facing == true){
-		g8.translate(x + xjoint8, y - yjoint8 - yjoint9);
-		g8.rotate(Math.toRadians(-rot));
-		g8.translate(-(x + xjoint8), -(y - yjoint8 - yjoint9));
-		g8.drawImage(img5, x + xjoint8 - xjoint9, y + yjoint8 - yjoint9 - img5.getHeight(), null);
-	
-	}else{
-		xjoint8 = character.lefttorso.getWidth() - xjoint8;
-		g8.translate(x + xjoint8, y - yjoint8 - yjoint9);
-		g8.rotate(Math.toRadians(-rot));
-		g8.translate(-(x + xjoint8), -(y - yjoint8 - yjoint9));
-		g8.drawImage(img5, x + xjoint8 - xjoint9, y + yjoint8 - yjoint9 - img5.getHeight(), null);
-	}
-	
-	g8.dispose();
-	
+
 }
 
 	
