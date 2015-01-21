@@ -35,8 +35,7 @@ public class ReadLevel extends Level{
 			e.printStackTrace();
 			System.out.println("Problem in Reading / loading image file"); 
 		}
-		
-		
+		add (new SpiderG(1180, 1260));
 	}
 	
 	protected void generateLevel() {

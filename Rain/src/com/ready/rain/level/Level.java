@@ -33,7 +33,6 @@ public class Level {
 		public Level (String path) {
 		loadLevel (path);	
 		generateLevel();
-		
 		}
 		
 		
@@ -91,8 +90,6 @@ public class Level {
 			for (int i = 0; i < projectiles.size(); i++){
 				projectiles.get(i).render(screen);
 				}
-			
-		
 		}
 		
 		public void add (Entity e){
