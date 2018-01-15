@@ -1,7 +1,0 @@
-package com.ready.rain.graphics;
-
-public class ColorRead {
-
-	public int Color[];
-	
-}
